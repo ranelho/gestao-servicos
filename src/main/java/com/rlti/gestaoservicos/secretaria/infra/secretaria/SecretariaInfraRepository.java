@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -34,5 +35,13 @@ public class SecretariaInfraRepository implements SecretariaRepository {
         Optional<Secretaria> secretaria = secretariaSpringDataJPARepository.findById(idSecretaria);
         log.info("[finaliza] SecretariaInfraRepository - buscaSecretariaPorId");
         return secretaria;
+    }
+
+    @Override
+    public List<Secretaria> getTodasSecretarias() {
+        log.info("[inicia] SecretariaInfraRepository - SecretariaInfraRepository");
+        List<Secretaria> listaSecretaria = secretariaSpringDataJPARepository.findAll();
+        log.info("[finaliza] SecretariaInfraRepository - SecretariaInfraRepository");
+        return listaSecretaria;
     }
 }

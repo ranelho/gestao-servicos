@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,5 +29,13 @@ public class SecretariaRestController implements SecretariaApi {
         Secretaria secretaria = secretariaService.buscaSecretariaPorId(idSecretaria);
         log.info("[finaliza] SecretariaRestController - getSecretariaPorId");
         return new SecretariaDetalhadoResponse(secretaria);
+    }
+
+    @Override
+    public List<SecretariaListResponse> getTodasSecretarias() {
+        log.info("[inicia] SecretariaRestController - getTodasSecretarias");
+        List<SecretariaListResponse> listaSecretarias = secretariaService.getTodasSecretarias();
+        log.info("[finaliza] SecretariaRestController - getTodasSecretarias");
+        return listaSecretarias;
     }
 }

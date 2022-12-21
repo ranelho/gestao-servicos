@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.secretaria.application.service.secretaria;
 
 import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaIdResponse;
+import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaListResponse;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaRequest;
 import com.rlti.gestaoservicos.secretaria.application.repository.secretaria.SecretariaRepository;
 import com.rlti.gestaoservicos.secretaria.domain.Secretaria;
@@ -10,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,10 +29,19 @@ public class SecretariaApplicationService implements SecretariaService {
     }
     @Override
     public Secretaria buscaSecretariaPorId(Long idSecretaria) {
-        log.info("[inicia] SecretariaApplicationService - buscaSecretariaPorId");
+       log.info("[inicia] SecretariaApplicationService - buscaSecretariaPorId");
        Secretaria secretaria = secretariaRepository.buscaSecretariaPorId(idSecretaria)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Secretaria não encontrada!"));
         log.info("[finaliza] SecretariaApplicationService - buscaSecretariaPorId");
         return secretaria;
+    }
+
+    @Override
+    public List<SecretariaListResponse> getTodasSecretarias() {
+        log.info("[inicia] SecretariaApplicationService - getTodasSecretarias");
+        List<Secretaria> listaSecretaria = secretariaRepository.getTodasSecretarias();
+        log.info("[finaliza] SecretariaApplicationService - getTodasSecretarias");
+        return SecretariaListResponse.converte(listaSecretaria);
+
     }
 }
