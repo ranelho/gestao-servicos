@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -35,5 +36,20 @@ public class SetorInfraRespository implements SetorRepository {
         Optional<Setor> setor = setorSpringDataJPARepository.findById(idSetor);
         log.info("[finaliza] SetorInfraRespository - buscaSetorPorId");
         return setor;
+    }
+
+    @Override
+    public List<Setor> buscaSetores() {
+        log.info("[inicia] SetorInfraRespository - buscaSetores");
+        List<Setor> setor = setorSpringDataJPARepository.findAll();
+        log.info("[inicia] SetorInfraRespository - buscaSetores");
+        return setor;
+    }
+
+    @Override
+    public void deleta(Long idSetor) {
+        log.info("[inicia] SetorInfraRespository - deleta");
+        setorSpringDataJPARepository.deleteById(idSetor);
+        log.info("[finaliza] SetorInfraRespository - deleta");
     }
 }
