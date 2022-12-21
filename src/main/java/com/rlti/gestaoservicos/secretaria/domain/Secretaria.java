@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.secretaria.domain;
 
+import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaAlteracaoRequest;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,6 @@ public class Secretaria {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idSecretaria;
     @NotNull
-    @Column(unique=true)
     @NotBlank(message = "A secretaria deve ser preenchida")
     private String secretaria;
     private String secretario;
@@ -32,5 +32,9 @@ public class Secretaria {
     public Secretaria(SecretariaRequest secretariaRequest) {
         this.secretaria = secretariaRequest.getSecretaria();
         this.secretario = secretariaRequest.getSecretario();
+    }
+    public void altera(SecretariaAlteracaoRequest secretariaAlteracaoRequestRequest) {
+        this.secretaria = secretariaAlteracaoRequestRequest.getSecretaria();
+        this.secretario = secretariaAlteracaoRequestRequest.getSecretario();
     }
 }

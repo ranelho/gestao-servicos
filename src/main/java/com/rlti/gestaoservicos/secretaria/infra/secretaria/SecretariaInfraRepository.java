@@ -23,7 +23,7 @@ public class SecretariaInfraRepository implements SecretariaRepository {
         try {
             secretariaSpringDataJPARepository.save(secretaria);
         }catch (DataIntegrityViolationException e){
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Secretaria já cadastrada!");
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Secretaria já cadastrada!", e);
         }
         log.info("[finaliza] SecretariaInfraRepository - salva");
         return secretaria;

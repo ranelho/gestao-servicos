@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Value
-public class SecretariaRequest {
+public class SecretariaAlteracaoRequest {
     @NotNull
     @Size(message = "Campo secretaria não pode estar vazio", min = 3, max = 255)
     private String secretaria;

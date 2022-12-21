@@ -16,9 +16,12 @@ public interface SecretariaApi {
     @GetMapping(value = "/{idSecretaria}")
     @ResponseStatus(code = HttpStatus.OK)
     SecretariaDetalhadoResponse getSecretariaPorId(@PathVariable Long idSecretaria);
+
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<SecretariaListResponse> getTodasSecretarias();
 
-
+    @PatchMapping (value = "/update/{idSecretaria}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void alteraSecretaria(@PathVariable Long idSecretaria, @Valid @RequestBody SecretariaAlteracaoRequest secretariaAlteracaoRequest);
 }

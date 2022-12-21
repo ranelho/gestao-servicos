@@ -38,4 +38,11 @@ public class SecretariaRestController implements SecretariaApi {
         log.info("[finaliza] SecretariaRestController - getTodasSecretarias");
         return listaSecretarias;
     }
+
+    @Override
+    public void alteraSecretaria(Long idSecretaria,  SecretariaAlteracaoRequest secretariaAlteracaoRequest) {
+        log.info("[inicia] SecretariaRestController - alteraSecretaria");
+        secretariaService.alteraSecretaria(idSecretaria, secretariaAlteracaoRequest);
+        log.info("[finaliza] SecretariaRestController - alteraSecretaria");
+    }
 }

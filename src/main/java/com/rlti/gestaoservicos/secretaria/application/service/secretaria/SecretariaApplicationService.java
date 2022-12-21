@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.secretaria.application.service.secretaria;
 
 import com.rlti.gestaoservicos.handler.APIException;
+import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaAlteracaoRequest;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaIdResponse;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaListResponse;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaRequest;
@@ -43,5 +44,15 @@ public class SecretariaApplicationService implements SecretariaService {
         log.info("[finaliza] SecretariaApplicationService - getTodasSecretarias");
         return SecretariaListResponse.converte(listaSecretaria);
 
+    }
+
+    @Override
+    public void alteraSecretaria(Long idSecretaria, SecretariaAlteracaoRequest secretariaAlteracaoRequest) {
+        log.info("[inicia] SecretariaRestController - alteraSecretaria");
+        Secretaria secretaria = secretariaRepository.buscaSecretariaPorId(idSecretaria)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Secretaria não encontrada!"));
+        secretaria.altera(secretariaAlteracaoRequest);
+        secretariaRepository.salva(secretaria);
+        log.info("[finaliza] SecretariaRestController - alteraSecretaria");
     }
 }
