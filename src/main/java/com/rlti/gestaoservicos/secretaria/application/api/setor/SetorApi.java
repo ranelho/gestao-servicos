@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.secretaria.application.api.setor;
 
+import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaDetalhadoResponse;
 import com.rlti.gestaoservicos.secretaria.domain.Secretaria;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,4 +14,9 @@ public interface SetorApi {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     SetorIdResponse postSetor(@Valid @RequestBody SetorRequest setorRequest, @RequestParam Secretaria secretaria);
+
+    @GetMapping(value = "/{idSetor}")
+    @ResponseStatus(code = HttpStatus.OK)
+    SetorDetalhadoResponse getSetorPorId(@PathVariable Long idSetor);
+
 }

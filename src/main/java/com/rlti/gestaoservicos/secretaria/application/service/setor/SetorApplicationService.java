@@ -1,5 +1,7 @@
 package com.rlti.gestaoservicos.secretaria.application.service.setor;
 
+import com.rlti.gestaoservicos.handler.APIException;
+import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorDetalhadoResponse;
 import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorIdResponse;
 import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorRequest;
 import com.rlti.gestaoservicos.secretaria.application.repository.secretaria.SecretariaRepository;
@@ -9,6 +11,7 @@ import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,5 +26,14 @@ public class SetorApplicationService implements SetorService {
         Setor setor = setorRepository.salva(new Setor(secretaria, setorRequest));
         log.info("[finaliza] SecretariaInfraRepository - postSetor");
         return SetorIdResponse.builder().idSetor(setor.getIdSetor()).build();
+    }
+
+    @Override
+    public Setor getSetorPorId(Long idSetor) {
+        log.info("[inicia] SecretariaInfraRepository - getSetorPorId");
+        Setor setor = setorRepository.buscaSetorPorId(idSetor)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Setor não encontrada!"));
+        log.info("[finaliza] SecretariaInfraRepository - getSetorPorId");
+        return setor;
     }
 }

@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.secretaria.application.api.setor;
 
 import com.rlti.gestaoservicos.secretaria.application.service.setor.SetorService;
 import com.rlti.gestaoservicos.secretaria.domain.Secretaria;
+import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +19,13 @@ public class SetorRestController implements SetorApi{
         SetorIdResponse setorIdResponse = setorService.postSetor(secretaria, setorRequest);
         log.info("[finaliza] SetorRestController - postSetor");
         return setorIdResponse;
+    }
+
+    @Override
+    public SetorDetalhadoResponse getSetorPorId(Long idSetor) {
+        log.info("[inicia] SetorRestController - postSetor");
+        Setor setor = setorService.getSetorPorId(idSetor);
+        log.info("[finaliza] SetorRestController - postSetor");
+        return new SetorDetalhadoResponse(setor);
     }
 }

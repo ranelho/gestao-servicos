@@ -11,7 +11,7 @@ import org.hibernate.annotations.FetchMode;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,7 +27,7 @@ public class Secretaria {
     private String secretario;
     @OneToMany(mappedBy="secretaria", cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)
-    private Set<Setor> setores;
+    private List<Setor> setores;
 
     public Secretaria(SecretariaRequest secretariaRequest) {
         this.secretaria = secretariaRequest.getSecretaria();
