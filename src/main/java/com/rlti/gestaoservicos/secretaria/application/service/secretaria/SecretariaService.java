@@ -13,4 +13,5 @@ public interface SecretariaService {
     Secretaria buscaSecretariaPorId(Long idSecretaria);
     List<SecretariaListResponse> getTodasSecretarias();
      void alteraSecretaria(Long idSecretaria, SecretariaAlteracaoRequest secretariaAlteracaoRequest);
+    void deletaSecretariaPorId(Long idSecretaria);
 }

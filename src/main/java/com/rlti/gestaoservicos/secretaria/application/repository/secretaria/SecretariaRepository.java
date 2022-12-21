@@ -9,4 +9,5 @@ public interface SecretariaRepository {
     Secretaria salva(Secretaria secretaria);
     Optional<Secretaria> buscaSecretariaPorId(Long idSecretaria);
     List<Secretaria> getTodasSecretarias();
+    void deleta(Long idSecretaria);
 }

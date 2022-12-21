@@ -44,4 +44,11 @@ public class SecretariaInfraRepository implements SecretariaRepository {
         log.info("[finaliza] SecretariaInfraRepository - SecretariaInfraRepository");
         return listaSecretaria;
     }
+
+    @Override
+    public void deleta(Long idSecretaria) {
+        log.info("[inicia] SecretariaInfraRepository - deleta");
+        secretariaSpringDataJPARepository.deleteById(idSecretaria);
+        log.info("[finaliza] SecretariaInfraRepository - deleta");
+    }
 }

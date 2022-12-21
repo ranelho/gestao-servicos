@@ -55,4 +55,12 @@ public class SecretariaApplicationService implements SecretariaService {
         secretariaRepository.salva(secretaria);
         log.info("[finaliza] SecretariaRestController - alteraSecretaria");
     }
+
+    @Override
+    public void deletaSecretariaPorId(Long idSecretaria) {
+        log.info("[inicia] SecretariaRestController - deletaSecretariaPorId");
+        buscaSecretariaPorId(idSecretaria);
+        secretariaRepository.deleta(idSecretaria);
+        log.info("[finaliza] SecretariaRestController - deletaSecretariaPorId");
+    }
 }

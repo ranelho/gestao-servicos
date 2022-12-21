@@ -24,4 +24,8 @@ public interface SecretariaApi {
     @PatchMapping (value = "/update/{idSecretaria}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void alteraSecretaria(@PathVariable Long idSecretaria, @Valid @RequestBody SecretariaAlteracaoRequest secretariaAlteracaoRequest);
+
+    @DeleteMapping(value = "/{idSecretaria}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaSecretariaPorId(@PathVariable Long idSecretaria);
 }

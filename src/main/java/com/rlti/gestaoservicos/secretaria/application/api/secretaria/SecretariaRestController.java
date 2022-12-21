@@ -45,4 +45,11 @@ public class SecretariaRestController implements SecretariaApi {
         secretariaService.alteraSecretaria(idSecretaria, secretariaAlteracaoRequest);
         log.info("[finaliza] SecretariaRestController - alteraSecretaria");
     }
+
+    @Override
+    public void deletaSecretariaPorId(Long idSecretaria) {
+        log.info("[inicia] SecretariaRestController - deletaSecretariaPorId");
+        secretariaService.deletaSecretariaPorId(idSecretaria);
+        log.info("[finaliza] SecretariaRestController - deletaSecretariaPorId");
+    }
 }
