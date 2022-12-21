@@ -22,7 +22,7 @@ public class Secretaria {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idSecretaria;
     @NotNull
-    @NotBlank(message = "A secretaria deve ser preenchida")
+    @NotBlank(message = "{secretaria.not.blank}")
     private String secretaria;
     private String secretario;
     @OneToMany(mappedBy="secretaria", cascade = CascadeType.ALL)
