@@ -1,1 +1,19 @@
+server:
+  servlet:
+    context-path: /gestao-servicos/api
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/gestaoservicos?useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: 852456
+  jpa:
+    generate-ddl: true
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    path: /public/swagger
+
 
