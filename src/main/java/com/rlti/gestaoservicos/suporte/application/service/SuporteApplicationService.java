@@ -38,27 +38,27 @@ public class SuporteApplicationService implements SuporteService {
 
     @Override
     public List<SuporteListResponse> getTodosSuportes() {
-        log.info("[inicia] SecretariaApplicationService - getTodasSecretarias");
+        log.info("[inicia] SuporteApplicationService - getTodasSecretarias");
         List<Suporte> listaSuporte = suporteRepository.getTodosSuportes();
-        log.info("[finaliza] SecretariaApplicationService - getTodasSecretarias");
+        log.info("[finaliza] SuporteApplicationService - getTodasSecretarias");
         return SuporteListResponse.converte(listaSuporte);
     }
 
     @Override
     public void alteraSuporte(Long idSuporte, SuporteAlteracaoRequest suporteAlteracaoRequest) {
-        log.info("[inicia] SecretariaApplicationService - alteraSuporte");
+        log.info("[inicia] SuporteApplicationService - alteraSuporte");
         Suporte suporte = suporteRepository.buscaSuportePorId(idSuporte)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Suporte não encontrado!"));
         suporte.altera(suporteAlteracaoRequest);
         suporteRepository.salva(suporte);
-        log.info("[finaliza] SecretariaApplicationService - alteraSuporte");
+        log.info("[finaliza] SuporteApplicationService - alteraSuporte");
     }
 
     @Override
     public void deletaSuportePorId(Long idSuporte) {
-        log.info("[inicia] SecretariaApplicationService - deletaSuportePorId");
+        log.info("[inicia] SuporteApplicationService - deletaSuportePorId");
         buscaSuportePorId(idSuporte);
         suporteRepository.deleta(idSuporte);
-        log.info("[finaliza] SecretariaApplicationService - deletaSuportePorId");
+        log.info("[finaliza] SuporteApplicationService - deletaSuportePorId");
     }
 }
