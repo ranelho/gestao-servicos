@@ -23,6 +23,7 @@ public class Setor {
     private Long idSetor;
     @NotNull
     @NotBlank(message = "{setor.not.blank}")
+    @Column(unique = true, updatable = true)
     private String setor;
     private String responsavel;
     @NotNull

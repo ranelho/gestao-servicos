@@ -24,6 +24,7 @@ public class Secretaria {
     private Long idSecretaria;
     @NotNull
     @NotBlank(message = "{secretaria.not.blank}")
+    @Column(unique = true, updatable = true)
     private String secretaria;
     private String secretario;
     @OneToMany(mappedBy="secretaria", cascade = CascadeType.ALL)
