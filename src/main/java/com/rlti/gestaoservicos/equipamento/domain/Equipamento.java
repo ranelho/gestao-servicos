@@ -4,7 +4,6 @@ import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoAlteracaoR
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoRequest;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

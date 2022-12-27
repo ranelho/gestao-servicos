@@ -1,6 +1,9 @@
 package com.rlti.gestaoservicos.equipamento.application.api;
 
 import com.rlti.gestaoservicos.equipamento.application.service.EquipamentoService;
+import com.rlti.gestaoservicos.secretaria.application.repository.setor.SetorRepository;
+import com.rlti.gestaoservicos.secretaria.application.service.secretaria.SecretariaService;
+import com.rlti.gestaoservicos.secretaria.application.service.setor.SetorService;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
