@@ -34,7 +34,7 @@ public class SecretariaInfraRepository implements SecretariaRepository {
         log.info("[inicia] SecretariaInfraRepository - buscaSecretariaPorId");
         Optional<Secretaria> optionalSecretaria = secretariaSpringDataJPARepository.findById(idSecretaria);
         Secretaria secretaria = optionalSecretaria.orElseThrow(
-                () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Secretaria inexistente!");                }
+                () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Secretaria inexistente!");  }
         );
         log.info("[finaliza] SecretariaInfraRepository - buscaSecretariaPorId");
         return secretaria;

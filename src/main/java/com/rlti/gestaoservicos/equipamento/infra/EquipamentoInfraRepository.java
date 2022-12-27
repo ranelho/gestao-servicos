@@ -9,6 +9,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Repository
 @Log4j2
@@ -18,8 +20,20 @@ public class EquipamentoInfraRepository implements EquipamentoRepository {
     public Equipamento salva(Equipamento equipamento) {
         log.info("[inicia] EquipamentoInfraRepository - EquipamentoInfraRepository");
         equipamentoSpringDataJPARepository.save(equipamento);
-
         log.info("[Finaliza] EquipamentoInfraRepository - EquipamentoInfraRepository");
+        return equipamento;
+    }
+
+    @Override
+    public Equipamento buscaEquipamentoPorId(Long idEquipamento) {
+        log.info("[inicia] EquipamentoInfraRepository - buscaEquipamentoPorId");
+        Optional<Equipamento> optionalEquipamento = equipamentoSpringDataJPARepository.findById(idEquipamento);
+        Equipamento equipamento = optionalEquipamento
+                .orElseThrow(() ->  {
+                    throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento não encontrado");
+                }
+        );
+        log.info("[finaliza] EquipamentoInfraRepository - buscaEquipamentoPorId");
         return equipamento;
     }
 }

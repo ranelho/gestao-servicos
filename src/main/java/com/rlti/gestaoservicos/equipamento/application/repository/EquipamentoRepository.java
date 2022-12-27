@@ -4,4 +4,5 @@ import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 
 public interface EquipamentoRepository {
     Equipamento salva(Equipamento equipamento);
+    Equipamento buscaEquipamentoPorId(Long idEquipamento);
 }

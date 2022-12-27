@@ -35,7 +35,7 @@ public class SetorInfraRespository implements SetorRepository {
         log.info("[inicia] SetorInfraRespository - buscaSetorPorId");
         Optional<Setor> optionalSetor = setorSpringDataJPARepository.findById(idSetor);
         Setor setor = optionalSetor.orElseThrow(
-                () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Setor inexistente!");                }
+                () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Setor inexistente!");   }
         );
         log.info("[finaliza] SetorInfraRespository - buscaSetorPorId");
         return setor;

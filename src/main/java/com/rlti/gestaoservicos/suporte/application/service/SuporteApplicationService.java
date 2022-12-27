@@ -1,7 +1,6 @@
 package com.rlti.gestaoservicos.suporte.application.service;
 
-import com.rlti.gestaoservicos.handler.APIException;
-import com.rlti.gestaoservicos.secretaria.domain.Secretaria;
+
 import com.rlti.gestaoservicos.suporte.application.api.SuporteAlteracaoRequest;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteIdResponse;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteListResponse;
@@ -10,7 +9,6 @@ import com.rlti.gestaoservicos.suporte.application.repository.SuporteRepository;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

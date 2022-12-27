@@ -1,5 +1,9 @@
 package com.rlti.gestaoservicos.equipamento.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoAlteracaoRequest;
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoRequest;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
@@ -25,6 +29,7 @@ public class Equipamento {
     @Enumerated(EnumType.STRING)
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "setor_id")
     private Setor setor;

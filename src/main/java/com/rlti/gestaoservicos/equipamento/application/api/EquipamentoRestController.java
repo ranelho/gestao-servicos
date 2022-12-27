@@ -1,10 +1,7 @@
 package com.rlti.gestaoservicos.equipamento.application.api;
 
 import com.rlti.gestaoservicos.equipamento.application.service.EquipamentoService;
-import com.rlti.gestaoservicos.secretaria.application.repository.setor.SetorRepository;
-import com.rlti.gestaoservicos.secretaria.application.service.secretaria.SecretariaService;
-import com.rlti.gestaoservicos.secretaria.application.service.setor.SetorService;
-import com.rlti.gestaoservicos.secretaria.domain.Setor;
+import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,4 +19,13 @@ public class EquipamentoRestController implements EquipamentoApi {
         log.info("[finaliza] EquipamentoRestController - postEquipamento");
         return equipamentoIdResponse;
     }
+
+    @Override
+    public EquipamentoReponse getEquipamentoPorId(Long idEquipamento) {
+        log.info("[inicia] EquipamentoRestController - getEquipamentoPorId");
+        Equipamento equipamento = equipamentoService.getEquipamentoPorId(idEquipamento);
+        log.info("[finaliza] EquipamentoRestController - getEquipamentoPorId");
+        return new EquipamentoReponse(equipamento);
+    }
+
 }
