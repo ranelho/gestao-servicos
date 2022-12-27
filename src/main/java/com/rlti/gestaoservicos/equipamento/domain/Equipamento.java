@@ -4,6 +4,7 @@ import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoAlteracaoR
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoRequest;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -45,7 +46,6 @@ public class Equipamento {
         this.patrimonio = equipamentoAlteracaoRequest.getPatrimonio();
         this.tipoEquipamento = equipamentoAlteracaoRequest.getTipoEquipamento();
         this.numeroSerie = equipamentoAlteracaoRequest.getNumeroSerie();
-        this.setor = equipamentoAlteracaoRequest.getSetor();
         this.modelo = equipamentoAlteracaoRequest.getModelo();
         this.marca = equipamentoAlteracaoRequest.getMarca();
         this.detalhes = equipamentoAlteracaoRequest.getDetalhes();

@@ -14,8 +14,6 @@ public class EquipamentoAlteracaoRequest {
     @NotNull
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
-    @NotNull
-    private Setor setor;
     private String modelo;
     private String marca;
     @Size(message = "Campo detalhes não pode estar vazio", max = 255, min = 3)
