@@ -30,8 +30,7 @@ public class SuporteApplicationService implements SuporteService {
     @Override
     public Suporte buscaSuportePorId(Long idSuporte) {
         log.info("[inicia] SuporteApplicationService - buscaSuportePorId");
-        Suporte suporte = suporteRepository.buscaSuportePorId(idSuporte)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Suporte não encontrado!"));
+        Suporte suporte = suporteRepository.buscaSuportePorId(idSuporte);
         log.info("[finaliza] SuporteApplicationService - buscaSuportePorId");
         return suporte;
     }
@@ -47,8 +46,7 @@ public class SuporteApplicationService implements SuporteService {
     @Override
     public void alteraSuporte(Long idSuporte, SuporteAlteracaoRequest suporteAlteracaoRequest) {
         log.info("[inicia] SuporteApplicationService - alteraSuporte");
-        Suporte suporte = suporteRepository.buscaSuportePorId(idSuporte)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Suporte não encontrado!"));
+        Suporte suporte = suporteRepository.buscaSuportePorId(idSuporte);
         suporte.altera(suporteAlteracaoRequest);
         suporteRepository.salva(suporte);
         log.info("[finaliza] SuporteApplicationService - alteraSuporte");

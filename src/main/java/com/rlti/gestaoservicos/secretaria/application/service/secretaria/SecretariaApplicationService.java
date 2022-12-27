@@ -31,8 +31,7 @@ public class SecretariaApplicationService implements SecretariaService {
     @Override
     public Secretaria buscaSecretariaPorId(Long idSecretaria) {
        log.info("[inicia] SecretariaApplicationService - buscaSecretariaPorId");
-       Secretaria secretaria = secretariaRepository.buscaSecretariaPorId(idSecretaria)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Secretaria não encontrada!"));
+       Secretaria secretaria = secretariaRepository.buscaSecretariaPorId(idSecretaria);
         log.info("[finaliza] SecretariaApplicationService - buscaSecretariaPorId");
         return secretaria;
     }
@@ -49,8 +48,7 @@ public class SecretariaApplicationService implements SecretariaService {
     @Override
     public void alteraSecretaria(Long idSecretaria, SecretariaAlteracaoRequest secretariaAlteracaoRequest) {
         log.info("[inicia] SecretariaRestController - alteraSecretaria");
-        Secretaria secretaria = secretariaRepository.buscaSecretariaPorId(idSecretaria)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Secretaria não encontrada!"));
+        Secretaria secretaria = secretariaRepository.buscaSecretariaPorId(idSecretaria);
         secretaria.altera(secretariaAlteracaoRequest);
         secretariaRepository.salva(secretaria);
         log.info("[finaliza] SecretariaRestController - alteraSecretaria");

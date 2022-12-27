@@ -31,9 +31,12 @@ public class SuporteInfraRepository implements SuporteRepository {
     }
 
     @Override
-    public Optional<Suporte> buscaSuportePorId(Long idSuporte) {
+    public Suporte buscaSuportePorId(Long idSuporte) {
         log.info("[inicia] SuporteInfraRepository - buscaSuportePorId");
-        Optional<Suporte> suporte = suporteSpringDataJPARepository.findById(idSuporte);
+        Optional<Suporte> optionalSuporte = suporteSpringDataJPARepository.findById(idSuporte);
+        Suporte suporte = optionalSuporte.orElseThrow(
+                () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Suporte inexistente!");                }
+        );
         log.info("[finaliza] SuporteInfraRepository - buscaSuportePorId");
         return suporte;
     }

@@ -31,8 +31,7 @@ public class SetorApplicationService implements SetorService {
     @Override
     public Setor getSetorPorId(Long idSetor) {
         log.info("[inicia] SetorApplicationService - getSetorPorId");
-        Setor setor = setorRepository.buscaSetorPorId(idSetor)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Setor não encontrada!"));
+        Setor setor = setorRepository.buscaSetorPorId(idSetor);
         log.info("[finaliza] SetorApplicationService - getSetorPorId");
         return setor;
     }
@@ -48,8 +47,7 @@ public class SetorApplicationService implements SetorService {
     @Override
     public void alteraSetor(Long idSetor, SetorAlteracaoRequest setorAlteracaoRequest) {
         log.info("[inicia] SetorApplicationService - alteraSetor");
-        Setor setor = setorRepository.buscaSetorPorId(idSetor)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Setor não encontrada!"));
+        Setor setor = setorRepository.buscaSetorPorId(idSetor);
         setor.altera(setorAlteracaoRequest);
         setorRepository.salva(setor);
         log.info("[finaliza] SetorApplicationService - alteraSetor");

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface SetorRepository {
     Setor salva(Setor setor);
-    Optional<Setor> buscaSetorPorId(Long idSetor);
+    Setor buscaSetorPorId(Long idSetor);
     List<Setor> buscaSetores();
     void deleta(Long idSetor);
 }
