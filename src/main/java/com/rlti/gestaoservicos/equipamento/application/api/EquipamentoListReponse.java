@@ -2,8 +2,6 @@ package com.rlti.gestaoservicos.equipamento.application.api;
 
 import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.equipamento.domain.TipoEquipamento;
-import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorListResponse;
-import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.Value;
 
 import javax.validation.constraints.NotNull;
