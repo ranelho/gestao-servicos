@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @Log4j2
 @RequiredArgsConstructor
@@ -27,5 +29,11 @@ public class EquipamentoRestController implements EquipamentoApi {
         log.info("[finaliza] EquipamentoRestController - getEquipamentoPorId");
         return new EquipamentoReponse(equipamento);
     }
-
+    @Override
+    public List<EquipamentoListReponse> getTodosEquipamentos() {
+        log.info("[inicia] EquipamentoRestController - getTodosEquipamentos");
+        List<EquipamentoListReponse> listaEquipamentos = equipamentoService.getTodosEquipamentos();
+        log.info("[finaliza] EquipamentoRestController - getTodosEquipamentos");
+        return listaEquipamentos;
+    }
 }

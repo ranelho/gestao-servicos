@@ -5,10 +5,10 @@ import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -35,5 +35,13 @@ public class EquipamentoInfraRepository implements EquipamentoRepository {
         );
         log.info("[finaliza] EquipamentoInfraRepository - buscaEquipamentoPorId");
         return equipamento;
+    }
+
+    @Override
+    public List<Equipamento> buscaEquipamentos() {
+        log.info("[inicia] EquipamentoInfraRepository - buscaEquipamentos");
+        List<Equipamento> equipamentos = equipamentoSpringDataJPARepository.findAll();
+        log.info("[finaliza] EquipamentoInfraRepository - buscaEquipamentos");
+        return equipamentos;
     }
 }

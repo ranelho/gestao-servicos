@@ -1,17 +1,16 @@
 package com.rlti.gestaoservicos.equipamento.application.service;
 
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoIdResponse;
-import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoReponse;
+import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoListReponse;
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoRequest;
 import com.rlti.gestaoservicos.equipamento.application.repository.EquipamentoRepository;
 import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
-import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.secretaria.application.repository.setor.SetorRepository;
-import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -35,5 +34,13 @@ public class EquipamentoApplicationService implements EquipamentoService {
         Equipamento equipamento = equipamentoRepository.buscaEquipamentoPorId(idEquipamento);
         log.info("[finaliza] EquipamentoApplicationService - getEquipamentoPorId");
         return equipamento;
+    }
+
+    @Override
+    public List<EquipamentoListReponse> getTodosEquipamentos() {
+        log.info("[inicia] EquipamentoApplicationService - getTodosEquipamentos");
+        List<Equipamento> listaEquipamentos = equipamentoRepository.buscaEquipamentos();
+        log.info("[finaliza] EquipamentoApplicationService - getTodosEquipamentos");
+        return EquipamentoListReponse.converte(listaEquipamentos);
     }
 }
