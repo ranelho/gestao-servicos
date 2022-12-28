@@ -53,4 +53,12 @@ public class EquipamentoApplicationService implements EquipamentoService {
         equipamentoRepository.salva(equipamento);
         log.info("[finaliza] EquipamentoApplicationService - alteraEquipamento");
     }
+
+    @Override
+    public void detelaEquipamento(Long idEquipamento) {
+        log.info("[inicia] EquipamentoApplicationService - detelaEquipamento");
+        equipamentoRepository.buscaEquipamentoPorId(idEquipamento);
+        equipamentoRepository.deleta(idEquipamento);
+        log.info("[inicia] EquipamentoApplicationService - detelaEquipamento");
+    }
 }

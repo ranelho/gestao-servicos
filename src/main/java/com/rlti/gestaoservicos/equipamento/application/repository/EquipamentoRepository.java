@@ -8,4 +8,5 @@ public interface EquipamentoRepository {
     Equipamento salva(Equipamento equipamento);
     Equipamento buscaEquipamentoPorId(Long idEquipamento);
     List<Equipamento> buscaEquipamentos();
+    void deleta(Long idEquipamento);
 }

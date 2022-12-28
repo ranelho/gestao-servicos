@@ -13,4 +13,5 @@ public interface EquipamentoService {
     Equipamento getEquipamentoPorId(Long idEquipamento);
     List<EquipamentoListReponse> getTodosEquipamentos();
     void alteraEquipamento(Long idEquipamento, EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
+    void detelaEquipamento(Long idEquipamento);
 }

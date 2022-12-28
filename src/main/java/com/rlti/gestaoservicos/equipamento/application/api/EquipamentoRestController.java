@@ -43,4 +43,11 @@ public class EquipamentoRestController implements EquipamentoApi {
         equipamentoService.alteraEquipamento(idEquipamento, equipamentoAlteracaoRequest);
         log.info("[finaliza] EquipamentoRestController - alteraEquipamento");
     }
+
+    @Override
+    public void deletaEquipamentoPorId(Long idEquipamento) {
+        log.info("[inicia] EquipamentoRestController - deletaEquipamentoPorId");
+        equipamentoService.detelaEquipamento(idEquipamento);
+        log.info("[finaliza] EquipamentoRestController - deletaEquipamentoPorId");
+    }
 }

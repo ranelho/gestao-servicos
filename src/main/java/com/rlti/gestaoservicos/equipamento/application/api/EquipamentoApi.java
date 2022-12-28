@@ -24,5 +24,9 @@ public interface EquipamentoApi {
 
     @PatchMapping (value = "/update/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void alteraEquipamento(@PathVariable Long idEquipamento, @Valid @RequestBody EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
+    void alteraEquipamento(@PathVariable Long idEquipamento,
+                           @Valid @RequestBody EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
+    @DeleteMapping(value = "/{idEquipamento}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaEquipamentoPorId(@PathVariable Long idEquipamento);
 }
