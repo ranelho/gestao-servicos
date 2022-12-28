@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.equipamento.application.service;
 
+import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoAlteracaoRequest;
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoIdResponse;
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoListReponse;
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoRequest;
@@ -42,5 +43,14 @@ public class EquipamentoApplicationService implements EquipamentoService {
         List<Equipamento> listaEquipamentos = equipamentoRepository.buscaEquipamentos();
         log.info("[finaliza] EquipamentoApplicationService - getTodosEquipamentos");
         return EquipamentoListReponse.converte(listaEquipamentos);
+    }
+
+    @Override
+    public void alteraEquipamento(Long idEquipamento, EquipamentoAlteracaoRequest equipamentoAlteracaoRequest) {
+        log.info("[inicia] EquipamentoApplicationService - alteraEquipamento");
+        Equipamento equipamento = getEquipamentoPorId(idEquipamento);
+        equipamento.altera(equipamentoAlteracaoRequest);
+        equipamentoRepository.salva(equipamento);
+        log.info("[finaliza] EquipamentoApplicationService - alteraEquipamento");
     }
 }

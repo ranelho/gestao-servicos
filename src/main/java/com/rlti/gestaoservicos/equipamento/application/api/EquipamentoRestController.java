@@ -36,4 +36,11 @@ public class EquipamentoRestController implements EquipamentoApi {
         log.info("[finaliza] EquipamentoRestController - getTodosEquipamentos");
         return listaEquipamentos;
     }
+
+    @Override
+    public void alteraEquipamento(Long idEquipamento, EquipamentoAlteracaoRequest equipamentoAlteracaoRequest) {
+        log.info("[inicia] EquipamentoRestController - alteraEquipamento");
+        equipamentoService.alteraEquipamento(idEquipamento, equipamentoAlteracaoRequest);
+        log.info("[finaliza] EquipamentoRestController - alteraEquipamento");
+    }
 }

@@ -1,6 +1,6 @@
 package com.rlti.gestaoservicos.equipamento.application.api;
 
-import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorDetalhadoResponse;
+import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorAlteracaoRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,4 +21,8 @@ public interface EquipamentoApi {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<EquipamentoListReponse> getTodosEquipamentos();
+
+    @PatchMapping (value = "/update/{idEquipamento}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void alteraEquipamento(@PathVariable Long idEquipamento, @Valid @RequestBody EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
 }
