@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.servico;
 
-import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import lombok.Value;
 
 import javax.validation.constraints.NotNull;
@@ -13,7 +12,7 @@ public class ServicoRequest {
     private LocalDate dataServico;
     @NotNull
     @Size(message = "Campo serviço não pode estar vazio", min = 3, max = 255)
-    private String servico;
-    @NotNull
-    private OrdemServico ordemServico;
+    private String descricaoServico;
+    /*@NotNull
+    private OrdemServico ordemServico;*/
 }

@@ -11,5 +11,5 @@ public class ServicoAlteracaoRequest {
     private LocalDate dataServico;
     @NotNull
     @Size(message = "Campo serviço não pode estar vazio", min = 3, max = 255)
-    private String servico;
+    private String descricaoServico;
 }

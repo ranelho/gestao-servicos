@@ -21,19 +21,19 @@ public class Servico {
     @NotNull
     private LocalDate dataServico;
     @NotNull
-    private String servico;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ordem_servico_id")
+    private String descricaoServico;
+    @ManyToOne
     private OrdemServico ordemServico;
+
 
     public Servico(ServicoRequest servicoRequest) {
         this.dataServico = servicoRequest.getDataServico();
-        this.servico = servicoRequest.getServico();
-        this.ordemServico = servicoRequest.getOrdemServico();
+        this.descricaoServico = servicoRequest.getDescricaoServico();
+      //  this.ordemServico = servicoRequest.getOrdemServico();
     }
 
     public void altera(ServicoAlteracaoRequest servicoAlteracaoRequest){
         this.dataServico = servicoAlteracaoRequest.getDataServico();
-        this.servico = servicoAlteracaoRequest.getServico();
+        this.descricaoServico = servicoAlteracaoRequest.getDescricaoServico();
     }
 }

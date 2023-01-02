@@ -21,6 +21,7 @@ public class Suporte {
     @Column(unique = true, updatable = true)
     private String nome;
     private String empresa;
+   // private List<OrdemServico> ordemServico;
 
     public Suporte(SuporteRequest suporteRequest) {
         this.nome = suporteRequest.getNome();

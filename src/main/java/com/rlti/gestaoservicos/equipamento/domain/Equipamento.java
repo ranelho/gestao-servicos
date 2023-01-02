@@ -29,7 +29,6 @@ public class Equipamento {
     @Enumerated(EnumType.STRING)
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "setor_id")
     private Setor setor;

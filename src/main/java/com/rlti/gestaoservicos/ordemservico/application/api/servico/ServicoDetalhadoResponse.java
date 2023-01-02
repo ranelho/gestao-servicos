@@ -9,11 +9,11 @@ import java.time.LocalDate;
 public class ServicoDetalhadoResponse {
     private Long idServico;
     private LocalDate dataServico;
-    private String servico;
+    private String descricaoServico;
 
     public ServicoDetalhadoResponse(Servico servico) {
         this.idServico = servico.getIdServico();
         this.dataServico = servico.getDataServico();
-        this.servico = servico.getServico();
+        this.descricaoServico = servico.getDescricaoServico();
     }
 }
