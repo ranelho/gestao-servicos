@@ -31,6 +31,7 @@ public class Equipamento {
     private String numeroSerie;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "setor_id")
+    @JsonIgnore
     private Setor setor;
     private String modelo;
     private String marca;

@@ -18,6 +18,14 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
         log.info("[inicia] OrdemServicoApplciationService - criaOS");
         OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
         log.info("[finaliza] OrdemServicoApplciationService - criaOS");
-        return OrdemServicoIdResponse.builder().idOrdemSercvico(ordemServico.getIdOrdemServico()).build();
+        return OrdemServicoIdResponse.builder().idOrdemServico(ordemServico.getIdOrdemServico()).build();
+    }
+
+    @Override
+    public OrdemServico getOSPorId(Long idOrdemServico) {
+        log.info("[inicia] OrdemServicoApplciationService - getOSPorId");
+        OrdemServico ordemServico = ordemServicoRepository.buscaOSPorId(idOrdemServico);
+        log.info("[finaliza] OrdemServicoApplciationService - getOSPorId");
+        return ordemServico;
     }
 }
