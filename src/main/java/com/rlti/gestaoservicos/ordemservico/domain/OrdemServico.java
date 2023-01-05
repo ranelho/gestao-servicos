@@ -20,7 +20,7 @@ import java.util.List;
 @Entity
 public class OrdemServico {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idOrdemServico;
     @NotNull
     @OneToOne
@@ -47,9 +47,9 @@ public class OrdemServico {
 
 
     public OrdemServico(OrdemServicoResquest ordemServicoResquest) {
-   //     this.equipamento = ordemServicoResquest.getEquipamento();
+        this.equipamento = ordemServicoResquest.getEquipamento();
         this.dataOrdemServico = LocalDateTime.now();
-       // this.suportes = ordemServicoResquest.getSuportes();
+        this.suportes = ordemServicoResquest.getSuportes();
         this.situacao = Situacao.AGUADANDO_ATENDIMENTO;
         this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();
         this.observacao = ordemServicoResquest.getObservacao();
@@ -57,7 +57,7 @@ public class OrdemServico {
 
     public void altera(OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
         this.dataFimOrdemServico = ordemServicoAlteracaoRequest.getDataFimOrdemServico();
-      //  this.suportes = ordemServicoAlteracaoRequest.getSuportes();
+        this.suportes = ordemServicoAlteracaoRequest.getSuportes();
         this.situacao = ordemServicoAlteracaoRequest.getSituacao();
         this.descricaoProblema = ordemServicoAlteracaoRequest.getDescricaoProblema();
         this.observacao = ordemServicoAlteracaoRequest.getObservacao();

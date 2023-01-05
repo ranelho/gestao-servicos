@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrdemServicoRestController implements OrdemServicoApi {
     private final OrdemServicoService ordemServicoService;
 
-  /*  @Override
+    @Override
     public OrdemServicoIdResponse postOS(OrdemServicoResquest ordemServicoResquest) {
         log.info("[inicia] OrdemServicoRestController - postOS");
         OrdemServicoIdResponse ordemServicoIdResponse = ordemServicoService.criaOS(ordemServicoResquest);
         log.info("[finaliza] OrdemServicoRestController - postOS");
         return ordemServicoIdResponse;
-    }*/
+    }
 }

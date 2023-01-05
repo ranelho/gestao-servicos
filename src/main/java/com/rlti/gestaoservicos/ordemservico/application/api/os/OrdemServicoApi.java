@@ -7,7 +7,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/v1/os")
 public interface OrdemServicoApi {
- /*   @PostMapping
+    @PostMapping
     @ResponseStatus
-    OrdemServicoIdResponse postOS(@Valid @RequestBody OrdemServicoResquest ordemServicoResquest);*/
+    OrdemServicoIdResponse postOS(@Valid @RequestBody OrdemServicoResquest ordemServicoResquest);
 }

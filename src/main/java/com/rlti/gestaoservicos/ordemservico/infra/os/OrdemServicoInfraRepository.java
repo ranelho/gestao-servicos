@@ -1,15 +1,19 @@
 package com.rlti.gestaoservicos.ordemservico.infra.os;
 
+import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServicoRepository;
+import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @Log4j2
 @RequiredArgsConstructor
 public class OrdemServicoInfraRepository implements OrdemServicoRepository {
-/*    private final OrdemServicoSpringaDataJPARespository ordemServicoSpringaDataJPARespository;
+    private final OrdemServicoSpringaDataJPARespository ordemServicoSpringaDataJPARespository;
     @Override
     public OrdemServico salva(OrdemServico ordemServico) {
         log.info("[inicia] OrdemServicoInfraRepository - salva");
@@ -20,5 +24,5 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
         }
         log.info("[finaliza] OrdemServicoInfraRepository - salva");
         return ordemServico;
-    }*/
+    }
 }

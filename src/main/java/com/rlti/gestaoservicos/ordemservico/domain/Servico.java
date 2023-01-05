@@ -22,14 +22,11 @@ public class Servico {
     private LocalDate dataServico;
     @NotNull
     private String descricaoServico;
-    @ManyToOne
-    private OrdemServico ordemServico;
 
 
     public Servico(ServicoRequest servicoRequest) {
         this.dataServico = servicoRequest.getDataServico();
         this.descricaoServico = servicoRequest.getDescricaoServico();
-      //  this.ordemServico = servicoRequest.getOrdemServico();
     }
 
     public void altera(ServicoAlteracaoRequest servicoAlteracaoRequest){

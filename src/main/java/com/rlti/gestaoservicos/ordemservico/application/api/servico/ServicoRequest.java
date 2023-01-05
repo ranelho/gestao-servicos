@@ -13,6 +13,5 @@ public class ServicoRequest {
     @NotNull
     @Size(message = "Campo serviço não pode estar vazio", min = 3, max = 255)
     private String descricaoServico;
-    /*@NotNull
-    private OrdemServico ordemServico;*/
+
 }

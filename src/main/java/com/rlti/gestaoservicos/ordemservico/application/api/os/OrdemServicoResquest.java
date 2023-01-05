@@ -13,7 +13,7 @@ public class OrdemServicoResquest {
     @NotNull
     private Equipamento equipamento;
     @NotNull
-   // private List<Suporte> suportes;
+    private List<Suporte> suportes;
     @Size(message = "Campo descrição não pode estar vazio", min = 3, max = 255)
     private String descricaoProblema;
     private String observacao;

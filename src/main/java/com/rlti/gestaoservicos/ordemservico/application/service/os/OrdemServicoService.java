@@ -4,5 +4,5 @@ import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoIdRes
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResquest;
 
 public interface OrdemServicoService {
-   // OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest);
+    OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest);
 }

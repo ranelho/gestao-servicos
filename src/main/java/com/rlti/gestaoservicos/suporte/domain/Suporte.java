@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Suporte {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSuporte;
     @NotNull
     @Column(unique = true, updatable = true)

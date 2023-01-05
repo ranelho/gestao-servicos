@@ -22,7 +22,7 @@ import java.util.List;
 @Entity
 public class Setor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSetor;
     @NotNull
     @NotBlank(message = "{setor.not.blank}")

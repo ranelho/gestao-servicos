@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Equipamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipamento;
     @NotNull
     @Column(unique = true, updatable = true)
