@@ -23,8 +23,12 @@ public class Servico {
     @NotNull
     private String descricaoServico;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ordemservico_id")
+    private OrdemServico ordemServico;
 
     public Servico(ServicoRequest servicoRequest) {
+        this.ordemServico = servicoRequest.getOrdemServico();
         this.dataServico = servicoRequest.getDataServico();
         this.descricaoServico = servicoRequest.getDescricaoServico();
     }

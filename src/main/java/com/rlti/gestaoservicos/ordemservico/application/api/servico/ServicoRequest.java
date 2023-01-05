@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.servico;
 
+import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import lombok.Value;
 
 import javax.validation.constraints.NotNull;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 
 @Value
 public class ServicoRequest {
+    private OrdemServico ordemServico;
     @NotNull
     private LocalDate dataServico;
     @NotNull

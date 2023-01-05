@@ -28,6 +28,7 @@ public class OrdemServico {
     @NotNull
     private LocalDateTime dataOrdemServico;
     private LocalDateTime dataFimOrdemServico;
+
     @NotNull
     @ManyToMany
     @JoinTable(
@@ -35,15 +36,16 @@ public class OrdemServico {
             joinColumns = @JoinColumn(name = "ordemservico_id"),
             inverseJoinColumns = @JoinColumn(name = "suporte_id"))
     private List<Suporte> suportes;
+
     @NotNull
     private Situacao situacao;
     @NotNull
     private String descricaoProblema;
     private String observacao;
     private String diagnostico;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "ordemservico_id")
-    private List<Servico> listServicos;
+
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ordemServico")
+    private List<Servico> servicos;
 
 
     public OrdemServico(OrdemServicoResquest ordemServicoResquest) {
