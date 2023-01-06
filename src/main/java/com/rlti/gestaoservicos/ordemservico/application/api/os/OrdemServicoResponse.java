@@ -14,6 +14,7 @@ public class OrdemServicoResponse {
     private List<Suporte> suportes;
     private String descricaoProblema;
     private String observacao;
+    private LocalDateTime dataOrdemServico;
     private LocalDateTime dataFimOrdemServico;
     private String diagnostico;
     private List<Servico> servicos;
@@ -26,5 +27,6 @@ public class OrdemServicoResponse {
         this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();
         this.diagnostico = ordemServico.getDiagnostico();
         this.servicos = ordemServico.getServicos();
+        this.dataOrdemServico = ordemServico.getDataOrdemServico();
     }
 }

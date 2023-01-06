@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @AllArgsConstructor
@@ -26,7 +27,9 @@ public class OrdemServico {
     @OneToOne
     private Equipamento equipamento;
     @NotNull
+    @Column(name = "dataOrdemServico", columnDefinition = "TIMESTAMP")
     private LocalDateTime dataOrdemServico;
+    @Column(name = "dataFimOrdemServico", columnDefinition = "TIMESTAMP")
     private LocalDateTime dataFimOrdemServico;
 
     @NotNull

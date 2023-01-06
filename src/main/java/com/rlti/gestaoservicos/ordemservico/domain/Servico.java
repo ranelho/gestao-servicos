@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservico.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoRequest;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class Servico {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ordemservico_id")
+    @JsonIgnore
     private OrdemServico ordemServico;
 
     public Servico(ServicoRequest servicoRequest) {

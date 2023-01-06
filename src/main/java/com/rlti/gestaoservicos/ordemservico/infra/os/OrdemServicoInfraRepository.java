@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -39,5 +40,13 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
                 );
         log.info("[finzalia] OrdemServicoInfraRepository - buscaOSPorId");
         return ordemServico;
+    }
+
+    @Override
+    public List<OrdemServico> getTodosOS() {
+        log.info("[inicia] OrdemServicoInfraRepository - getTodosOS");
+        List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAll();
+        log.info("[inicia] OrdemServicoInfraRepository - getTodosOS");
+        return listOrdemServico;
     }
 }
