@@ -13,4 +13,5 @@ public interface OrdemServicoService {
     OrdemServico getOSPorId(Long idOrdemServico);
     List<OrdemServicoListResponse> getTodosOS();
     void alteraOS(Long idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
+    void deleta(Long idOrdemServico);
 }

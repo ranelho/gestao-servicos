@@ -25,4 +25,7 @@ public interface OrdemServicoApi {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void alteraOS(@PathVariable Long idOrdemServico,
                            @Valid @RequestBody OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
+    @DeleteMapping(value = "/{idOrdemServico}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaOSPorId(@PathVariable Long idOrdemServico);
 }

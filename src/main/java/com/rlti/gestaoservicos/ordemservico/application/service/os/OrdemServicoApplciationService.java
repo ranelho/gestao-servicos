@@ -49,4 +49,12 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
         ordemServicoRepository.salva(ordemServico);
         log.info("[finaliza] OrdemServicoApplciationService - alteraOS");
     }
+
+    @Override
+    public void deleta(Long idOrdemServico) {
+        log.info("[inicia] OrdemServicoApplciationService - deleta");
+        ordemServicoRepository.buscaOSPorId(idOrdemServico);
+        ordemServicoRepository.deleta(idOrdemServico);
+        log.info("[finaliza] OrdemServicoApplciationService - deleta");
+    }
 }
