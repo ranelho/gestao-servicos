@@ -28,4 +28,5 @@ public interface OrdemServicoApi {
     @DeleteMapping(value = "/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaOSPorId(@PathVariable Long idOrdemServico);
+    
 }
