@@ -1,14 +1,11 @@
 package com.rlti.gestaoservicos.secretaria.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaAlteracaoRequest;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -21,7 +18,7 @@ import java.util.List;
 @Entity
 public class Secretaria {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSecretaria;
     @NotNull
     @NotBlank(message = "{secretaria.not.blank}")

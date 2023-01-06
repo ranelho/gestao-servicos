@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.equipamento.application.api;
 
-import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorAlteracaoRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

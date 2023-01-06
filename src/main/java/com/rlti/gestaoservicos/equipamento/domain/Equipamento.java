@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Equipamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipamento;
     @NotNull
     @Column(unique = true, updatable = true)
@@ -29,9 +29,9 @@ public class Equipamento {
     @Enumerated(EnumType.STRING)
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "setor_id")
+    @JsonIgnore
     private Setor setor;
     private String modelo;
     private String marca;

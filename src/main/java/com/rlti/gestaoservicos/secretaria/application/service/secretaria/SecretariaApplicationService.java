@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.secretaria.application.service.secretaria;
 
-import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaAlteracaoRequest;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaIdResponse;
 import com.rlti.gestaoservicos.secretaria.application.api.secretaria.SecretariaListResponse;
@@ -9,11 +8,9 @@ import com.rlti.gestaoservicos.secretaria.application.repository.secretaria.Secr
 import com.rlti.gestaoservicos.secretaria.domain.Secretaria;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -42,7 +39,6 @@ public class SecretariaApplicationService implements SecretariaService {
         List<Secretaria> listaSecretaria = secretariaRepository.getTodasSecretarias();
         log.info("[finaliza] SecretariaApplicationService - getTodasSecretarias");
         return SecretariaListResponse.converte(listaSecretaria);
-
     }
 
     @Override
