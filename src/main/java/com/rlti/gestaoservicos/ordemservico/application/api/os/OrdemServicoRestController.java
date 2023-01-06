@@ -37,4 +37,11 @@ public class OrdemServicoRestController implements OrdemServicoApi {
         log.info("[finaliza] OrdemServicoRestController - getTodasOS");
         return listResponses;
     }
+
+    @Override
+    public void alteraOS(Long idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
+        log.info("[inicia] OrdemServicoRestController - alteraOS");
+        ordemServicoService.alteraOS(idOrdemServico, ordemServicoAlteracaoRequest);
+        log.info("[finaliza] OrdemServicoRestController - alteraOS");
+    }
 }

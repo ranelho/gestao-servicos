@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
-import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoListResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,4 +20,9 @@ public interface OrdemServicoApi {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<OrdemServicoListResponse> getTodasOS();
+
+    @PatchMapping (value = "/update/{idOrdemServico}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void alteraOS(@PathVariable Long idOrdemServico,
+                           @Valid @RequestBody OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
 }

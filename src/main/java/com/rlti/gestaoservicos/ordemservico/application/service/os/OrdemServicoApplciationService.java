@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservico.application.service.os;
 
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoIdResponse;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoListResponse;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResquest;
@@ -38,5 +39,14 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
         List<OrdemServico> listOrdemServico = ordemServicoRepository.getTodosOS();
         log.info("[finaliza] OrdemServicoApplciationService - getTodosOS");
         return OrdemServicoListResponse.converte(listOrdemServico);
+    }
+
+    @Override
+    public void alteraOS(Long idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
+        log.info("[inicia] OrdemServicoApplciationService - alteraOS");
+        OrdemServico ordemServico = ordemServicoRepository.buscaOSPorId(idOrdemServico);
+        ordemServico.altera(ordemServicoAlteracaoRequest);
+        ordemServicoRepository.salva(ordemServico);
+        log.info("[finaliza] OrdemServicoApplciationService - alteraOS");
     }
 }
