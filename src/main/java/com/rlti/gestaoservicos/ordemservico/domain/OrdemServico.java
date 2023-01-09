@@ -54,7 +54,7 @@ public class OrdemServico {
         this.equipamento = ordemServicoResquest.getEquipamento();
         this.dataOrdemServico = LocalDateTime.now();
         this.suportes = ordemServicoResquest.getSuportes();
-        this.situacao = Situacao.AGUADANDO_ATENDIMENTO;
+        this.situacao = Situacao.AGUARDANDO_ATENDIMENTO;
         this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();
         this.observacao = ordemServicoResquest.getObservacao();
     }

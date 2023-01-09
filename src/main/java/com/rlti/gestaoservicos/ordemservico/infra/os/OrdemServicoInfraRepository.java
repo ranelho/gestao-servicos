@@ -56,4 +56,12 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
         ordemServicoSpringaDataJPARespository.deleteById(idOrdemServico);
         log.info("[finaliza] OrdemServicoInfraRepository - deleta");
     }
+
+    @Override
+    public List<OrdemServico> getAtendimentos() {
+        log.info("[inicia] OrdemServicoInfraRepository - getAtendimentos");
+        List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAllAtendimentos();
+        log.info("[inicia] OrdemServicoInfraRepository - getAtendimentos");
+        return listOrdemServico;
+    }
 }

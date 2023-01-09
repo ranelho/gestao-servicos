@@ -9,4 +9,5 @@ public interface OrdemServicoRepository {
     OrdemServico buscaOSPorId(Long idOrdemServico);
     List<OrdemServico> getTodosOS();
     void deleta(Long idOrdemServico);
+    List<OrdemServico> getAtendimentos();
 }

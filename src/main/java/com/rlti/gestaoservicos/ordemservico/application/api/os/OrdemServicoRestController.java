@@ -51,4 +51,12 @@ public class OrdemServicoRestController implements OrdemServicoApi {
         ordemServicoService.deleta(idOrdemServico);
         log.info("[finaliiza] OrdemServicoRestController - deletaOSPorId");
     }
+
+    @Override
+    public List<OrdemServicoListResponse> getAtendimentos() {
+        log.info("[inicia] OrdemServicoRestController - getAtendimentos");
+        List<OrdemServicoListResponse> listResponses = ordemServicoService.getAtendimentos();
+        log.info("[finaliza] OrdemServicoRestController - getAtendimentos");
+        return listResponses;
+    }
 }

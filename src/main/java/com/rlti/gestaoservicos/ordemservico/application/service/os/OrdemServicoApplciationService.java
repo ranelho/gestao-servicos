@@ -57,4 +57,12 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
         ordemServicoRepository.deleta(idOrdemServico);
         log.info("[finaliza] OrdemServicoApplciationService - deleta");
     }
+
+    @Override
+    public List<OrdemServicoListResponse> getAtendimentos() {
+        log.info("[inicia] OrdemServicoApplciationService - getAtendimentos");
+        List<OrdemServico> listOrdemServico = ordemServicoRepository.getAtendimentos();
+        log.info("[finaliza] OrdemServicoApplciationService - getAtendimentos");
+        return OrdemServicoListResponse.converte(listOrdemServico);
+    }
 }

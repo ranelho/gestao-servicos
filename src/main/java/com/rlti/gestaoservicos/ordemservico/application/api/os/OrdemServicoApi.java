@@ -28,5 +28,8 @@ public interface OrdemServicoApi {
     @DeleteMapping(value = "/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaOSPorId(@PathVariable Long idOrdemServico);
-    
+
+    @GetMapping(value = "/atendimentos")
+    @ResponseStatus(code = HttpStatus.OK)
+    List<OrdemServicoListResponse> getAtendimentos();
 }
