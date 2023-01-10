@@ -5,6 +5,7 @@ import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoIdRes
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoListResponse;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResquest;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
+import com.rlti.gestaoservicos.suporte.domain.Suporte;
 
 import java.util.List;
 

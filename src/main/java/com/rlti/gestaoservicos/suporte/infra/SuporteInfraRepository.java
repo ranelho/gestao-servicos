@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.suporte.infra;
 
 import com.rlti.gestaoservicos.handler.APIException;
+import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.secretaria.domain.Secretaria;
 import com.rlti.gestaoservicos.suporte.application.repository.SuporteRepository;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;

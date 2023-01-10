@@ -1,5 +1,7 @@
 package com.rlti.gestaoservicos.suporte.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteAlteracaoRequest;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteRequest;
 import lombok.AllArgsConstructor;
@@ -8,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +24,9 @@ public class Suporte {
     @Column(unique = true, updatable = true)
     private String nome;
     private String empresa;
-   // private List<OrdemServico> ordemServico;
+    @ManyToMany(mappedBy = "suportes")
+    @JsonIgnore
+    private List<OrdemServico> ordemServicos;
 
     public Suporte(SuporteRequest suporteRequest) {
         this.nome = suporteRequest.getNome();

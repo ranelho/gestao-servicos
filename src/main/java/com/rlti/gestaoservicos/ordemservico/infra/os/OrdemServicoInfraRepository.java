@@ -3,6 +3,7 @@ package com.rlti.gestaoservicos.ordemservico.infra.os;
 import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServicoRepository;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
+import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;

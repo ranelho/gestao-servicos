@@ -49,7 +49,6 @@ public class OrdemServico {
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ordemServico")
     private List<Servico> servicos;
 
-
     public OrdemServico(OrdemServicoResquest ordemServicoResquest) {
         this.equipamento = ordemServicoResquest.getEquipamento();
         this.dataOrdemServico = LocalDateTime.now();

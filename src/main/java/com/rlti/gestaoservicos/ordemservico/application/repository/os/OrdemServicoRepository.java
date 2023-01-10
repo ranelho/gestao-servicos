@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.ordemservico.application.repository.os;
 
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
+import com.rlti.gestaoservicos.suporte.domain.Suporte;
 
 import java.util.List;
 

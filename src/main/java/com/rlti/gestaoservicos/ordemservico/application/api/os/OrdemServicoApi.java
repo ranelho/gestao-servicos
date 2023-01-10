@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
+import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

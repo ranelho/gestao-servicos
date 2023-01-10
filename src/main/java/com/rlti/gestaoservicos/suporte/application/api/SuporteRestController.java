@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.suporte.application.api;
 
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoListResponse;
 import com.rlti.gestaoservicos.suporte.application.service.SuporteService;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.RequiredArgsConstructor;

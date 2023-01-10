@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
 import com.rlti.gestaoservicos.ordemservico.application.service.os.OrdemServicoService;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
+import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
