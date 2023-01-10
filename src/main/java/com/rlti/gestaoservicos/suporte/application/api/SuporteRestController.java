@@ -51,4 +51,12 @@ public class SuporteRestController implements SuporteApi {
         suporteService.deletaSuportePorId(idSuporte);
         log.info("[finaliza] SuporteRestController - deletaSuportePorId");
     }
+
+    @Override
+    public SuporteOSListResponse getOSSuportePorId(Long idSuporte) {
+        log.info("[inicia] SuporteRestController - getSuportePorId");
+        Suporte suporte = suporteService.buscaSuportePorId(idSuporte);
+        log.info("[finaliza] SuporteRestController - getSuportePorId");
+        return new SuporteOSListResponse(suporte);
+    }
 }

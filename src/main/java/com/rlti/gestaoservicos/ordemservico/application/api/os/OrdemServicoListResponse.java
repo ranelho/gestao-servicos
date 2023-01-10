@@ -18,6 +18,7 @@ public class OrdemServicoListResponse {
     private LocalDateTime dataOrdemServico;
     private LocalDateTime dataFimOrdemServico;
     private Situacao situacao;
+    private String diagnostico;
 
     public OrdemServicoListResponse(OrdemServico ordemServico) {
         this.idOrdemServico = ordemServico.getIdOrdemServico();
@@ -25,6 +26,7 @@ public class OrdemServicoListResponse {
         this.dataOrdemServico = ordemServico.getDataOrdemServico();
         this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();
         this.situacao = ordemServico.getSituacao();
+        this.diagnostico = ordemServico.getDiagnostico();
     }
 
     public static List<OrdemServicoListResponse> converte(List<OrdemServico> ordemServicoList) {

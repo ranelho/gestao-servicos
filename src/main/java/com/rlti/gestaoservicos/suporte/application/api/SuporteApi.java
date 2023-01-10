@@ -28,4 +28,8 @@ public interface SuporteApi {
     @DeleteMapping(value = "/{idSuporte}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaSuportePorId(@PathVariable Long idSuporte);
+
+    @GetMapping(value = "/ordem-servico/{idSuporte}")
+    @ResponseStatus(code = HttpStatus.OK)
+    SuporteOSListResponse getOSSuportePorId(@PathVariable Long idSuporte);
 }
