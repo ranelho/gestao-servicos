@@ -2,7 +2,6 @@ package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
 import com.rlti.gestaoservicos.ordemservico.application.service.os.OrdemServicoService;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
-import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +27,14 @@ public class OrdemServicoRestController implements OrdemServicoApi {
         log.info("[inicia] OrdemServicoRestController - getOSPorId");
         OrdemServico ordemServico = ordemServicoService.getOSPorId(idOrdemServico);
         log.info("[finaliza] OrdemServicoRestController - getOSPorId");
+        return new OrdemServicoResponse(ordemServico);
+    }
+
+    @Override
+    public OrdemServicoResponse getOSPorIdEquipmento(Long idEquipamento) {
+        log.info("[inicia] OrdemServicoRestController - getOSPorIdEquipmento");
+        OrdemServico ordemServico = ordemServicoService.getOSPorIdEquipamento(idEquipamento);
+        log.info("[finaliza] OrdemServicoRestController - getOSPorIdEquipmento");
         return new OrdemServicoResponse(ordemServico);
     }
 

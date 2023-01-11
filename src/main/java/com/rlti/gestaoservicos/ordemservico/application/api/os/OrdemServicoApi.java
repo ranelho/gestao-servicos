@@ -11,12 +11,16 @@ import java.util.List;
 @RequestMapping("/v1/os")
 public interface OrdemServicoApi {
     @PostMapping
-    @ResponseStatus
+    @ResponseStatus(code = HttpStatus.CREATED)
     OrdemServicoIdResponse postOS(@Valid @RequestBody OrdemServicoResquest ordemServicoResquest);
 
     @GetMapping(value = "/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.OK)
     OrdemServicoResponse getOSPorId(@PathVariable Long idOrdemServico);
+
+    @GetMapping(value = "/equipamento/{idEquipamento}")
+    @ResponseStatus(code = HttpStatus.OK)
+    OrdemServicoResponse getOSPorIdEquipmento(@PathVariable Long idEquipamento);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)

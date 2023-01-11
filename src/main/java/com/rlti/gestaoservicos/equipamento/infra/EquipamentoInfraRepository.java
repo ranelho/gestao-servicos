@@ -25,7 +25,7 @@ public class EquipamentoInfraRepository implements EquipamentoRepository {
     }
 
     @Override
-    public Equipamento buscaEquipamentoPorId(Long idEquipamento) {
+    public Equipamento findEquipamentoById(Long idEquipamento) {
         log.info("[inicia] EquipamentoInfraRepository - buscaEquipamentoPorId");
         Optional<Equipamento> optionalEquipamento = equipamentoSpringDataJPARepository.findById(idEquipamento);
         Equipamento equipamento = optionalEquipamento

@@ -6,13 +6,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoAlteracaoRequest;
 import com.rlti.gestaoservicos.equipamento.application.api.EquipamentoRequest;
+import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
+import jdk.dynalink.linker.LinkerServices;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,7 +26,7 @@ public class Equipamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipamento;
     @NotNull
-    @Column(unique = true, updatable = true)
+    @Column(nullable = false, unique = true, updatable = true, length = 6)
     private String patrimonio;
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -36,6 +39,10 @@ public class Equipamento {
     private String modelo;
     private String marca;
     private String detalhes;
+
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "equipamento")
+    @JsonIgnore
+    private List<OrdemServico> ordemServicos;
 
     public Equipamento(EquipamentoRequest equipamentoRequest) {
         this.patrimonio = equipamentoRequest.getPatrimonio();

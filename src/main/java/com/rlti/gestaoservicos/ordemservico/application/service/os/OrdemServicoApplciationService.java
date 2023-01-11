@@ -1,14 +1,14 @@
 package com.rlti.gestaoservicos.ordemservico.application.service.os;
 
-import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
-import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoIdResponse;
-import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoListResponse;
-import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResquest;
+import com.rlti.gestaoservicos.equipamento.application.repository.EquipamentoRepository;
+import com.rlti.gestaoservicos.handler.APIException;
+import com.rlti.gestaoservicos.ordemservico.application.api.os.*;
 import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServicoRepository;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
-import com.rlti.gestaoservicos.suporte.domain.Suporte;
+import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,19 +18,38 @@ import java.util.List;
 @Log4j2
 public class OrdemServicoApplciationService implements OrdemServicoService {
     private final OrdemServicoRepository ordemServicoRepository;
+    private final EquipamentoRepository equipamentoRepository;
     @Override
     public OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest) {
         log.info("[inicia] OrdemServicoApplciationService - criaOS");
-        OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
-        log.info("[finaliza] OrdemServicoApplciationService - criaOS");
-        return OrdemServicoIdResponse.builder().idOrdemServico(ordemServico.getIdOrdemServico()).build();
+        equipamentoRepository.findEquipamentoById(ordemServicoResquest.getEquipamento().getIdEquipamento());
+        OrdemServico oSAtiva = ordemServicoRepository.getOSByIdEquipmento(ordemServicoResquest.getEquipamento().getIdEquipamento());
+        if(oSAtiva.getSituacao() == Situacao.FINALIZADO){
+            OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
+            log.info("[finaliza] OrdemServicoApplciationService - criaOS");
+            return OrdemServicoIdResponse.builder().idOrdemServico(ordemServico.getIdOrdemServico()).build();
+        }else{
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento com ordem de serviço aberta!");
+        }
     }
 
     @Override
     public OrdemServico getOSPorId(Long idOrdemServico) {
         log.info("[inicia] OrdemServicoApplciationService - getOSPorId");
-        OrdemServico ordemServico = ordemServicoRepository.buscaOSPorId(idOrdemServico);
+        OrdemServico ordemServico = ordemServicoRepository.findOSById(idOrdemServico);
         log.info("[finaliza] OrdemServicoApplciationService - getOSPorId");
+        return ordemServico;
+    }
+
+    @Override
+    public OrdemServico getOSPorIdEquipamento(Long idEquipamento) {
+        log.info("[inicia] OrdemServicoApplciationService - getOSPorIdEquipamento");
+        equipamentoRepository.findEquipamentoById(idEquipamento);
+        OrdemServico ordemServico = ordemServicoRepository.getOSByIdEquipmento(idEquipamento);
+        if(ordemServico == null){
+            throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento sem ordem de serviço");
+        }
+        log.info("[finaliza] OrdemServicoApplciationService - getOSPorIdEquipamento");
         return ordemServico;
     }
 
@@ -45,7 +64,7 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     @Override
     public void alteraOS(Long idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
         log.info("[inicia] OrdemServicoApplciationService - alteraOS");
-        OrdemServico ordemServico = ordemServicoRepository.buscaOSPorId(idOrdemServico);
+        OrdemServico ordemServico = ordemServicoRepository.findOSById(idOrdemServico);
         ordemServico.altera(ordemServicoAlteracaoRequest);
         ordemServicoRepository.salva(ordemServico);
         log.info("[finaliza] OrdemServicoApplciationService - alteraOS");
@@ -54,7 +73,7 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     @Override
     public void deleta(Long idOrdemServico) {
         log.info("[inicia] OrdemServicoApplciationService - deleta");
-        ordemServicoRepository.buscaOSPorId(idOrdemServico);
+        ordemServicoRepository.findOSById(idOrdemServico);
         ordemServicoRepository.deleta(idOrdemServico);
         log.info("[finaliza] OrdemServicoApplciationService - deleta");
     }

@@ -5,12 +5,14 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/gestaoservicos?useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost/gestao-servicos?useSSL=false&allowMultiQueries=true&serverTimezone=UTC
     username: root
     password: 852456
   jpa:
     generate-ddl: true
     show-sql: true
+    hibernate:
+      ddl-auto: update
 
 springdoc:
   swagger-ui:

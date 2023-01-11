@@ -2,16 +2,19 @@ package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Servico;
-import com.rlti.gestaoservicos.suporte.domain.Suporte;
+import com.rlti.gestaoservicos.suporte.application.api.SuporteResponse;
 import lombok.Value;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static com.rlti.gestaoservicos.suporte.application.api.SuporteResponse.converte;
+
 @Value
 public class OrdemServicoResponse {
+    private Long idOrdemServico;
     private String equipamento;
-    private List<Suporte> suportes;
+    private List<SuporteResponse> suportes;
     private String descricaoProblema;
     private String observacao;
     private LocalDateTime dataOrdemServico;
@@ -20,8 +23,9 @@ public class OrdemServicoResponse {
     private List<Servico> servicos;
 
     public OrdemServicoResponse(OrdemServico ordemServico) {
+        this.idOrdemServico = ordemServico.getIdOrdemServico();
         this.equipamento = ordemServico.getEquipamento().getPatrimonio();
-        this.suportes = ordemServico.getSuportes();
+        this.suportes = converte(ordemServico.getSuportes());
         this.descricaoProblema = ordemServico.getDescricaoProblema();
         this.observacao = ordemServico.getObservacao();
         this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();

@@ -1,9 +1,6 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
-import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
-import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoListResponse;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
-import com.rlti.gestaoservicos.ordemservico.domain.Servico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import lombok.Value;
 

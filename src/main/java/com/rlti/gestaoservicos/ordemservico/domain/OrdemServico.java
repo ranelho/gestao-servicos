@@ -22,8 +22,8 @@ public class OrdemServico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idOrdemServico;
-    @NotNull
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "equipamento_id")
     private Equipamento equipamento;
     @NotNull
     @Column(name = "dataOrdemServico", columnDefinition = "TIMESTAMP")

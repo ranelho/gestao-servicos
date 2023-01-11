@@ -32,7 +32,7 @@ public class EquipamentoApplicationService implements EquipamentoService {
     @Override
     public Equipamento getEquipamentoPorId(Long idEquipamento) {
         log.info("[inicia] EquipamentoApplicationService - getEquipamentoPorId");
-        Equipamento equipamento = equipamentoRepository.buscaEquipamentoPorId(idEquipamento);
+        Equipamento equipamento = equipamentoRepository.findEquipamentoById(idEquipamento);
         log.info("[finaliza] EquipamentoApplicationService - getEquipamentoPorId");
         return equipamento;
     }
@@ -57,7 +57,7 @@ public class EquipamentoApplicationService implements EquipamentoService {
     @Override
     public void detelaEquipamento(Long idEquipamento) {
         log.info("[inicia] EquipamentoApplicationService - detelaEquipamento");
-        equipamentoRepository.buscaEquipamentoPorId(idEquipamento);
+        equipamentoRepository.findEquipamentoById(idEquipamento);
         equipamentoRepository.deleta(idEquipamento);
         log.info("[inicia] EquipamentoApplicationService - detelaEquipamento");
     }
