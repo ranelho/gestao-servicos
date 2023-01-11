@@ -23,18 +23,18 @@ public class OrdemServicoRestController implements OrdemServicoApi {
     }
 
     @Override
-    public OrdemServicoResponse getOSPorId(Long idOrdemServico) {
-        log.info("[inicia] OrdemServicoRestController - getOSPorId");
-        OrdemServico ordemServico = ordemServicoService.getOSPorId(idOrdemServico);
-        log.info("[finaliza] OrdemServicoRestController - getOSPorId");
+    public OrdemServicoResponse getOSById(Long idOrdemServico) {
+        log.info("[inicia] OrdemServicoRestController - getOSById");
+        OrdemServico ordemServico = ordemServicoService.getOSById(idOrdemServico);
+        log.info("[finaliza] OrdemServicoRestController - getOSById");
         return new OrdemServicoResponse(ordemServico);
     }
 
     @Override
-    public OrdemServicoResponse getOSPorIdEquipmento(Long idEquipamento) {
-        log.info("[inicia] OrdemServicoRestController - getOSPorIdEquipmento");
-        OrdemServico ordemServico = ordemServicoService.getOSPorIdEquipamento(idEquipamento);
-        log.info("[finaliza] OrdemServicoRestController - getOSPorIdEquipmento");
+    public OrdemServicoResponse getOSByIdEquipmento(Long idEquipamento) {
+        log.info("[inicia] OrdemServicoRestController - getOSByIdEquipmento");
+        OrdemServico ordemServico = ordemServicoService.getOSByIdEquipamento(idEquipamento);
+        log.info("[finaliza] OrdemServicoRestController - getOSByIdEquipmento");
         return new OrdemServicoResponse(ordemServico);
     }
 
@@ -54,7 +54,7 @@ public class OrdemServicoRestController implements OrdemServicoApi {
     }
 
     @Override
-    public void deletaOSPorId(Long idOrdemServico) {
+    public void deletaOSById(Long idOrdemServico) {
         log.info("[inicia] OrdemServicoRestController - deletaOSPorId");
         ordemServicoService.deleta(idOrdemServico);
         log.info("[finaliiza] OrdemServicoRestController - deletaOSPorId");

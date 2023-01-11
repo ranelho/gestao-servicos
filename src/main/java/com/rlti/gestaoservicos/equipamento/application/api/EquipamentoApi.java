@@ -15,11 +15,15 @@ public interface EquipamentoApi {
 
     @GetMapping(value = "/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.OK)
-    EquipamentoReponse getEquipamentoPorId(@PathVariable Long idEquipamento);
+    EquipamentoReponse getEquipamentoById(@PathVariable Long idEquipamento);
+
+    @GetMapping(value = "/patrimonio/{patrimonio}")
+    @ResponseStatus(code = HttpStatus.OK)
+    EquipamentoReponse getEquipamentoByPatrimonio(@PathVariable String patrimonio);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<EquipamentoListReponse> getTodosEquipamentos();
+    List<EquipamentoListReponse> getAllEquipamentos();
 
     @PatchMapping (value = "/update/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -27,5 +31,5 @@ public interface EquipamentoApi {
                            @Valid @RequestBody EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
     @DeleteMapping(value = "/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deletaEquipamentoPorId(@PathVariable Long idEquipamento);
+    void deletaEquipamentoById(@PathVariable Long idEquipamento);
 }

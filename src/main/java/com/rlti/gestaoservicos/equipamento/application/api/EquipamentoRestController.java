@@ -23,17 +23,26 @@ public class EquipamentoRestController implements EquipamentoApi {
     }
 
     @Override
-    public EquipamentoReponse getEquipamentoPorId(Long idEquipamento) {
-        log.info("[inicia] EquipamentoRestController - getEquipamentoPorId");
-        Equipamento equipamento = equipamentoService.getEquipamentoPorId(idEquipamento);
-        log.info("[finaliza] EquipamentoRestController - getEquipamentoPorId");
+    public EquipamentoReponse getEquipamentoById(Long idEquipamento) {
+        log.info("[inicia] EquipamentoRestController - getEquipamentoById");
+        Equipamento equipamento = equipamentoService.getEquipamentoById(idEquipamento);
+        log.info("[finaliza] EquipamentoRestController - getEquipamentoById");
         return new EquipamentoReponse(equipamento);
     }
+
     @Override
-    public List<EquipamentoListReponse> getTodosEquipamentos() {
-        log.info("[inicia] EquipamentoRestController - getTodosEquipamentos");
-        List<EquipamentoListReponse> listaEquipamentos = equipamentoService.getTodosEquipamentos();
-        log.info("[finaliza] EquipamentoRestController - getTodosEquipamentos");
+    public EquipamentoReponse getEquipamentoByPatrimonio(String patrimonio) {
+        log.info("[inicia] EquipamentoRestController - getEquipamentoByPatrimonio");
+        Equipamento equipamento = equipamentoService.getEquipamentoByPatrimonio(patrimonio);
+        log.info("[finaliza] EquipamentoRestController - getEquipamentoByPatrimonio");
+        return new EquipamentoReponse(equipamento);
+    }
+
+    @Override
+    public List<EquipamentoListReponse> getAllEquipamentos() {
+        log.info("[inicia] EquipamentoRestController - getAllEquipamentos");
+        List<EquipamentoListReponse> listaEquipamentos = equipamentoService.getAllEquipamentos();
+        log.info("[finaliza] EquipamentoRestController - getAllEquipamentos");
         return listaEquipamentos;
     }
 
@@ -45,9 +54,9 @@ public class EquipamentoRestController implements EquipamentoApi {
     }
 
     @Override
-    public void deletaEquipamentoPorId(Long idEquipamento) {
-        log.info("[inicia] EquipamentoRestController - deletaEquipamentoPorId");
+    public void deletaEquipamentoById(Long idEquipamento) {
+        log.info("[inicia] EquipamentoRestController - deletaEquipamentoById");
         equipamentoService.detelaEquipamento(idEquipamento);
-        log.info("[finaliza] EquipamentoRestController - deletaEquipamentoPorId");
+        log.info("[finaliza] EquipamentoRestController - deletaEquipamentoById");
     }
 }

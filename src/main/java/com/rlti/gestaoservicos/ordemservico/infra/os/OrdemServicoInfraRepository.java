@@ -27,22 +27,22 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
 
     @Override
     public OrdemServico findOSById(Long idOrdemServico) {
-        log.info("[inicia] OrdemServicoInfraRepository - buscaOSPorId");
+        log.info("[inicia] OrdemServicoInfraRepository - findOSById");
         Optional<OrdemServico> optionalOrdemServico = ordemServicoSpringaDataJPARespository.findById(idOrdemServico);
         OrdemServico ordemServico = optionalOrdemServico
                 .orElseThrow(() ->  {
                             throw APIException.build(HttpStatus.NOT_FOUND, "Ordem de Serviço não encontrada");
                         }
                 );
-        log.info("[finzalia] OrdemServicoInfraRepository - buscaOSPorId");
+        log.info("[finaliza] OrdemServicoInfraRepository - findOSById");
         return ordemServico;
     }
 
     @Override
     public OrdemServico getOSByIdEquipmento(Long idEquipamento) {
-        log.info("[inicia] OrdemServicoInfraRepository - buscaOSPorId");
+        log.info("[inicia] OrdemServicoInfraRepository - getOSByIdEquipmento");
         OrdemServico ordemServico = ordemServicoSpringaDataJPARespository.findByIdEquipamento(idEquipamento);
-        log.info("[finzalia] OrdemServicoInfraRepository - buscaOSPorId");
+        log.info("[finaliza] OrdemServicoInfraRepository - getOSByIdEquipmento");
         return ordemServico;
     }
 
@@ -65,7 +65,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     public List<OrdemServico> getAtendimentos() {
         log.info("[inicia] OrdemServicoInfraRepository - getAtendimentos");
         List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAllAtendimentos();
-        log.info("[inicia] OrdemServicoInfraRepository - getAtendimentos");
+        log.info("[finaliza] OrdemServicoInfraRepository - getAtendimentos");
         return listOrdemServico;
     }
 }

@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
-import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,11 +15,11 @@ public interface OrdemServicoApi {
 
     @GetMapping(value = "/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.OK)
-    OrdemServicoResponse getOSPorId(@PathVariable Long idOrdemServico);
+    OrdemServicoResponse getOSById(@PathVariable Long idOrdemServico);
 
     @GetMapping(value = "/equipamento/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.OK)
-    OrdemServicoResponse getOSPorIdEquipmento(@PathVariable Long idEquipamento);
+    OrdemServicoResponse getOSByIdEquipmento(@PathVariable Long idEquipamento);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
@@ -32,7 +31,7 @@ public interface OrdemServicoApi {
                            @Valid @RequestBody OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
     @DeleteMapping(value = "/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deletaOSPorId(@PathVariable Long idOrdemServico);
+    void deletaOSById(@PathVariable Long idOrdemServico);
 
     @GetMapping(value = "/atendimentos")
     @ResponseStatus(code = HttpStatus.OK)

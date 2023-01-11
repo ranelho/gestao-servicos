@@ -34,22 +34,22 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     }
 
     @Override
-    public OrdemServico getOSPorId(Long idOrdemServico) {
-        log.info("[inicia] OrdemServicoApplciationService - getOSPorId");
+    public OrdemServico getOSById(Long idOrdemServico) {
+        log.info("[inicia] OrdemServicoApplciationService - getOSById");
         OrdemServico ordemServico = ordemServicoRepository.findOSById(idOrdemServico);
-        log.info("[finaliza] OrdemServicoApplciationService - getOSPorId");
+        log.info("[finaliza] OrdemServicoApplciationService - getOSById");
         return ordemServico;
     }
 
     @Override
-    public OrdemServico getOSPorIdEquipamento(Long idEquipamento) {
-        log.info("[inicia] OrdemServicoApplciationService - getOSPorIdEquipamento");
+    public OrdemServico getOSByIdEquipamento(Long idEquipamento) {
+        log.info("[inicia] OrdemServicoApplciationService - getOSByIdEquipamento");
         equipamentoRepository.findEquipamentoById(idEquipamento);
         OrdemServico ordemServico = ordemServicoRepository.getOSByIdEquipmento(idEquipamento);
         if(ordemServico == null){
             throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento sem ordem de serviço");
         }
-        log.info("[finaliza] OrdemServicoApplciationService - getOSPorIdEquipamento");
+        log.info("[finaliza] OrdemServicoApplciationService - getOSByIdEquipamento");
         return ordemServico;
     }
 

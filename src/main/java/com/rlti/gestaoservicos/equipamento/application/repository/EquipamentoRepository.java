@@ -7,6 +7,8 @@ import java.util.List;
 public interface EquipamentoRepository {
     Equipamento salva(Equipamento equipamento);
     Equipamento findEquipamentoById(Long idEquipamento);
+    Equipamento findEquipamentoByPatrimonio(String patrimonio);
     List<Equipamento> buscaEquipamentos();
+
     void deleta(Long idEquipamento);
 }

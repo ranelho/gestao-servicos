@@ -10,8 +10,9 @@ import java.util.List;
 
 public interface EquipamentoService {
     EquipamentoIdResponse postEquipamento(EquipamentoRequest equipamentoRequest);
-    Equipamento getEquipamentoPorId(Long idEquipamento);
-    List<EquipamentoListReponse> getTodosEquipamentos();
+    Equipamento getEquipamentoById(Long idEquipamento);
+    Equipamento getEquipamentoByPatrimonio(String patrimonio);
+    List<EquipamentoListReponse> getAllEquipamentos();
     void alteraEquipamento(Long idEquipamento, EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
     void detelaEquipamento(Long idEquipamento);
 }

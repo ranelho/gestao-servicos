@@ -10,6 +10,5 @@ public interface OrdemServicoRepository {
     OrdemServico getOSByIdEquipmento(Long idEquipamento);
     List<OrdemServico> getTodosOS();
     void deleta(Long idOrdemServico);
-
     List<OrdemServico> getAtendimentos();
 }
