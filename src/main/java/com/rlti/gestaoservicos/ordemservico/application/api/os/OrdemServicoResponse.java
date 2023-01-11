@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Servico;
+import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteResponse;
 import lombok.Value;
 
@@ -20,6 +21,7 @@ public class OrdemServicoResponse {
     private LocalDateTime dataOrdemServico;
     private LocalDateTime dataFimOrdemServico;
     private String diagnostico;
+    private Situacao situacao;
     private List<Servico> servicos;
 
     public OrdemServicoResponse(OrdemServico ordemServico) {
@@ -29,6 +31,7 @@ public class OrdemServicoResponse {
         this.descricaoProblema = ordemServico.getDescricaoProblema();
         this.observacao = ordemServico.getObservacao();
         this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();
+        this.situacao = ordemServico.getSituacao();
         this.diagnostico = ordemServico.getDiagnostico();
         this.servicos = ordemServico.getServicos();
         this.dataOrdemServico = ordemServico.getDataOrdemServico();

@@ -40,11 +40,11 @@ public class OrdemServico {
     private List<Suporte> suportes;
 
     @NotNull
-    private Situacao situacao;
-    @NotNull
     private String descricaoProblema;
     private String observacao;
     private String diagnostico;
+    @NotNull
+    private Situacao situacao;
 
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ordemServico")
     private List<Servico> servicos;
@@ -53,18 +53,18 @@ public class OrdemServico {
         this.equipamento = ordemServicoResquest.getEquipamento();
         this.dataOrdemServico = LocalDateTime.now();
         this.suportes = ordemServicoResquest.getSuportes();
-        this.situacao = Situacao.AGUARDANDO_ATENDIMENTO;
         this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();
         this.observacao = ordemServicoResquest.getObservacao();
+        this.situacao = Situacao.AGUARDANDO_ATENDIMENTO;
     }
 
     public void altera(OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
         this.dataFimOrdemServico = ordemServicoAlteracaoRequest.getDataFimOrdemServico();
         this.suportes = ordemServicoAlteracaoRequest.getSuportes();
-        this.situacao = ordemServicoAlteracaoRequest.getSituacao();
         this.descricaoProblema = ordemServicoAlteracaoRequest.getDescricaoProblema();
         this.observacao = ordemServicoAlteracaoRequest.getObservacao();
         this.diagnostico = ordemServicoAlteracaoRequest.getDiagnostico();
+        this.situacao = ordemServicoAlteracaoRequest.getSituacao();
     }
 }
 
