@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SecretariaInfraRepository implements SecretariaRepository {
     private final SecretariaSpringDataJPARepository secretariaSpringDataJPARepository;
-       @Override
+    @Override
     public Secretaria salva(Secretaria secretaria) {
         log.info("[inicia] SecretariaInfraRepository - salva");
         try {
@@ -30,21 +30,21 @@ public class SecretariaInfraRepository implements SecretariaRepository {
     }
 
     @Override
-    public Secretaria buscaSecretariaPorId(Long idSecretaria) {
-        log.info("[inicia] SecretariaInfraRepository - buscaSecretariaPorId");
+    public Secretaria findSecretariaById(Long idSecretaria) {
+        log.info("[inicia] SecretariaInfraRepository - findSecretariaById");
         Optional<Secretaria> optionalSecretaria = secretariaSpringDataJPARepository.findById(idSecretaria);
         Secretaria secretaria = optionalSecretaria.orElseThrow(
                 () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Secretaria inexistente!");  }
         );
-        log.info("[finaliza] SecretariaInfraRepository - buscaSecretariaPorId");
+        log.info("[finaliza] SecretariaInfraRepository - findSecretariaById");
         return secretaria;
     }
 
     @Override
-    public List<Secretaria> getTodasSecretarias() {
-        log.info("[inicia] SecretariaInfraRepository - SecretariaInfraRepository");
+    public List<Secretaria> getAllSecretarias() {
+        log.info("[inicia] SecretariaInfraRepository - getAllSecretarias");
         List<Secretaria> listaSecretaria = secretariaSpringDataJPARepository.findAll();
-        log.info("[finaliza] SecretariaInfraRepository - SecretariaInfraRepository");
+        log.info("[finaliza] SecretariaInfraRepository - getAllSecretarias");
         return listaSecretaria;
     }
 

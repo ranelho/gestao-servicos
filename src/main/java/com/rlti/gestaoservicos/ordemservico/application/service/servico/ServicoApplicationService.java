@@ -27,35 +27,35 @@ public class ServicoApplicationService implements ServicoService {
     }
 
     @Override
-    public Servico buscaServicoPorId(Long idServico) {
-        log.info("[inicia] ServicoApplicationService - buscaSecretariaPorId");
-        Servico servico = servicoRepository.buscaServicoPorId(idServico);
-        log.info("[finaliza] ServicoApplicationService - buscaSecretariaPorId");
+    public Servico findServicoById(Long idServico) {
+        log.info("[inicia] ServicoApplicationService - buscaServicoById");
+        Servico servico = servicoRepository.findServicoById(idServico);
+        log.info("[finaliza] ServicoApplicationService - buscaServicoById");
         return servico;
     }
 
     @Override
-    public List<ServicoListResponse> getTodosServicos() {
-        log.info("[inicia] ServicoApplicationService - getTodasServicos");
-        List<Servico> listaServico = servicoRepository.getTodosServicos();
-        log.info("[finaliza] ServicoApplicationService - getTodasServicos");
+    public List<ServicoListResponse> getAllServicos() {
+        log.info("[inicia] ServicoApplicationService - getAllServicos");
+        List<Servico> listaServico = servicoRepository.getAllServicos();
+        log.info("[finaliza] ServicoApplicationService - getAllServicos");
         return ServicoListResponse.converte(listaServico);
     }
 
     @Override
     public void alteraServico(Long idServico, ServicoAlteracaoRequest servicoAlteracaoRequest) {
         log.info("[inicia] ServicoApplicationService - alteraSecretaria");
-        Servico servico = servicoRepository.buscaServicoPorId(idServico);
+        Servico servico = servicoRepository.findServicoById(idServico);
         servico.altera(servicoAlteracaoRequest);
         servicoRepository.salva(servico);
         log.info("[finaliza] ServicoApplicationService - alteraSecretaria");
     }
 
     @Override
-    public void deletaServicoPorId(Long idServico) {
-        log.info("[inicia] ServicoApplicationService - deletaServicoPorId");
-        buscaServicoPorId(idServico);
+    public void deletaServicoById(Long idServico) {
+        log.info("[inicia] ServicoApplicationService - deletaServicoById");
+        findServicoById(idServico);
         servicoRepository.deleta(idServico);
-        log.info("[finaliza] ServicoApplicationService - deletaServicoPorId");
+        log.info("[finaliza] ServicoApplicationService - deletaServicoById");
     }
 }

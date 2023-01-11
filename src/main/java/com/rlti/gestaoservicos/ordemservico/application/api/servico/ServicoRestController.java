@@ -23,18 +23,18 @@ public class ServicoRestController implements ServicoApi {
     }
 
     @Override
-    public ServicoDetalhadoResponse getServicoPorId(Long idServico) {
-        log.info("[inicia] ServicoRestController - getServicoPorId");
-        Servico servico = servicoService.buscaServicoPorId(idServico);
-        log.info("[finaliza] ServicoRestController - getServicoPorId");
+    public ServicoDetalhadoResponse getServicoById(Long idServico) {
+        log.info("[inicia] ServicoRestController - getServicoById");
+        Servico servico = servicoService.findServicoById(idServico);
+        log.info("[finaliza] ServicoRestController - getServicoById");
         return new ServicoDetalhadoResponse(servico);
     }
 
     @Override
-    public List<ServicoListResponse> getTodosServicos() {
-        log.info("[inicia] ServicoRestController - getTodasSecretarias");
-        List<ServicoListResponse> listaServicos = servicoService.getTodosServicos();
-        log.info("[finaliza] ServicoRestController - getTodasSecretarias");
+    public List<ServicoListResponse> getAllServicos() {
+        log.info("[inicia] ServicoRestController - getAllServicos");
+        List<ServicoListResponse> listaServicos = servicoService.getAllServicos();
+        log.info("[finaliza] ServicoRestController - getAllServicos");
         return listaServicos;
     }
 
@@ -46,9 +46,9 @@ public class ServicoRestController implements ServicoApi {
     }
 
     @Override
-    public void deletaServicoPorId(Long idServico) {
-        log.info("[inicia] ServicoRestController - deletaServicoPorId");
-        servicoService.deletaServicoPorId(idServico);
-        log.info("[finaliza] ServicoRestController - deletaServicoPorId");
+    public void deletaServicoById(Long idServico) {
+        log.info("[inicia] ServicoRestController - deletaServicoById");
+        servicoService.deletaServicoById(idServico);
+        log.info("[finaliza] ServicoRestController - deletaServicoById");
     }
 }

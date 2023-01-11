@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface SecretariaService {
     SecretariaIdResponse criaSecretaria(SecretariaRequest secretariaRequest);
-    Secretaria buscaSecretariaPorId(Long idSecretaria);
-    List<SecretariaListResponse> getTodasSecretarias();
+    Secretaria findSecretariaById(Long idSecretaria);
+    List<SecretariaListResponse> getAllSecretarias();
      void alteraSecretaria(Long idSecretaria, SecretariaAlteracaoRequest secretariaAlteracaoRequest);
-    void deletaSecretariaPorId(Long idSecretaria);
+    void deletaSecretariaById(Long idSecretaria);
 }

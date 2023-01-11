@@ -23,18 +23,18 @@ public class SecretariaRestController implements SecretariaApi {
         return secretariaCriada;
     }
     @Override
-    public SecretariaDetalhadoResponse getSecretariaPorId(Long idSecretaria) {
-        log.info("[inicia] SecretariaRestController - getSecretariaPorId");
-        Secretaria secretaria = secretariaService.buscaSecretariaPorId(idSecretaria);
-        log.info("[finaliza] SecretariaRestController - getSecretariaPorId");
+    public SecretariaDetalhadoResponse getSecretariaById(Long idSecretaria) {
+        log.info("[inicia] SecretariaRestController - getSecretariaById");
+        Secretaria secretaria = secretariaService.findSecretariaById(idSecretaria);
+        log.info("[finaliza] SecretariaRestController - getSecretariaById");
         return new SecretariaDetalhadoResponse(secretaria);
     }
 
     @Override
-    public List<SecretariaListResponse> getTodasSecretarias() {
-        log.info("[inicia] SecretariaRestController - getTodasSecretarias");
-        List<SecretariaListResponse> listaSecretarias = secretariaService.getTodasSecretarias();
-        log.info("[finaliza] SecretariaRestController - getTodasSecretarias");
+    public List<SecretariaListResponse> getAllSecretarias() {
+        log.info("[inicia] SecretariaRestController - getAllSecretarias");
+        List<SecretariaListResponse> listaSecretarias = secretariaService.getAllSecretarias();
+        log.info("[finaliza] SecretariaRestController - getAllSecretarias");
         return listaSecretarias;
     }
 
@@ -46,9 +46,9 @@ public class SecretariaRestController implements SecretariaApi {
     }
 
     @Override
-    public void deletaSecretariaPorId(Long idSecretaria) {
-        log.info("[inicia] SecretariaRestController - deletaSecretariaPorId");
-        secretariaService.deletaSecretariaPorId(idSecretaria);
-        log.info("[finaliza] SecretariaRestController - deletaSecretariaPorId");
+    public void deletaSecretariaById(Long idSecretaria) {
+        log.info("[inicia] SecretariaRestController - deletaSecretariaById");
+        secretariaService.deletaSecretariaById(idSecretaria);
+        log.info("[finaliza] SecretariaRestController - deletaSecretariaById");
     }
 }

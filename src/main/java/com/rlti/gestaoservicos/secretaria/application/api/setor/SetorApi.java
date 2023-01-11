@@ -17,11 +17,11 @@ public interface SetorApi {
 
     @GetMapping(value = "/{idSetor}")
     @ResponseStatus(code = HttpStatus.OK)
-    SetorDetalhadoResponse getSetorPorId(@PathVariable Long idSetor);
+    SetorDetalhadoResponse getSetorById(@PathVariable Long idSetor);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<SetorListResponse> getTodosSetores();
+    List<SetorListResponse> getAllSetores();
 
     @PatchMapping (value = "/update/{idSetor}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -29,5 +29,5 @@ public interface SetorApi {
 
     @DeleteMapping(value = "/{idSetor}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deletaSetorPorId(@PathVariable Long idSetor);
+    void deletaSetorById(@PathVariable Long idSetor);
 }

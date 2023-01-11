@@ -25,7 +25,7 @@ public class EquipamentoApplicationService implements EquipamentoService {
     @Override
     public EquipamentoIdResponse postEquipamento(EquipamentoRequest equipamentoRequest) {
         log.info("[inicia] EquipamentoServiceApplication - portEquipamneto");
-        setorRepository.buscaSetorPorId(equipamentoRequest.getSetor().getIdSetor());
+        setorRepository.findSetorById(equipamentoRequest.getSetor().getIdSetor());
         Equipamento exiteEquipamento = equipamentoRepository.findEquipamentoByPatrimonio(equipamentoRequest.getPatrimonio());
         if(exiteEquipamento.getPatrimonio().equalsIgnoreCase(equipamentoRequest.getPatrimonio())){
             throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento já cadastrado!");

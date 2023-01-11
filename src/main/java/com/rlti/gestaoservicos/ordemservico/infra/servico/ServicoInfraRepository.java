@@ -28,21 +28,21 @@ public class ServicoInfraRepository implements ServicoRepository {
     }
 
     @Override
-    public Servico buscaServicoPorId(Long idServico) {
-        log.info("[inicia] ServicoInfraRepository - buscaServicoPorId");
+    public Servico findServicoById(Long idServico) {
+        log.info("[inicia] ServicoInfraRepository - findServicoById");
         Optional<Servico> optionalServico = servicoSpringDataJPARepository.findById(idServico);
         Servico servico = optionalServico.orElseThrow(
                 () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Serviço inexistente!");  }
         );
-        log.info("[finaliza] ServicoInfraRepository - buscaServicoPorId");
+        log.info("[finaliza] ServicoInfraRepository - findServicoById");
         return servico;
     }
 
     @Override
-    public List<Servico> getTodosServicos() {
-        log.info("[inicia] ServicoInfraRepository - getTodasServicos");
+    public List<Servico> getAllServicos() {
+        log.info("[inicia] ServicoInfraRepository - getAllServicos");
         List<Servico> listaServicos = servicoSpringDataJPARepository.findAll();
-        log.info("[finaliza] ServicoInfraRepository - getTodasServicos");
+        log.info("[finaliza] ServicoInfraRepository - getAllServicos");
         return listaServicos;
     }
 

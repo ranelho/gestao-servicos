@@ -24,18 +24,18 @@ public class SetorRestController implements SetorApi{
     }
 
     @Override
-    public SetorDetalhadoResponse getSetorPorId(Long idSetor) {
-        log.info("[inicia] SetorRestController - postSetor");
-        Setor setor = setorService.getSetorPorId(idSetor);
-        log.info("[finaliza] SetorRestController - postSetor");
+    public SetorDetalhadoResponse getSetorById(Long idSetor) {
+        log.info("[inicia] SetorRestController - getSetorById");
+        Setor setor = setorService.getSetorById(idSetor);
+        log.info("[finaliza] SetorRestController - getSetorById");
         return new SetorDetalhadoResponse(setor);
     }
 
     @Override
-    public List<SetorListResponse> getTodosSetores() {
-        log.info("[inicia] SetorRestController - getTodosSetores");
-        List<SetorListResponse> listaSetores = setorService.getTodosSetores();
-        log.info("[finaliza] SetorRestController - getTodosSetores");
+    public List<SetorListResponse> getAllSetores() {
+        log.info("[inicia] SetorRestController - getAllSetores");
+        List<SetorListResponse> listaSetores = setorService.getAllSetores();
+        log.info("[finaliza] SetorRestController - getAllSetores");
         return listaSetores;
     }
 
@@ -47,9 +47,9 @@ public class SetorRestController implements SetorApi{
     }
 
     @Override
-    public void deletaSetorPorId(Long idSetor) {
-        log.info("[inicia] SetorRestController - deletaSetorPorId");
+    public void deletaSetorById(Long idSetor) {
+        log.info("[inicia] SetorRestController - deletaSetorById");
         setorService.deletaSetor(idSetor);
-        log.info("[finaliza] SetorRestController - deletaSetorPorId");
+        log.info("[finaliza] SetorRestController - deletaSetorById");
     }
 }

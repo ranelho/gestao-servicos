@@ -15,11 +15,11 @@ public interface ServicoApi {
 
     @GetMapping(value = "/{idServico}")
     @ResponseStatus(code = HttpStatus.OK)
-    ServicoDetalhadoResponse getServicoPorId(@PathVariable Long idServico);
+    ServicoDetalhadoResponse getServicoById(@PathVariable Long idServico);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<ServicoListResponse> getTodosServicos();
+    List<ServicoListResponse> getAllServicos();
 
     @PatchMapping (value = "/update/{idServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -27,5 +27,5 @@ public interface ServicoApi {
 
     @DeleteMapping(value = "/{idServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deletaServicoPorId(@PathVariable Long idServico);
+    void deletaServicoById(@PathVariable Long idServico);
 }

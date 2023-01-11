@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface ServicoService {
     ServicoIdResponse criaServico(ServicoRequest servicoRequest);
-    Servico buscaServicoPorId(Long idServico);
-    List<ServicoListResponse> getTodosServicos();
+    Servico findServicoById(Long idServico);
+    List<ServicoListResponse> getAllServicos();
     void alteraServico(Long idServico, ServicoAlteracaoRequest servicoAlteracaoRequest);
-    void deletaServicoPorId(Long idServico);
+    void deletaServicoById(Long idServico);
 }

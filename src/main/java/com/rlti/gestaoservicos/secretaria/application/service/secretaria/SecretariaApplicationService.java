@@ -26,35 +26,35 @@ public class SecretariaApplicationService implements SecretariaService {
         return SecretariaIdResponse.builder().idSecretaria(secretaria.getIdSecretaria()).build();
     }
     @Override
-    public Secretaria buscaSecretariaPorId(Long idSecretaria) {
-       log.info("[inicia] SecretariaApplicationService - buscaSecretariaPorId");
-       Secretaria secretaria = secretariaRepository.buscaSecretariaPorId(idSecretaria);
-        log.info("[finaliza] SecretariaApplicationService - buscaSecretariaPorId");
+    public Secretaria findSecretariaById(Long idSecretaria) {
+       log.info("[inicia] SecretariaApplicationService - findSecretariaById");
+       Secretaria secretaria = secretariaRepository.findSecretariaById(idSecretaria);
+        log.info("[finaliza] SecretariaApplicationService - findSecretariaById");
         return secretaria;
     }
 
     @Override
-    public List<SecretariaListResponse> getTodasSecretarias() {
-        log.info("[inicia] SecretariaApplicationService - getTodasSecretarias");
-        List<Secretaria> listaSecretaria = secretariaRepository.getTodasSecretarias();
-        log.info("[finaliza] SecretariaApplicationService - getTodasSecretarias");
+    public List<SecretariaListResponse> getAllSecretarias() {
+        log.info("[inicia] SecretariaApplicationService - getAllSecretarias");
+        List<Secretaria> listaSecretaria = secretariaRepository.getAllSecretarias();
+        log.info("[finaliza] SecretariaApplicationService - getAllSecretarias");
         return SecretariaListResponse.converte(listaSecretaria);
     }
 
     @Override
     public void alteraSecretaria(Long idSecretaria, SecretariaAlteracaoRequest secretariaAlteracaoRequest) {
         log.info("[inicia] SecretariaRestController - alteraSecretaria");
-        Secretaria secretaria = secretariaRepository.buscaSecretariaPorId(idSecretaria);
+        Secretaria secretaria = secretariaRepository.findSecretariaById(idSecretaria);
         secretaria.altera(secretariaAlteracaoRequest);
         secretariaRepository.salva(secretaria);
         log.info("[finaliza] SecretariaRestController - alteraSecretaria");
     }
 
     @Override
-    public void deletaSecretariaPorId(Long idSecretaria) {
-        log.info("[inicia] SecretariaRestController - deletaSecretariaPorId");
-        buscaSecretariaPorId(idSecretaria);
+    public void deletaSecretariaById(Long idSecretaria) {
+        log.info("[inicia] SecretariaRestController - deletaSecretariaById");
+        findSecretariaById(idSecretaria);
         secretariaRepository.deleta(idSecretaria);
-        log.info("[finaliza] SecretariaRestController - deletaSecretariaPorId");
+        log.info("[finaliza] SecretariaRestController - deletaSecretariaById");
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ServicoRepository {
     Servico salva(Servico servico);
-    Servico buscaServicoPorId(Long idServico);
-    List<Servico> getTodosServicos();
+    Servico findServicoById(Long idServico);
+    List<Servico> getAllServicos();
     void deleta(Long idServico);
 }

@@ -31,21 +31,21 @@ public class SetorInfraRespository implements SetorRepository {
     }
 
     @Override
-    public Setor buscaSetorPorId(Long idSetor) {
-        log.info("[inicia] SetorInfraRespository - buscaSetorPorId");
+    public Setor findSetorById(Long idSetor) {
+        log.info("[inicia] SetorInfraRespository - findSetorById");
         Optional<Setor> optionalSetor = setorSpringDataJPARepository.findById(idSetor);
         Setor setor = optionalSetor.orElseThrow(
                 () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Setor inexistente!");   }
         );
-        log.info("[finaliza] SetorInfraRespository - buscaSetorPorId");
+        log.info("[finaliza] SetorInfraRespository - findSetorById");
         return setor;
     }
 
     @Override
-    public List<Setor> buscaSetores() {
-        log.info("[inicia] SetorInfraRespository - buscaSetores");
+    public List<Setor> findSetores() {
+        log.info("[inicia] SetorInfraRespository - findSetores");
         List<Setor> setor = setorSpringDataJPARepository.findAll();
-        log.info("[inicia] SetorInfraRespository - buscaSetores");
+        log.info("[finaliza] SetorInfraRespository - findSetores");
         return setor;
     }
 

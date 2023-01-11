@@ -1,15 +1,11 @@
 package com.rlti.gestaoservicos.secretaria.application.service.setor;
 
-import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.secretaria.application.api.setor.*;
-import com.rlti.gestaoservicos.secretaria.application.repository.secretaria.SecretariaRepository;
 import com.rlti.gestaoservicos.secretaria.application.repository.setor.SetorRepository;
 import com.rlti.gestaoservicos.secretaria.domain.Secretaria;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,25 +25,25 @@ public class SetorApplicationService implements SetorService {
     }
 
     @Override
-    public Setor getSetorPorId(Long idSetor) {
-        log.info("[inicia] SetorApplicationService - getSetorPorId");
-        Setor setor = setorRepository.buscaSetorPorId(idSetor);
-        log.info("[finaliza] SetorApplicationService - getSetorPorId");
+    public Setor getSetorById(Long idSetor) {
+        log.info("[inicia] SetorApplicationService - getSetorById");
+        Setor setor = setorRepository.findSetorById(idSetor);
+        log.info("[finaliza] SetorApplicationService - getSetorById");
         return setor;
     }
 
     @Override
-    public List<SetorListResponse> getTodosSetores() {
-        log.info("[inicia] SetorApplicationService - getTodosSetores");
-        List<Setor> listaSetor = setorRepository.buscaSetores();
-        log.info("[finzaliza] SetorApplicationService - getTodosSetores");
+    public List<SetorListResponse> getAllSetores() {
+        log.info("[inicia] SetorApplicationService - getAllSetores");
+        List<Setor> listaSetor = setorRepository.findSetores();
+        log.info("[finaliza] SetorApplicationService - getAllSetores");
         return SetorListResponse.converte(listaSetor);
     }
 
     @Override
     public void alteraSetor(Long idSetor, SetorAlteracaoRequest setorAlteracaoRequest) {
         log.info("[inicia] SetorApplicationService - alteraSetor");
-        Setor setor = setorRepository.buscaSetorPorId(idSetor);
+        Setor setor = setorRepository.findSetorById(idSetor);
         setor.altera(setorAlteracaoRequest);
         setorRepository.salva(setor);
         log.info("[finaliza] SetorApplicationService - alteraSetor");
@@ -56,7 +52,7 @@ public class SetorApplicationService implements SetorService {
     @Override
     public void deletaSetor(Long idSetor) {
         log.info("[inicia] SetorApplicationService - deletaSetor");
-        getSetorPorId(idSetor);
+        getSetorById(idSetor);
         setorRepository.deleta(idSetor);
         log.info("[finaliza] SetorApplicationService - deletaSetor");
     }

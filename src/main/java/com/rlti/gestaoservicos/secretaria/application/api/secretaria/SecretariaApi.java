@@ -15,11 +15,11 @@ public interface SecretariaApi {
 
     @GetMapping(value = "/{idSecretaria}")
     @ResponseStatus(code = HttpStatus.OK)
-    SecretariaDetalhadoResponse getSecretariaPorId(@PathVariable Long idSecretaria);
+    SecretariaDetalhadoResponse getSecretariaById(@PathVariable Long idSecretaria);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<SecretariaListResponse> getTodasSecretarias();
+    List<SecretariaListResponse> getAllSecretarias();
 
     @PatchMapping (value = "/update/{idSecretaria}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -27,5 +27,5 @@ public interface SecretariaApi {
 
     @DeleteMapping(value = "/{idSecretaria}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deletaSecretariaPorId(@PathVariable Long idSecretaria);
+    void deletaSecretariaById(@PathVariable Long idSecretaria);
 }
