@@ -23,17 +23,18 @@ public interface OrdemServicoApi {
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<OrdemServicoListResponse> getTodasOS();
+    List<OrdemServicoListResponse> getAllOS();
+
+    @GetMapping(value = "/atendimentos")
+    @ResponseStatus(code = HttpStatus.OK)
+    List<OrdemServicoListResponse> getAtendimentos();
 
     @PatchMapping (value = "/update/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void alteraOS(@PathVariable Long idOrdemServico,
                            @Valid @RequestBody OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
+
     @DeleteMapping(value = "/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaOSById(@PathVariable Long idOrdemServico);
-
-    @GetMapping(value = "/atendimentos")
-    @ResponseStatus(code = HttpStatus.OK)
-    List<OrdemServicoListResponse> getAtendimentos();
 }

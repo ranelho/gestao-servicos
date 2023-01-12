@@ -8,7 +8,7 @@ public interface OrdemServicoRepository {
     OrdemServico salva(OrdemServico ordemServico);
     OrdemServico findOSById(Long idOrdemServico);
     OrdemServico getOSByIdEquipmento(Long idEquipamento);
-    List<OrdemServico> getTodosOS();
-    void deleta(Long idOrdemServico);
     List<OrdemServico> getAtendimentos();
+    List<OrdemServico> getAllOS();
+    void deleta(Long idOrdemServico);
 }

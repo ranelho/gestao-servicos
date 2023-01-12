@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -20,11 +21,10 @@ public class Suporte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSuporte;
-    @NotNull
+    @NotBlank
     @Column(unique = true, updatable = true)
     private String nome;
     private String empresa;
-
     @ManyToMany(mappedBy = "suportes")
     @JsonIgnore
     private List<OrdemServico> ordemServicos;

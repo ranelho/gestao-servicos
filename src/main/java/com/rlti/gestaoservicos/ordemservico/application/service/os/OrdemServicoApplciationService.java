@@ -54,10 +54,18 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     }
 
     @Override
-    public List<OrdemServicoListResponse> getTodosOS() {
-        log.info("[inicia] OrdemServicoApplciationService - getTodosOS");
-        List<OrdemServico> listOrdemServico = ordemServicoRepository.getTodosOS();
-        log.info("[finaliza] OrdemServicoApplciationService - getTodosOS");
+    public List<OrdemServicoListResponse> getAllOS() {
+        log.info("[inicia] OrdemServicoApplciationService - getAllOS");
+        List<OrdemServico> listOrdemServico = ordemServicoRepository.getAllOS();
+        log.info("[finaliza] OrdemServicoApplciationService - getAllOS");
+        return OrdemServicoListResponse.converte(listOrdemServico);
+    }
+
+    @Override
+    public List<OrdemServicoListResponse> getAtendimentos() {
+        log.info("[inicia] OrdemServicoApplciationService - getAtendimentos");
+        List<OrdemServico> listOrdemServico = ordemServicoRepository.getAtendimentos();
+        log.info("[finaliza] OrdemServicoApplciationService - getAtendimentos");
         return OrdemServicoListResponse.converte(listOrdemServico);
     }
 
@@ -76,13 +84,5 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
         ordemServicoRepository.findOSById(idOrdemServico);
         ordemServicoRepository.deleta(idOrdemServico);
         log.info("[finaliza] OrdemServicoApplciationService - deleta");
-    }
-
-    @Override
-    public List<OrdemServicoListResponse> getAtendimentos() {
-        log.info("[inicia] OrdemServicoApplciationService - getAtendimentos");
-        List<OrdemServico> listOrdemServico = ordemServicoRepository.getAtendimentos();
-        log.info("[finaliza] OrdemServicoApplciationService - getAtendimentos");
-        return OrdemServicoListResponse.converte(listOrdemServico);
     }
 }

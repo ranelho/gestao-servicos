@@ -14,6 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -25,13 +26,14 @@ public class Equipamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipamento;
-    @NotNull
+    @NotBlank(message = "{patrimonio.not.blank}")
     @Column(nullable = false, unique = true, updatable = true, length = 6)
     private String patrimonio;
-    @NotNull
+    @NotBlank
     @Enumerated(EnumType.STRING)
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
+    @NotBlank(message = "{setor.not.blank}")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "setor_id")
     @JsonIgnore

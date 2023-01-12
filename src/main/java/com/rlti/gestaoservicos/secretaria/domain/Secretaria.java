@@ -20,12 +20,11 @@ public class Secretaria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSecretaria;
-    @NotNull
+
     @NotBlank(message = "{secretaria.not.blank}")
     @Column(unique = true, updatable = true)
     private String secretaria;
     private String secretario;
-
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "secretaria")
     @JsonIgnore
     private List<Setor> setores;

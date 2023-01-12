@@ -35,7 +35,8 @@ public class OrdemServico {
     @JoinTable(
             name = "ordemservico_suporte",
             joinColumns = @JoinColumn(name = "ordemservico_id"),
-            inverseJoinColumns = @JoinColumn(name = "suporte_id"))
+            inverseJoinColumns = @JoinColumn(name = "suporte_id")
+    )
     private List<Suporte> suportes;
     @NotNull
     private String descricaoProblema;

@@ -5,7 +5,6 @@ import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServi
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -30,10 +29,9 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
         log.info("[inicia] OrdemServicoInfraRepository - findOSById");
         Optional<OrdemServico> optionalOrdemServico = ordemServicoSpringaDataJPARespository.findById(idOrdemServico);
         OrdemServico ordemServico = optionalOrdemServico
-                .orElseThrow(() ->  {
-                            throw APIException.build(HttpStatus.NOT_FOUND, "Ordem de Serviço não encontrada");
-                        }
-                );
+            .orElseThrow(() ->  {
+                throw APIException.build(HttpStatus.NOT_FOUND, "Ordem de Serviço não encontrada");
+            });
         log.info("[finaliza] OrdemServicoInfraRepository - findOSById");
         return ordemServico;
     }
@@ -47,18 +45,11 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     }
 
     @Override
-    public List<OrdemServico> getTodosOS() {
-        log.info("[inicia] OrdemServicoInfraRepository - getTodosOS");
+    public List<OrdemServico> getAllOS() {
+        log.info("[inicia] OrdemServicoInfraRepository - getAllOS");
         List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAll();
-        log.info("[inicia] OrdemServicoInfraRepository - getTodosOS");
+        log.info("[inicia] OrdemServicoInfraRepository - getAllOS");
         return listOrdemServico;
-    }
-
-    @Override
-    public void deleta(Long idOrdemServico) {
-        log.info("[inicia] OrdemServicoInfraRepository - deleta");
-        ordemServicoSpringaDataJPARespository.deleteById(idOrdemServico);
-        log.info("[finaliza] OrdemServicoInfraRepository - deleta");
     }
 
     @Override
@@ -67,5 +58,12 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
         List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAllAtendimentos();
         log.info("[finaliza] OrdemServicoInfraRepository - getAtendimentos");
         return listOrdemServico;
+    }
+
+    @Override
+    public void deleta(Long idOrdemServico) {
+        log.info("[inicia] OrdemServicoInfraRepository - deleta");
+        ordemServicoSpringaDataJPARespository.deleteById(idOrdemServico);
+        log.info("[finaliza] OrdemServicoInfraRepository - deleta");
     }
 }

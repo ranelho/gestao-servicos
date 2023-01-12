@@ -15,11 +15,11 @@ public interface SuporteApi {
 
     @GetMapping(value = "/{idSuporte}")
     @ResponseStatus(code = HttpStatus.OK)
-    SuporteDetalhadoResponse getSuportePorId(@PathVariable Long idSuporte);
+    SuporteDetalhadoResponse getSuporteById(@PathVariable Long idSuporte);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<SuporteListResponse> getTodosSuportes();
+    List<SuporteListResponse> getAllSuportes();
 
     @PatchMapping (value = "/update/{idSuporte}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -27,9 +27,9 @@ public interface SuporteApi {
 
     @DeleteMapping(value = "/{idSuporte}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deletaSuportePorId(@PathVariable Long idSuporte);
+    void deletaSuporteById(@PathVariable Long idSuporte);
 
     @GetMapping(value = "/ordem-servico/{idSuporte}")
     @ResponseStatus(code = HttpStatus.OK)
-    SuporteOSListResponse getOSSuportePorId(@PathVariable Long idSuporte);
+    SuporteOSListResponse getOSSuporteById(@PathVariable Long idSuporte);
 }

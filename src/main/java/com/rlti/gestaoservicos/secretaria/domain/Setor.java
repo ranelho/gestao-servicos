@@ -24,12 +24,11 @@ public class Setor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSetor;
-    @NotNull
     @NotBlank(message = "{setor.not.blank}")
     @Column(unique = true, updatable = true)
     private String setor;
     private String responsavel;
-    @NotNull
+    @NotBlank
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "secretaria_id")
     private Secretaria secretaria;

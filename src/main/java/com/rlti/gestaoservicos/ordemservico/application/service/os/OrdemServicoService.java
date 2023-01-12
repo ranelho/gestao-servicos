@@ -9,9 +9,8 @@ public interface OrdemServicoService {
     OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest);
     OrdemServico getOSById(Long idOrdemServico);
     OrdemServico getOSByIdEquipamento(Long idEquipamento);
-    List<OrdemServicoListResponse> getTodosOS();
+    List<OrdemServicoListResponse> getAllOS();
+    List<OrdemServicoListResponse> getAtendimentos();
     void alteraOS(Long idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
     void deleta(Long idOrdemServico);
-
-    List<OrdemServicoListResponse> getAtendimentos();
 }

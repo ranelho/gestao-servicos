@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.suporte.application.api;
 
-import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoListResponse;
 import com.rlti.gestaoservicos.suporte.application.service.SuporteService;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.RequiredArgsConstructor;
@@ -23,18 +22,18 @@ public class SuporteRestController implements SuporteApi {
         return suporteIdResponse;
     }
     @Override
-    public SuporteDetalhadoResponse getSuportePorId(Long idSuporte) {
-        log.info("[inicia] SuporteRestController - getSuportePorId");
-        Suporte suporte = suporteService.buscaSuportePorId(idSuporte);
-        log.info("[finaliza] SuporteRestController - getSuportePorId");
+    public SuporteDetalhadoResponse getSuporteById(Long idSuporte) {
+        log.info("[inicia] SuporteRestController - getSuporteById");
+        Suporte suporte = suporteService.findSuporteById(idSuporte);
+        log.info("[finaliza] SuporteRestController - getSuporteById");
         return new SuporteDetalhadoResponse(suporte);
     }
 
     @Override
-    public List<SuporteListResponse> getTodosSuportes() {
-        log.info("[inicia] SuporteRestController - getTodosSuportes");
-        List<SuporteListResponse> listaSuporte = suporteService.getTodosSuportes();
-        log.info("[finaliza] SuporteRestController - getTodosSuportes");
+    public List<SuporteListResponse> getAllSuportes() {
+        log.info("[inicia] SuporteRestController - getAllSuportes");
+        List<SuporteListResponse> listaSuporte = suporteService.getAllSuportes();
+        log.info("[finaliza] SuporteRestController - getAllSuportes");
         return listaSuporte;
     }
 
@@ -46,17 +45,17 @@ public class SuporteRestController implements SuporteApi {
     }
 
     @Override
-    public void deletaSuportePorId(Long idSuporte) {
-        log.info("[inicia] SuporteRestController - deletaSuportePorId");
-        suporteService.deletaSuportePorId(idSuporte);
-        log.info("[finaliza] SuporteRestController - deletaSuportePorId");
+    public void deletaSuporteById(Long idSuporte) {
+        log.info("[inicia] SuporteRestController - deletaSuporteById");
+        suporteService.deletaSuporteById(idSuporte);
+        log.info("[finaliza] SuporteRestController - deletaSuporteById");
     }
 
     @Override
-    public SuporteOSListResponse getOSSuportePorId(Long idSuporte) {
-        log.info("[inicia] SuporteRestController - getSuportePorId");
-        Suporte suporte = suporteService.buscaSuportePorId(idSuporte);
-        log.info("[finaliza] SuporteRestController - getSuportePorId");
+    public SuporteOSListResponse getOSSuporteById(Long idSuporte) {
+        log.info("[inicia] SuporteRestController - getOSSuporteById");
+        Suporte suporte = suporteService.findSuporteById(idSuporte);
+        log.info("[finaliza] SuporteRestController - getOSSuporteById");
         return new SuporteOSListResponse(suporte);
     }
 }

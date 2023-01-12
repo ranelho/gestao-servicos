@@ -4,18 +4,19 @@ import com.rlti.gestaoservicos.equipamento.domain.TipoEquipamento;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.Value;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Value
 public class EquipamentoRequest {
-    @NotNull
+    @NotBlank
     @Size(max = 6, min = 6, message = "o patrimônio tem que ter 6 caracteres")
     private String patrimonio;
-    @NotNull
+    @NotBlank
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
-    @NotNull
+    @NotBlank
     private Setor setor;
     private String modelo;
     private String marca;
