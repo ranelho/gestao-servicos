@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Value
 public class SecretariaRequest {
-    @NotBlank
+    @NotNull
     @Size(min = 3, max = 255)
     private String secretaria;
     private String secretario;

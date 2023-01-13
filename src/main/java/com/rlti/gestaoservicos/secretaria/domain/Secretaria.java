@@ -8,8 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @AllArgsConstructor
@@ -20,8 +19,7 @@ public class Secretaria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSecretaria;
-
-    @NotBlank(message = "{secretaria.not.blank}")
+    @NotEmpty
     @Column(unique = true, updatable = true)
     private String secretaria;
     private String secretario;

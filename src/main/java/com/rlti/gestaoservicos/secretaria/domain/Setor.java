@@ -1,6 +1,6 @@
 package com.rlti.gestaoservicos.secretaria.domain;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorAlteracaoRequest;
 import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorRequest;
@@ -11,7 +11,6 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -24,11 +23,11 @@ public class Setor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSetor;
-    @NotBlank(message = "{setor.not.blank}")
     @Column(unique = true, updatable = true)
+    @NotNull
     private String setor;
     private String responsavel;
-    @NotBlank
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "secretaria_id")
     private Secretaria secretaria;

@@ -29,7 +29,7 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
             log.info("[finaliza] OrdemServicoApplciationService - criaOS");
             return OrdemServicoIdResponse.builder().idOrdemServico(ordemServico.getIdOrdemServico()).build();
         }else{
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento com ordem de serviço aberta!");
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento com ordem de serviço aberta de nº" + oSAtiva.getIdOrdemServico());
         }
     }
 

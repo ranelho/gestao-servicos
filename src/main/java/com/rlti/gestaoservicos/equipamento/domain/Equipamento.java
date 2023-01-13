@@ -26,14 +26,13 @@ public class Equipamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipamento;
-    @NotBlank(message = "{patrimonio.not.blank}")
+    @NotBlank
     @Column(nullable = false, unique = true, updatable = true, length = 6)
     private String patrimonio;
-    @NotBlank
+    @NotNull
     @Enumerated(EnumType.STRING)
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
-    @NotBlank(message = "{setor.not.blank}")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "setor_id")
     @JsonIgnore

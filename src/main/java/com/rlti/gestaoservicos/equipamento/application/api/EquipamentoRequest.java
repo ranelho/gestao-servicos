@@ -13,10 +13,9 @@ public class EquipamentoRequest {
     @NotBlank
     @Size(max = 6, min = 6, message = "o patrimônio tem que ter 6 caracteres")
     private String patrimonio;
-    @NotBlank
+    @NotNull
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
-    @NotBlank
     private Setor setor;
     private String modelo;
     private String marca;

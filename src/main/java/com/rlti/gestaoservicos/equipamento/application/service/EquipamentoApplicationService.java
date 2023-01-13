@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,13 +27,13 @@ public class EquipamentoApplicationService implements EquipamentoService {
     public EquipamentoIdResponse postEquipamento(EquipamentoRequest equipamentoRequest) {
         log.info("[inicia] EquipamentoServiceApplication - portEquipamneto");
         setorRepository.findSetorById(equipamentoRequest.getSetor().getIdSetor());
-        Equipamento exiteEquipamento = equipamentoRepository.findEquipamentoByPatrimonio(equipamentoRequest.getPatrimonio());
-        if(exiteEquipamento.getPatrimonio().equalsIgnoreCase(equipamentoRequest.getPatrimonio())){
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento já cadastrado!");
-        }else{
+        Optional<Equipamento> optionalEquipamento = equipamentoRepository.findEquipamentoByPatrimonio(equipamentoRequest.getPatrimonio());
+        if(optionalEquipamento.isEmpty()){
             Equipamento equipamento = equipamentoRepository.salva(new Equipamento(equipamentoRequest));
             log.info("[finaliza] EquipamentoServiceApplication - portEquipamneto");
             return  EquipamentoIdResponse.builder().idEquipamento(equipamento.getIdEquipamento()).build();
+        }else{
+            throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento ja cadastrado!");
         }
     }
 
@@ -47,7 +48,11 @@ public class EquipamentoApplicationService implements EquipamentoService {
     @Override
     public Equipamento getEquipamentoByPatrimonio(String patrimonio) {
         log.info("[inicia] EquipamentoApplicationService - getEquipamentoByPatrimonio");
-        Equipamento equipamento = equipamentoRepository.findEquipamentoByPatrimonio(patrimonio);
+        Equipamento equipamento = equipamentoRepository.findEquipamentoByPatrimonio(patrimonio)
+                .orElseThrow(() ->  {
+                            throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento não encontrado");
+                        }
+                );
         log.info("[finaliza] EquipamentoApplicationService - getEquipamentoByPatrimonio");
         return equipamento;
     }

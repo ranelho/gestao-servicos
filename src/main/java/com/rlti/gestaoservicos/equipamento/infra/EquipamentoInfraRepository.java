@@ -38,16 +38,11 @@ public class EquipamentoInfraRepository implements EquipamentoRepository {
     }
 
     @Override
-    public Equipamento findEquipamentoByPatrimonio(String patrimonio) {
+    public Optional<Equipamento> findEquipamentoByPatrimonio(String patrimonio) {
         log.info("[inicia] EquipamentoInfraRepository - findEquipamentoByPatrimonio");
         Optional<Equipamento> optionalEquipamento = equipamentoSpringDataJPARepository.findByPatrimonio(patrimonio);
-        Equipamento equipamento = optionalEquipamento
-                .orElseThrow(() ->  {
-                            throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento não encontrado");
-                        }
-                );
         log.info("[finaliza] EquipamentoInfraRepository - findEquipamentoByPatrimonio");
-        return equipamento;
+        return optionalEquipamento;
     }
 
     @Override
