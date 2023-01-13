@@ -10,6 +10,5 @@ public interface EquipamentoRepository {
     Equipamento findEquipamentoById(Long idEquipamento);
     Optional<Equipamento> findEquipamentoByPatrimonio(String patrimonio);
     List<Equipamento> buscaEquipamentos();
-
     void deleta(Long idEquipamento);
 }

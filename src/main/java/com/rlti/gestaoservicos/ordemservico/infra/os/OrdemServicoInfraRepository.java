@@ -37,9 +37,9 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     }
 
     @Override
-    public OrdemServico getOSByIdEquipmento(Long idEquipamento) {
+    public Optional<OrdemServico> getOSByIdEquipamento(Long idEquipamento) {
         log.info("[inicia] OrdemServicoInfraRepository - getOSByIdEquipmento");
-        OrdemServico ordemServico = ordemServicoSpringaDataJPARespository.findByIdEquipamento(idEquipamento);
+        Optional<OrdemServico> ordemServico = Optional.ofNullable(ordemServicoSpringaDataJPARespository.findByIdEquipamento(idEquipamento));
         log.info("[finaliza] OrdemServicoInfraRepository - getOSByIdEquipmento");
         return ordemServico;
     }

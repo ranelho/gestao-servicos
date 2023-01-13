@@ -11,7 +11,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,17 +21,20 @@ import java.util.List;
 public class OrdemServicoApplciationService implements OrdemServicoService {
     private final OrdemServicoRepository ordemServicoRepository;
     private final EquipamentoRepository equipamentoRepository;
+
     @Override
     public OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest) {
         log.info("[inicia] OrdemServicoApplciationService - criaOS");
         equipamentoRepository.findEquipamentoById(ordemServicoResquest.getEquipamento().getIdEquipamento());
-        OrdemServico oSAtiva = ordemServicoRepository.getOSByIdEquipmento(ordemServicoResquest.getEquipamento().getIdEquipamento());
-        if(oSAtiva.getSituacao() == Situacao.FINALIZADO){
+        Optional<OrdemServico> oSAtiva =
+                ordemServicoRepository.getOSByIdEquipamento(ordemServicoResquest.getEquipamento().getIdEquipamento());
+        if(oSAtiva.isEmpty() || oSAtiva.get().getSituacao().equals(Situacao.FINALIZADO)){
             OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
             log.info("[finaliza] OrdemServicoApplciationService - criaOS");
             return OrdemServicoIdResponse.builder().idOrdemServico(ordemServico.getIdOrdemServico()).build();
         }else{
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento com ordem de serviço aberta de nº" + oSAtiva.getIdOrdemServico());
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento com ordem de serviço aberta de nº: "
+                    + oSAtiva.get().getIdOrdemServico() + "!");
         }
     }
 
@@ -45,10 +50,11 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     public OrdemServico getOSByIdEquipamento(Long idEquipamento) {
         log.info("[inicia] OrdemServicoApplciationService - getOSByIdEquipamento");
         equipamentoRepository.findEquipamentoById(idEquipamento);
-        OrdemServico ordemServico = ordemServicoRepository.getOSByIdEquipmento(idEquipamento);
-        if(ordemServico == null){
-            throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento sem ordem de serviço");
-        }
+        OrdemServico ordemServico = ordemServicoRepository.getOSByIdEquipamento(idEquipamento)
+            .orElseThrow(() -> {
+                    throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento sem ordem de serviço");
+                }
+            );
         log.info("[finaliza] OrdemServicoApplciationService - getOSByIdEquipamento");
         return ordemServico;
     }
