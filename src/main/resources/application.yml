@@ -4,9 +4,9 @@ server:
 
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/gestao-servicos?useSSL=false&allowMultiQueries=true&serverTimezone=UTC
-    username: root
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/gestao-servicos
+    username: postgres
     password: 852456
   jpa:
     generate-ddl: true
