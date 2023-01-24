@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.api;
 
-import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.Value;

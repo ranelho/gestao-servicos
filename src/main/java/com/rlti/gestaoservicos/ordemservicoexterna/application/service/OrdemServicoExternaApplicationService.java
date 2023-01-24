@@ -8,16 +8,27 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Log4j2
 @Service
 @RequiredArgsConstructor
 public class OrdemServicoExternaApplicationService implements OrdemServicoExternaService {
     private final OrdemServicoExternaRepository ordemServicoExternaRepository;
+
     @Override
     public OrdemServicoExternaIdResponse criaOsExterna(OrdemServicoExternaResquest externaResquest) {
         log.info("[inicia] OrdemServicoExternaApplicationService - criaOsExterna");
         OrdemServicoExterna ordemServicoExterna = ordemServicoExternaRepository.salva(new OrdemServicoExterna(externaResquest));
         log.info("[finaliza] OrdemServicoExternaApplicationService - criaOsExterna");
         return OrdemServicoExternaIdResponse.builder().idOrdemServicoExterna(ordemServicoExterna.getIdOrdemServicoExterna()).build();
+    }
+
+    @Override
+    public OrdemServicoExterna getOSExternaById(UUID idOrdemServicoExterna) {
+        log.info("[inicia] OrdemServicoExternaApplicationService - getOSExternaById");
+        OrdemServicoExterna ordemServicoExterna = ordemServicoExternaRepository.getOSExternaById(idOrdemServicoExterna);
+        log.info("[finaliza] OrdemServicoExternaApplicationService - getOSExternaById");
+        return ordemServicoExterna;
     }
 }
