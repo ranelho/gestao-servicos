@@ -5,8 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.UUID;
 
-public interface OrdemServicoSpringaDataJPARespository extends JpaRepository<OrdemServico, Long> {
+public interface OrdemServicoSpringaDataJPARespository extends JpaRepository<OrdemServico, UUID> {
    @Query("SELECT o FROM OrdemServico o WHERE o.situacao <> com.rlti.gestaoservicos.ordemservico.domain.Situacao.FINALIZADO")
     List<OrdemServico> findAllAtendimentos();
 

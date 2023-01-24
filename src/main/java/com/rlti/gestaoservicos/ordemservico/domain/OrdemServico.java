@@ -13,6 +13,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,8 +21,8 @@ import java.util.List;
 @Entity
 public class OrdemServico {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idOrdemServico;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID idOrdemServico;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "equipamento_id")
     private Equipamento equipamento;

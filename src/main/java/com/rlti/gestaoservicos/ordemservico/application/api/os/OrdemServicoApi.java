@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/os")
@@ -15,7 +16,7 @@ public interface OrdemServicoApi {
 
     @GetMapping(value = "/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.OK)
-    OrdemServicoResponse getOSById(@PathVariable Long idOrdemServico);
+    OrdemServicoResponse getOSById(@PathVariable UUID idOrdemServico);
 
     @GetMapping(value = "/equipamento/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.OK)
@@ -31,10 +32,10 @@ public interface OrdemServicoApi {
 
     @PatchMapping (value = "/update/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void alteraOS(@PathVariable Long idOrdemServico,
+    void alteraOS(@PathVariable UUID idOrdemServico,
                            @Valid @RequestBody OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
 
     @DeleteMapping(value = "/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deletaOSById(@PathVariable Long idOrdemServico);
+    void deletaOSById(@PathVariable UUID idOrdemServico);
 }

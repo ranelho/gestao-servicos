@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -23,7 +24,7 @@ public class OrdemServicoRestController implements OrdemServicoApi {
     }
 
     @Override
-    public OrdemServicoResponse getOSById(Long idOrdemServico) {
+    public OrdemServicoResponse getOSById(UUID idOrdemServico) {
         log.info("[inicia] OrdemServicoRestController - getOSById");
         OrdemServico ordemServico = ordemServicoService.getOSById(idOrdemServico);
         log.info("[finaliza] OrdemServicoRestController - getOSById");
@@ -55,16 +56,16 @@ public class OrdemServicoRestController implements OrdemServicoApi {
     }
 
     @Override
-    public void alteraOS(Long idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
+    public void alteraOS(UUID idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
         log.info("[inicia] OrdemServicoRestController - alteraOS");
         ordemServicoService.alteraOS(idOrdemServico, ordemServicoAlteracaoRequest);
         log.info("[finaliza] OrdemServicoRestController - alteraOS");
     }
 
     @Override
-    public void deletaOSById(Long idOrdemServico) {
+    public void deletaOSById(UUID idOrdemServico) {
         log.info("[inicia] OrdemServicoRestController - deletaOSPorId");
         ordemServicoService.deleta(idOrdemServico);
-        log.info("[finaliiza] OrdemServicoRestController - deletaOSPorId");
+        log.info("[finaliza] OrdemServicoRestController - deletaOSPorId");
     }
 }

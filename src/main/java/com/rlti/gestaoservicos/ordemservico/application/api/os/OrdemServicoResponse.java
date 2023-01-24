@@ -8,12 +8,13 @@ import lombok.Value;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import static com.rlti.gestaoservicos.suporte.application.api.SuporteResponse.converte;
 
 @Value
 public class OrdemServicoResponse {
-    private Long idOrdemServico;
+    private UUID idOrdemServico;
     private String equipamento;
     private List<SuporteResponse> suportes;
     private String descricaoProblema;

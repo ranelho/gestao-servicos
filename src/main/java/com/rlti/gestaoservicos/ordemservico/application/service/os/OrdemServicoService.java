@@ -4,13 +4,14 @@ import com.rlti.gestaoservicos.ordemservico.application.api.os.*;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface OrdemServicoService {
     OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest);
-    OrdemServico getOSById(Long idOrdemServico);
+    OrdemServico getOSById(UUID idOrdemServico);
     OrdemServico getOSByIdEquipamento(Long idEquipamento);
     List<OrdemServicoListResponse> getAllOS();
     List<OrdemServicoListResponse> getAtendimentos();
-    void alteraOS(Long idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
-    void deleta(Long idOrdemServico);
+    void alteraOS(UUID idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
+    void deleta(UUID idOrdemServico);
 }

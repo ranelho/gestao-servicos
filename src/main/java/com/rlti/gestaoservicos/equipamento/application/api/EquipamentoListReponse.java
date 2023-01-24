@@ -12,9 +12,7 @@ import java.util.stream.Collectors;
 @Value
 public class EquipamentoListReponse {
     private Long idEquipamento;
-    @NotNull
     private String patrimonio;
-    @NotNull
     private TipoEquipamento tipoEquipamento;
     private String numeroSerie;
     private String modelo;

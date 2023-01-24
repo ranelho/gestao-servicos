@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -25,7 +26,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     }
 
     @Override
-    public OrdemServico findOSById(Long idOrdemServico) {
+    public OrdemServico findOSById(UUID idOrdemServico) {
         log.info("[inicia] OrdemServicoInfraRepository - findOSById");
         Optional<OrdemServico> optionalOrdemServico = ordemServicoSpringaDataJPARespository.findById(idOrdemServico);
         OrdemServico ordemServico = optionalOrdemServico
@@ -61,7 +62,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     }
 
     @Override
-    public void deleta(Long idOrdemServico) {
+    public void deleta(UUID idOrdemServico) {
         log.info("[inicia] OrdemServicoInfraRepository - deleta");
         ordemServicoSpringaDataJPARespository.deleteById(idOrdemServico);
         log.info("[finaliza] OrdemServicoInfraRepository - deleta");

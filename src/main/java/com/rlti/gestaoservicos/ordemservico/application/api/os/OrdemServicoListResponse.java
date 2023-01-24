@@ -6,11 +6,12 @@ import lombok.Value;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Value
 public class OrdemServicoListResponse {
-    private Long idOrdemServico;
+    private UUID idOrdemServico;
     private String equipamento;
     private LocalDateTime dataOrdemServico;
     private LocalDateTime dataFimOrdemServico;
