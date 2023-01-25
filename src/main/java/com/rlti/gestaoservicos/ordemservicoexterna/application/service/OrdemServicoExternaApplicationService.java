@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.service;
 
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaIdResponse;
+import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaListResponse;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaResquest;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.repository.OrdemServicoExternaRepository;
 import com.rlti.gestaoservicos.ordemservicoexterna.domain.OrdemServicoExterna;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Log4j2
@@ -30,5 +32,13 @@ public class OrdemServicoExternaApplicationService implements OrdemServicoExtern
         OrdemServicoExterna ordemServicoExterna = ordemServicoExternaRepository.getOSExternaById(idOrdemServicoExterna);
         log.info("[finaliza] OrdemServicoExternaApplicationService - getOSExternaById");
         return ordemServicoExterna;
+    }
+
+    @Override
+    public List<OrdemServicoExternaListResponse> getAllOSExterna() {
+        log.info("[inicia] OrdemServicoExternaApplicationService - getAllOSExterna");
+        List<OrdemServicoExterna> externaList = ordemServicoExternaRepository.getAllOSExterna();
+        log.info("[finaliza] OrdemServicoExternaApplicationService - getAllOSExterna");
+        return OrdemServicoExternaListResponse.converte(externaList);
     }
 }

@@ -1,10 +1,10 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.api;
 
-import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -18,4 +18,8 @@ public interface OrdemServicoExternaApi {
     @GetMapping(value = "/{idOrdemServicoExterna}")
     @ResponseStatus(code = HttpStatus.OK)
     OrdemServicoExternaResponse getOSExternaById(@PathVariable UUID idOrdemServicoExterna);
+
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    List<OrdemServicoExternaListResponse> getAllOSExterna();
 }

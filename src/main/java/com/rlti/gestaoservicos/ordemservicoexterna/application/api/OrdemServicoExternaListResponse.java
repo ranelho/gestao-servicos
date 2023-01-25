@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.ordemservicoexterna.application.api;
 
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import com.rlti.gestaoservicos.ordemservicoexterna.domain.OrdemServicoExterna;
+import com.rlti.gestaoservicos.secretaria.application.api.setor.SetorListResponse;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.Value;
 
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 @Value
 public class OrdemServicoExternaListResponse {
     private UUID idOrdemServicoExterna;
-    private Setor setor;
+    private String setor;
     private LocalDateTime dataOrdemServico;
     private LocalDateTime dataFimOrdemServico;
     private Situacao situacao;
@@ -21,7 +22,7 @@ public class OrdemServicoExternaListResponse {
 
     public OrdemServicoExternaListResponse(OrdemServicoExterna ordemServicoExterna) {
         this.idOrdemServicoExterna = ordemServicoExterna.getIdOrdemServicoExterna();
-        this.setor = ordemServicoExterna.getSetor();
+        this.setor = ordemServicoExterna.getSetor().getSetor();
         this.dataOrdemServico = ordemServicoExterna.getDataOrdemServico();
         this.dataFimOrdemServico = ordemServicoExterna.getDataFimOrdemServico();
         this.situacao = ordemServicoExterna.getSituacao();

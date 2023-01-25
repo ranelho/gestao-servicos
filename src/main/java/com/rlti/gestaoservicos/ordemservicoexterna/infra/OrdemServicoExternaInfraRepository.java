@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -35,5 +36,13 @@ public class OrdemServicoExternaInfraRepository implements OrdemServicoExternaRe
                 });
         log.info("[finaliza] OrdemServicoExternaInfraRepository - getOSExternaById");
         return ordemServicoExterna;
+    }
+
+    @Override
+    public List<OrdemServicoExterna> getAllOSExterna() {
+        log.info("[inicia] OrdemServicoExternaInfraRepository - getAllOSExterna");
+        List<OrdemServicoExterna> externaList = externaSpringDataJpaRepository.findAll();
+        log.info("[finaliza] OrdemServicoExternaInfraRepository - getAllOSExterna");
+        return externaList;
     }
 }
