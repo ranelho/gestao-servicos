@@ -41,4 +41,12 @@ public class OrdemServicoExternaApplicationService implements OrdemServicoExtern
         log.info("[finaliza] OrdemServicoExternaApplicationService - getAllOSExterna");
         return OrdemServicoExternaListResponse.converte(externaList);
     }
+
+    @Override
+    public List<OrdemServicoExternaListResponse> getAtendimentos() {
+        log.info("[inicia] OrdemServicoExternaApplicationService - getAtendimentos");
+        List<OrdemServicoExterna> externaList = ordemServicoExternaRepository.getAtendimentos();
+        log.info("[finaliza] OrdemServicoExternaApplicationService - getAtendimentos");
+        return OrdemServicoExternaListResponse.converte(externaList);
+    }
 }

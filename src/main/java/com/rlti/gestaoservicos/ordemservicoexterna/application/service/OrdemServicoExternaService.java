@@ -12,4 +12,5 @@ public interface OrdemServicoExternaService {
     OrdemServicoExternaIdResponse criaOsExterna(OrdemServicoExternaResquest externaResquest);
     OrdemServicoExterna getOSExternaById(UUID idOrdemServicoExterna);
     List<OrdemServicoExternaListResponse> getAllOSExterna();
+    List<OrdemServicoExternaListResponse> getAtendimentos();
 }

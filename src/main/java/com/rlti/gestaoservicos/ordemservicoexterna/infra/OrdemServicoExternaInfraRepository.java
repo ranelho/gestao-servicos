@@ -45,4 +45,12 @@ public class OrdemServicoExternaInfraRepository implements OrdemServicoExternaRe
         log.info("[finaliza] OrdemServicoExternaInfraRepository - getAllOSExterna");
         return externaList;
     }
+
+    @Override
+    public List<OrdemServicoExterna> getAtendimentos() {
+        log.info("[inicia] OrdemServicoExternaInfraRepository - getAllOSExterna");
+        List<OrdemServicoExterna> externaList = externaSpringDataJpaRepository.findAllAtendimentos();
+        log.info("[finaliza] OrdemServicoExternaInfraRepository - getAllOSExterna");
+        return externaList;
+    }
 }

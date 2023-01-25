@@ -39,4 +39,12 @@ public class OrdemServicoExternaRestController implements OrdemServicoExternaApi
         log.info("[finaliza] OrdemServicoExternaRestController - getAllOSExterna");
         return listResponses;
     }
+
+    @Override
+    public List<OrdemServicoExternaListResponse> getAtendimentos() {
+        log.info("[inicia] OrdemServicoExternaRestController - getAtendimentos");
+        List<OrdemServicoExternaListResponse> listResponses = ordemServicoExternaService.getAtendimentos();
+        log.info("[finaliza] OrdemServicoExternaRestController - getAtendimentos");
+        return listResponses;
+    }
 }

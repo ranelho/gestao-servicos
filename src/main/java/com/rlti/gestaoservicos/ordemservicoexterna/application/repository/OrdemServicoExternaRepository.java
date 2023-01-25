@@ -9,4 +9,5 @@ public interface OrdemServicoExternaRepository {
     OrdemServicoExterna salva(OrdemServicoExterna ordemServicoExterna);
     OrdemServicoExterna getOSExternaById(UUID idOrdemServicoExterna);
     List<OrdemServicoExterna> getAllOSExterna();
+    List<OrdemServicoExterna> getAtendimentos();
 }

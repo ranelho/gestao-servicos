@@ -22,4 +22,8 @@ public interface OrdemServicoExternaApi {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<OrdemServicoExternaListResponse> getAllOSExterna();
+
+    @GetMapping(value = "/atendimentos")
+    @ResponseStatus(code = HttpStatus.OK)
+    List<OrdemServicoExternaListResponse> getAtendimentos();
 }
