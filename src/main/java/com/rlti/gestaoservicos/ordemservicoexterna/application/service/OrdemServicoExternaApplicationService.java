@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.service;
 
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaIdResponse;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaListResponse;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaResquest;
@@ -48,5 +49,14 @@ public class OrdemServicoExternaApplicationService implements OrdemServicoExtern
         List<OrdemServicoExterna> externaList = ordemServicoExternaRepository.getAtendimentos();
         log.info("[finaliza] OrdemServicoExternaApplicationService - getAtendimentos");
         return OrdemServicoExternaListResponse.converte(externaList);
+    }
+
+    @Override
+    public void alteraOSExterna(UUID idOrdemServicoExterna, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
+        log.info("[inicia] OrdemServicoExternaApplicationService - getAtendimentos");
+        OrdemServicoExterna ordemServicoExterna = ordemServicoExternaRepository.getOSExternaById(idOrdemServicoExterna);
+        ordemServicoExterna.altera(ordemServicoAlteracaoRequest);
+        ordemServicoExternaRepository.salva(ordemServicoExterna);
+        log.info("[finaliza] OrdemServicoExternaApplicationService - getAtendimentos");
     }
 }

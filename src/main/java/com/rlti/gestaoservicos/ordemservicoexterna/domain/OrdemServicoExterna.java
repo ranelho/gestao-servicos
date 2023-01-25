@@ -1,9 +1,9 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.domain;
 
 
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservico.domain.Servico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
-import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaResquest;
 import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;
@@ -59,13 +59,13 @@ public class OrdemServicoExterna {
         this.situacao = Situacao.AGUARDANDO_ATENDIMENTO;
     }
 
-    public void altera(OrdemServicoExternaAlteracaoRequest ordemServicoExternaAlteracaoRequest) {
-        this.dataFimOrdemServico = ordemServicoExternaAlteracaoRequest.getDataFimOrdemServico();
-        this.suportes = ordemServicoExternaAlteracaoRequest.getSuportes();
-        this.descricaoProblema = ordemServicoExternaAlteracaoRequest.getDescricaoProblema();
-        this.observacao = ordemServicoExternaAlteracaoRequest.getObservacao();
-        this.diagnostico = ordemServicoExternaAlteracaoRequest.getDiagnostico();
-        this.situacao = ordemServicoExternaAlteracaoRequest.getSituacao();
+    public void altera(OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
+        this.dataFimOrdemServico = ordemServicoAlteracaoRequest.getDataFimOrdemServico();
+        this.suportes = ordemServicoAlteracaoRequest.getSuportes();
+        this.descricaoProblema = ordemServicoAlteracaoRequest.getDescricaoProblema();
+        this.observacao = ordemServicoAlteracaoRequest.getObservacao();
+        this.diagnostico = ordemServicoAlteracaoRequest.getDiagnostico();
+        this.situacao = ordemServicoAlteracaoRequest.getSituacao();
     }
 }
 

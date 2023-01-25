@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.api;
 
 
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.service.OrdemServicoExternaService;
 import com.rlti.gestaoservicos.ordemservicoexterna.domain.OrdemServicoExterna;
 import lombok.RequiredArgsConstructor;
@@ -46,5 +47,12 @@ public class OrdemServicoExternaRestController implements OrdemServicoExternaApi
         List<OrdemServicoExternaListResponse> listResponses = ordemServicoExternaService.getAtendimentos();
         log.info("[finaliza] OrdemServicoExternaRestController - getAtendimentos");
         return listResponses;
+    }
+
+    @Override
+    public void alteraOSExterna(UUID idOrdemServicoExterna, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
+        log.info("[inicia] OrdemServicoExternaRestController - alteraOSExterna");
+        ordemServicoExternaService.alteraOSExterna(idOrdemServicoExterna, ordemServicoAlteracaoRequest);
+        log.info("[finaliza] OrdemServicoExternaRestController - alteraOSExterna");
     }
 }

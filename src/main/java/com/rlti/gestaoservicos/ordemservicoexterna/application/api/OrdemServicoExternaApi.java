@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.api;
 
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,4 +27,9 @@ public interface OrdemServicoExternaApi {
     @GetMapping(value = "/atendimentos")
     @ResponseStatus(code = HttpStatus.OK)
     List<OrdemServicoExternaListResponse> getAtendimentos();
+
+    @PatchMapping (value = "/update/{idOrdemServicoExterna}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void alteraOSExterna(@PathVariable UUID idOrdemServicoExterna,
+                  @Valid @RequestBody OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
 }
