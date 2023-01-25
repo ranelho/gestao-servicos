@@ -32,4 +32,8 @@ public interface OrdemServicoExternaApi {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void alteraOSExterna(@PathVariable UUID idOrdemServicoExterna,
                   @Valid @RequestBody OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
+
+    @DeleteMapping(value = "/{idOrdemServicoExterna}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaOSExternaById(@PathVariable UUID idOrdemServicoExterna);
 }

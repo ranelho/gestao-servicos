@@ -59,4 +59,12 @@ public class OrdemServicoExternaApplicationService implements OrdemServicoExtern
         ordemServicoExternaRepository.salva(ordemServicoExterna);
         log.info("[finaliza] OrdemServicoExternaApplicationService - getAtendimentos");
     }
+
+    @Override
+    public void deletaOSExternaById(UUID idOrdemServicoExterna) {
+        log.info("[inicia] OrdemServicoExternaApplicationService - deletaOSExternaById");
+        ordemServicoExternaRepository.getOSExternaById(idOrdemServicoExterna);
+        ordemServicoExternaRepository.deleta(idOrdemServicoExterna);
+        log.info("[finaliza] OrdemServicoExternaApplicationService - deletaOSExternaById");
+    }
 }

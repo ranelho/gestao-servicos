@@ -15,4 +15,5 @@ public interface OrdemServicoExternaService {
     List<OrdemServicoExternaListResponse> getAllOSExterna();
     List<OrdemServicoExternaListResponse> getAtendimentos();
     void alteraOSExterna(UUID idOrdemServicoExterna, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
+    void deletaOSExternaById(UUID idOrdemServicoExterna);
 }

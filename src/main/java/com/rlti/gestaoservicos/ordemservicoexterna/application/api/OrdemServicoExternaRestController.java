@@ -55,4 +55,11 @@ public class OrdemServicoExternaRestController implements OrdemServicoExternaApi
         ordemServicoExternaService.alteraOSExterna(idOrdemServicoExterna, ordemServicoAlteracaoRequest);
         log.info("[finaliza] OrdemServicoExternaRestController - alteraOSExterna");
     }
+
+    @Override
+    public void deletaOSExternaById(UUID idOrdemServicoExterna) {
+        log.info("[inicia] OrdemServicoExternaRestController - deletaOSExternaById");
+        ordemServicoExternaService.deletaOSExternaById(idOrdemServicoExterna);
+        log.info("[finaliza] OrdemServicoExternaRestController - deletaOSExternaById");
+    }
 }

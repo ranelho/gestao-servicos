@@ -10,4 +10,5 @@ public interface OrdemServicoExternaRepository {
     OrdemServicoExterna getOSExternaById(UUID idOrdemServicoExterna);
     List<OrdemServicoExterna> getAllOSExterna();
     List<OrdemServicoExterna> getAtendimentos();
+    void deleta(UUID idOrdemServicoExterna);
 }

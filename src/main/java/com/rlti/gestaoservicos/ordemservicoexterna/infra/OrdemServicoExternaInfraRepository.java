@@ -53,4 +53,11 @@ public class OrdemServicoExternaInfraRepository implements OrdemServicoExternaRe
         log.info("[finaliza] OrdemServicoExternaInfraRepository - getAllOSExterna");
         return externaList;
     }
+
+    @Override
+    public void deleta(UUID idOrdemServicoExterna) {
+        log.info("[inicia] OrdemServicoExternaInfraRepository - deleta");
+        externaSpringDataJpaRepository.deleteById(idOrdemServicoExterna);
+        log.info("[finaliza] OrdemServicoExternaInfraRepository - deleta");
+    }
 }
