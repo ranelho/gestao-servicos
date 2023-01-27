@@ -7,6 +7,7 @@ import lombok.Value;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Value
 public class OrdemServicoAlteracaoRequest {

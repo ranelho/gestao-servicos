@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.suporte.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
+import com.rlti.gestaoservicos.ordemservicoexterna.domain.OrdemServicoExterna;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteAlteracaoRequest;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteRequest;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,9 @@ public class Suporte {
     @ManyToMany(mappedBy = "suportes")
     @JsonIgnore
     private List<OrdemServico> ordemServicos;
+    @ManyToMany(mappedBy = "suportes")
+    @JsonIgnore
+    private List<OrdemServicoExterna> ordemServicoExternas;
 
     public Suporte(SuporteRequest suporteRequest) {
         this.nome = suporteRequest.getNome();
