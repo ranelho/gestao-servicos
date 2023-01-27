@@ -1,9 +1,6 @@
 package com.rlti.gestaoservicos.ordemservico.application.service.servico;
 
-import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoAlteracaoRequest;
-import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoIdResponse;
-import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoListResponse;
-import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoRequest;
+import com.rlti.gestaoservicos.ordemservico.application.api.servico.*;
 import com.rlti.gestaoservicos.ordemservico.application.repository.servico.ServicoRepository;
 import com.rlti.gestaoservicos.ordemservico.domain.Servico;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +17,14 @@ public class ServicoApplicationService implements ServicoService {
     private final ServicoRepository servicoRepository;
     @Override
     public ServicoIdResponse criaServico(ServicoRequest servicoRequest) {
+        log.info("[inicia] ServicoApplicationService - criaSecretaria");
+        Servico servico = servicoRepository.salva(new Servico(servicoRequest));
+        log.info("[finaliza] ServicoApplicationService - criaSecretaria");
+        return ServicoIdResponse.builder().idServico(servico.getIdServico()).build();
+    }
+
+    @Override
+    public ServicoIdResponse criaServico(ServicoOSExternaRequest servicoRequest) {
         log.info("[inicia] ServicoApplicationService - criaSecretaria");
         Servico servico = servicoRepository.salva(new Servico(servicoRequest));
         log.info("[finaliza] ServicoApplicationService - criaSecretaria");

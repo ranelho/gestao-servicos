@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.ordemservico.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoAlteracaoRequest;
+import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoOSExternaRequest;
 import com.rlti.gestaoservicos.ordemservico.application.api.servico.ServicoRequest;
 import com.rlti.gestaoservicos.ordemservicoexterna.domain.OrdemServicoExterna;
 import lombok.AllArgsConstructor;
@@ -37,6 +38,12 @@ public class Servico {
 
     public Servico(ServicoRequest servicoRequest) {
         this.ordemServico = servicoRequest.getOrdemServico();
+        this.dataServico = servicoRequest.getDataServico();
+        this.descricaoServico = servicoRequest.getDescricaoServico();
+    }
+
+    public Servico(ServicoOSExternaRequest servicoRequest) {
+        this.ordemServicoExterna = servicoRequest.getOrdemServicoExterna();
         this.dataServico = servicoRequest.getDataServico();
         this.descricaoServico = servicoRequest.getDescricaoServico();
     }

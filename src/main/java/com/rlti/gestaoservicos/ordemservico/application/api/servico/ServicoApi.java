@@ -9,9 +9,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/servico")
 public interface ServicoApi {
-    @PostMapping
+    @PostMapping(value = "/os")
     @ResponseStatus(code = HttpStatus.CREATED)
     ServicoIdResponse postServico(@Valid @RequestBody ServicoRequest servicoRequest);
+
+    @PostMapping(value = "/os-externa")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    ServicoIdResponse postServico(@Valid @RequestBody ServicoOSExternaRequest servicoRequest);
 
     @GetMapping(value = "/{idServico}")
     @ResponseStatus(code = HttpStatus.OK)
