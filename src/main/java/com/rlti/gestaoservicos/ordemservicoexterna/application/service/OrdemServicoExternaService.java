@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.service;
 
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaIdResponse;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaListResponse;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaResquest;
@@ -13,5 +14,6 @@ public interface OrdemServicoExternaService {
     OrdemServicoExterna getOSExternaById(UUID idOrdemServicoExterna);
     List<OrdemServicoExternaListResponse> getAllOSExterna();
     List<OrdemServicoExternaListResponse> getAtendimentos();
+    void alteraOSExterna(UUID idOrdemServicoExterna, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
     void deletaOSExternaById(UUID idOrdemServicoExterna);
 }
