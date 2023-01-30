@@ -27,11 +27,11 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
 
     @Override
     public OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest) {
-        log.info("[inicia] OrdemServicoApplciationService - criaOS");
-        equipamentoRepository.findEquipamentoById(ordemServicoResquest.getEquipamento().getIdEquipamento());
-        Optional<OrdemServico> oSAtiva =
-                ordemServicoRepository.getOSByIdEquipamento(ordemServicoResquest.getEquipamento().getIdEquipamento());
-        if(oSAtiva.isEmpty() || oSAtiva.get().getSituacao().equals(Situacao.FINALIZADO)){
+       log.info("[inicia] OrdemServicoApplciationService - criaOS");
+        Long idEquipamento = ordemServicoResquest.getEquipamento().getIdEquipamento();
+        equipamentoRepository.findEquipamentoById(idEquipamento);
+        Optional<OrdemServico> oSAtiva = ordemServicoRepository.getOSByIdEquipamento(idEquipamento);
+        if (oSAtiva.isEmpty() || Situacao.FINALIZADO.equals(oSAtiva.get().getSituacao())) {
             OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
             log.info("[finaliza] OrdemServicoApplciationService - criaOS");
             return OrdemServicoIdResponse.builder().idOrdemServico(ordemServico.getIdOrdemServico()).build();
