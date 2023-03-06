@@ -1,5 +1,7 @@
 package com.rlti.gestaoservicos.configs.security;
 
+import com.rlti.gestaoservicos.usuario.application.service.UserDetailsApplicationService;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,7 +11,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
+@AllArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+
+    private final UserDetailsApplicationService userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -24,10 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void  configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.inMemoryAuthentication()
-                .withUser("ranelho")
-                .password(passwordEncoder().encode("852456"))
-                .roles("ADMIN");
+        auth.userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder());
     }
 
     @Bean
