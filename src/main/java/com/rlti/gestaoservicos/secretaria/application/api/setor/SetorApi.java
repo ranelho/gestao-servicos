@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.secretaria.application.api.setor;
 
 import com.rlti.gestaoservicos.secretaria.domain.Secretaria;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/setor")
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 public interface SetorApi {
 
     @PostMapping
