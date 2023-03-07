@@ -25,6 +25,7 @@ public class SuporteApplicationService implements SuporteService {
         log.info("[finaliza] SuporteApplicationService - criaSuporte");
         return SuporteIdResponse.builder().idSuporte(suporte.getIdSuporte()).build();
     }
+
     @Override
     public Suporte findSuporteById(Long idSuporte) {
         log.info("[inicia] SuporteApplicationService - findSuporteById");
