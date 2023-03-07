@@ -1,6 +1,6 @@
 package com.rlti.gestaoservicos.configs.security;
 
-import com.rlti.gestaoservicos.usuario.application.service.UserDetailsApplicationService;
+import com.rlti.gestaoservicos.configs.security.service.UserDetailsApplicationService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -40,4 +40,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+
 }
