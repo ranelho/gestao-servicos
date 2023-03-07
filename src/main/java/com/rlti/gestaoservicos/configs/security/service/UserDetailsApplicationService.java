@@ -1,6 +1,9 @@
-package com.rlti.gestaoservicos.usuario.application.service;
+package com.rlti.gestaoservicos.configs.security.service;
 
+import com.rlti.gestaoservicos.usuario.application.api.UsuarioRequest;
+import com.rlti.gestaoservicos.usuario.application.api.UsuarioResponse;
 import com.rlti.gestaoservicos.usuario.application.repository.UserRepository;
+import com.rlti.gestaoservicos.usuario.application.service.UsuarioService;
 import com.rlti.gestaoservicos.usuario.domain.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;

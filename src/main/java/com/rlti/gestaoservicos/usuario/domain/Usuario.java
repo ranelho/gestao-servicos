@@ -1,15 +1,19 @@
 package com.rlti.gestaoservicos.usuario.domain;
 
+import com.rlti.gestaoservicos.usuario.application.api.UsuarioRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,6 +30,7 @@ public class Usuario implements UserDetails, Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
     @Column(nullable = false, unique = true)
+    @Email
     private String userName;
     @Column(nullable = false)
     private String password;
@@ -35,6 +40,12 @@ public class Usuario implements UserDetails, Serializable {
                 inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<Role> roles;
+
+    public Usuario(UsuarioRequest usuarioRequest, Role role) {
+        this.userName = usuarioRequest.getUserName();
+        this.password = new BCryptPasswordEncoder().encode(usuarioRequest.getPassword());
+        this.roles = Collections.singletonList(role);
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

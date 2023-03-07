@@ -4,4 +4,5 @@ import com.rlti.gestaoservicos.usuario.domain.Usuario;
 
 public interface UserRepository {
     Usuario findByUserName(String username);
+    Usuario salva(Usuario usuario);
 }

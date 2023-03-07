@@ -19,6 +19,14 @@ public class UserInfraRepository implements UserRepository {
     private final UserSpringDataJPARepository userSpringDataJPARepository;
 
     @Override
+    public Usuario salva(Usuario usuario) {
+        log.info("[inicia] UserInfraRepository - salva");
+        userSpringDataJPARepository.save(usuario);
+        log.info("[finaliza] UserInfraRepository - salva");
+        return usuario;
+    }
+
+    @Override
     public Usuario findByUserName(String username) {
         log.info("[inicia] UserInfraRepository - findByUserName");
         Optional<Usuario> optionalUser = userSpringDataJPARepository.findByUserName(username);
