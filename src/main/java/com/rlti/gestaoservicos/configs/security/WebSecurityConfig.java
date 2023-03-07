@@ -4,6 +4,7 @@ import com.rlti.gestaoservicos.usuario.application.service.UserDetailsApplicatio
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -22,6 +23,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .httpBasic()
                 .and()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/v1/secretaria/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/v1/secretaria").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE, "/v1/secretaria/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
