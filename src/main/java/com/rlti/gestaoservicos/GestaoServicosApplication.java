@@ -12,7 +12,7 @@ public class GestaoServicosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GestaoServicosApplication.class, args);
 
-		log.info("{}", new BCryptPasswordEncoder().encode("senha123"));
+		//log.info("{}", new BCryptPasswordEncoder().encode("senha123"));
 
 	}
 

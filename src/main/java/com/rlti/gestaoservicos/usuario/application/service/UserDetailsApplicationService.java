@@ -1,19 +1,21 @@
 package com.rlti.gestaoservicos.usuario.application.service;
 
-import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.usuario.application.repository.UserRepository;
-import com.rlti.gestaoservicos.usuario.domain.User;
+import com.rlti.gestaoservicos.usuario.domain.Usuario;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import javax.transaction.Transactional;
 
 @Service
 @AllArgsConstructor
+@Log4j2
+@Transactional
 public class UserDetailsApplicationService implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -21,8 +23,8 @@ public class UserDetailsApplicationService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.info("[inicia] UserDetailsApplicationService - loadUserByUsername");
-        User user = userRepository.findByUserName(username);
+        Usuario usuario = userRepository.findByUserName(username);
         log.info("[finaliza] UserDetailsApplicationService - loadUserByUsername");
-        return user;
+        return new User(usuario.getUsername(), usuario.getPassword(), true, true, true, true, usuario.getAuthorities());
     }
 }

@@ -1,7 +1,7 @@
 package com.rlti.gestaoservicos.usuario.infra;
 
 import com.rlti.gestaoservicos.usuario.application.repository.UserRepository;
-import com.rlti.gestaoservicos.usuario.domain.User;
+import com.rlti.gestaoservicos.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,10 +19,10 @@ public class UserInfraRepository implements UserRepository {
     private final UserSpringDataJPARepository userSpringDataJPARepository;
 
     @Override
-    public User findByUserName(String username) {
+    public Usuario findByUserName(String username) {
         log.info("[inicia] UserInfraRepository - findByUserName");
-        Optional<User> optionalUser = userSpringDataJPARepository.findByUserName(username);
-        User user = optionalUser
+        Optional<Usuario> optionalUser = userSpringDataJPARepository.findByUserName(username);
+        Usuario user = optionalUser
                 .orElseThrow( () -> new UsernameNotFoundException("Usuário não encontrado: " + username));
         log.info("[finaliza] UserInfraRepository - findByUserName");
         return user;
