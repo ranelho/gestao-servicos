@@ -22,9 +22,10 @@ public class UserDetailsApplicationService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.info("[inicia] UserDetailsApplicationService - loadUserByUsername");
-        var usuario = usuarioRepository.findByUserName(username);
+        UsuarioDetailsService usuario = UsuarioDetailsService.build(usuarioRepository.findByUserName(username));
         log.info("[finaliza] UserDetailsApplicationService - loadUserByUsername");
         return new User(usuario.getUsername(), usuario.getPassword(), true, true, true, true, usuario.getAuthorities());
-        //return Optional.ofNullable(usuario).orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Não existe credencial para o Usuario informado!"));
+       // return Optional.ofNullable(usuario).orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Não existe credencial para o Usuario informado!"));
+      //  return com.rlti.gestaoservicos.configs.security.service.UserDetailsService.build(usuario);
     }
 }

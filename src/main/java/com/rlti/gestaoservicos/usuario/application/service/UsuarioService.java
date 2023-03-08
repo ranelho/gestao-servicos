@@ -6,6 +6,4 @@ import com.rlti.gestaoservicos.usuario.domain.Usuario;
 
 public interface UsuarioService {
     UsuarioResponse novoUsuario(UsuarioRequest usuarioRequest);
-    Usuario buscaCredencialPorUsuario(Usuario usuario);
-    Usuario findCredencialByUsuario(String user);
 }

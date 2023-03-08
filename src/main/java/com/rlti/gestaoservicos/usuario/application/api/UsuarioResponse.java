@@ -12,6 +12,6 @@ public class UsuarioResponse {
 
     public UsuarioResponse(Usuario usuario) {
         this.userId = usuario.getUserId();
-        this.userName = usuario.getUsername();
+        this.userName = usuario.getUserName();
     }
 }

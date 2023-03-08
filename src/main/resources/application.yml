@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/gestao-servicos
+    url: jdbc:postgresql://localhost:5432/gestao-servicos?createDatabaseIfNotExist=true
     username: postgres
     password: 852456
   jpa:
@@ -20,5 +20,5 @@ springdoc:
 
 servico:
   jwt:
-    expiracao: ${JWT_TEMPO_EXPIRACAO:15}
-    chave: ${JWT_CHAVE:123456}
+    jwtExpirationMs: ${JWT_TEMPO_EXPIRACAO:15}
+    jwtSecret: ${JWT_CHAVE:123456}
