@@ -1,22 +1,20 @@
 package com.rlti.gestaoservicos.usuario.infra;
 
 import com.rlti.gestaoservicos.handler.APIException;
-import com.rlti.gestaoservicos.usuario.application.repository.UserRepository;
+import com.rlti.gestaoservicos.usuario.application.repository.UsuarioRepository;
 import com.rlti.gestaoservicos.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Optional;
 
-@ResponseStatus
+//@ResponseStatus
 @Log4j2
 @RequiredArgsConstructor
 @Repository
-public class UserInfraRepository implements UserRepository {
+public class UsuarioInfraRepository implements UsuarioRepository {
 
     private final UserSpringDataJPARepository userSpringDataJPARepository;
 
