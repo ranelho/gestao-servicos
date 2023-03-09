@@ -6,4 +6,5 @@ import com.rlti.gestaoservicos.usuario.domain.Usuario;
 
 public interface UsuarioService {
     UsuarioResponse novoUsuario(UsuarioRequest usuarioRequest);
+    Usuario findByUsuario(String usuario);
 }

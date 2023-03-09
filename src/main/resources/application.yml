@@ -17,8 +17,3 @@ spring:
 springdoc:
   swagger-ui:
     path: /public/swagger
-
-servico:
-  jwt:
-    jwtExpirationMs: ${JWT_TEMPO_EXPIRACAO:15}
-    jwtSecret: ${JWT_CHAVE:123456}

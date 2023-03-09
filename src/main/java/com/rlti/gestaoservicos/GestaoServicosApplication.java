@@ -13,7 +13,5 @@ public class GestaoServicosApplication {
 		SpringApplication.run(GestaoServicosApplication.class, args);
 
 		//log.info("{}", new BCryptPasswordEncoder().encode("senha123"));
-
 	}
-
 }

@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.configs.security.service;
 
 import com.rlti.gestaoservicos.usuario.application.repository.UsuarioRepository;
+import com.rlti.gestaoservicos.usuario.domain.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.userdetails.User;
@@ -20,12 +21,11 @@ public class UserDetailsApplicationService implements UserDetailsService {
     private final UsuarioRepository usuarioRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         log.info("[inicia] UserDetailsApplicationService - loadUserByUsername");
-        UsuarioDetailsService usuario = UsuarioDetailsService.build(usuarioRepository.findByUserName(username));
+        Usuario usuario = usuarioRepository.findByUsuario(userName)
+                .orElseThrow(() -> new UsernameNotFoundException("Não existe credencial para o Usuario informado: "+ userName));
         log.info("[finaliza] UserDetailsApplicationService - loadUserByUsername");
         return new User(usuario.getUsername(), usuario.getPassword(), true, true, true, true, usuario.getAuthorities());
-       // return Optional.ofNullable(usuario).orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Não existe credencial para o Usuario informado!"));
-      //  return com.rlti.gestaoservicos.configs.security.service.UserDetailsService.build(usuario);
     }
 }

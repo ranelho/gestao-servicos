@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface UserSpringDataJPARepository extends JpaRepository<Usuario, UUID> {
-    Optional<Usuario> findByUserName(String userName);
+    Optional<Usuario> findByUsuario(String usuario);
 }

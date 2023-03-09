@@ -5,6 +5,6 @@ import com.rlti.gestaoservicos.usuario.domain.Usuario;
 import java.util.Optional;
 
 public interface UsuarioRepository {
-    Usuario findByUserName(String username);
+    Optional<Usuario> findByUsuario(String username);
     Usuario salva(Usuario usuario);
 }

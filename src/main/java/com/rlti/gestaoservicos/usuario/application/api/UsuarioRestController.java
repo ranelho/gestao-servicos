@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.usuario.application.api;
 
 import com.rlti.gestaoservicos.usuario.application.service.UsuarioService;
+import com.rlti.gestaoservicos.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +19,13 @@ public class UsuarioRestController implements UsuarioApi {
         UsuarioResponse usuario = usuarioService.novoUsuario(usuarioRequest);
         log.info("[finaliza] UsuarioRestController - postUsuario");
         return usuario;
+    }
+
+    @Override
+    public UsuarioResponse getByUsuario(String usuario) {
+        log.info("[inicia] UsuarioRestController - getByUsuario");
+        Usuario user = usuarioService.findByUsuario(usuario);
+        log.info("[finaliza] UsuarioRestController - getByUsuario");
+        return new UsuarioResponse(user);
     }
 }

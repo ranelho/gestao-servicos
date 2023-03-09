@@ -8,10 +8,12 @@ import java.util.UUID;
 @Value
 public class UsuarioResponse {
     private UUID userId;
-    private String userName;
+    private String usuario;
 
     public UsuarioResponse(Usuario usuario) {
         this.userId = usuario.getUserId();
-        this.userName = usuario.getUserName();
+        this.usuario = usuario.getUsername();
     }
+
+
 }
