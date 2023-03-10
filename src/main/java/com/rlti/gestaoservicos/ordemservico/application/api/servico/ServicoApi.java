@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.servico;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/servico")
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 public interface ServicoApi {
     @PostMapping(value = "/os")
     @ResponseStatus(code = HttpStatus.CREATED)

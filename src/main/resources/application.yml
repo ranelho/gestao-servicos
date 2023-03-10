@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/gestao-servicos
+    url: jdbc:postgresql://localhost:5432/gestao-servicos?createDatabaseIfNotExist=true
     username: postgres
     password: 852456
   jpa:
@@ -18,4 +18,9 @@ springdoc:
   swagger-ui:
     path: /public/swagger
 
+servico:
+  jwt:
+    jwtExpirationMs: ${SERVICO_JWT_JWTEXPIRATIONMS:86400000}
+    jwtSecret: ${SERVICO_JWT_JWTSECRET:bezKoderSecretKey}
+    jwtRefreshExpirationMs: ${SERVICO_JWT_JWTREFRESHEXPIRATIONMS:1200000}
 

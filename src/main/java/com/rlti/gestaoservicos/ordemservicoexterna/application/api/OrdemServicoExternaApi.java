@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.ordemservicoexterna.application.api;
 
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -10,6 +11,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/os-externa")
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 public interface OrdemServicoExternaApi {
 
     @PostMapping
