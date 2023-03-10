@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Value
 public class EquipamentosPendentesResponse {
-    private UUID idOrdemServico;
+    private UUID protocolo;
     private String equipamento;
     private String tipoEquipamento;
     private LocalDateTime dataOrdemServico;
@@ -19,7 +19,7 @@ public class EquipamentosPendentesResponse {
     private String diagnostico;
 
     public EquipamentosPendentesResponse(OrdemServico ordemServico) {
-        this.idOrdemServico = ordemServico.getIdOrdemServico();
+        this.protocolo = ordemServico.getIdOrdemServico();
         this.tipoEquipamento = String.valueOf(ordemServico.getEquipamento().getTipoEquipamento());
         this.equipamento = ordemServico.getEquipamento().getPatrimonio();
         this.dataOrdemServico = ordemServico.getDataOrdemServico();

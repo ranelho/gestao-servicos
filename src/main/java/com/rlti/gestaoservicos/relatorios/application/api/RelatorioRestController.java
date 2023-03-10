@@ -10,6 +10,7 @@ import java.util.List;
 
 @Log4j2
 @AllArgsConstructor
+@RestController
 public class RelatorioRestController implements RelatorioApi {
     private final RelatorioService relatorioService;
 

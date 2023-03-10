@@ -27,7 +27,7 @@ public class Servico {
     private String descricaoServico;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ordemservico_id")
+    @JoinColumn(name = "ordem_servico_id")
     @JsonIgnore
     private OrdemServico ordemServico;
 

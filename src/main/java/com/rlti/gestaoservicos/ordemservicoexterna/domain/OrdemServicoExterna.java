@@ -48,7 +48,9 @@ public class OrdemServicoExterna {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Situacao situacao;
-    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ordemServicoExterna")
+
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+   // @JoinColumn(name = "servico_id")
     private List<Servico> servicos;
 
     public OrdemServicoExterna(OrdemServicoExternaResquest ordemServicoExternaResquest) {
