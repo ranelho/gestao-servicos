@@ -1,19 +1,17 @@
-package com.rlti.gestaoservicos.usuario.application.api;
+package com.rlti.gestaoservicos.usuario.application.api.response;
 
-import com.rlti.gestaoservicos.usuario.domain.Usuario;
+import com.rlti.gestaoservicos.usuario.domain.User;
 import lombok.Value;
 
 import java.util.UUID;
 
 @Value
-public class UsuarioResponse {
+public class UserResponse {
     private UUID userId;
     private String usuario;
 
-    public UsuarioResponse(Usuario usuario) {
+    public UserResponse(User usuario) {
         this.userId = usuario.getUserId();
         this.usuario = usuario.getUsername();
     }
-
-
 }

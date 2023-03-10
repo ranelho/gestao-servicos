@@ -1,33 +1,30 @@
 package com.rlti.gestaoservicos.usuario.domain;
 
+import com.rlti.gestaoservicos.usuario.application.api.request.RoleRuquest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "TB_ROLE")
+@Table(name = "roles")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Role  implements GrantedAuthority, Serializable {
-    private static final long serialVersionUID = 1L;
+public class Role {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID roleid;
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, unique = true)
-    private  RoleName roleName;
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20, unique = true)
+	private ERole name;
 
-    @Override
-    public String getAuthority() {
-        return this.roleName.toString();
-    }
+	public Role(RoleRuquest roleRuquest) {
+		this.name = roleRuquest.getName();
+	}
 }
