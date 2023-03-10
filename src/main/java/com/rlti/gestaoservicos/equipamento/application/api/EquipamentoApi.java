@@ -11,6 +11,7 @@ import java.util.List;
 @RequestMapping("/v1/equipamento")
 @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 public interface EquipamentoApi {
+
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     EquipamentoIdResponse postEquipamento(@Valid @RequestBody EquipamentoRequest equipamentoRequest);
