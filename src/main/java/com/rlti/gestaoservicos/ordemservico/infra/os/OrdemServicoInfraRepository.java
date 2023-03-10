@@ -3,6 +3,7 @@ package com.rlti.gestaoservicos.ordemservico.infra.os;
 import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServicoRepository;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
+import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -66,5 +67,13 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
         log.info("[inicia] OrdemServicoInfraRepository - deleta");
         ordemServicoSpringaDataJPARespository.deleteById(idOrdemServico);
         log.info("[finaliza] OrdemServicoInfraRepository - deleta");
+    }
+
+    @Override
+    public List<OrdemServico> getAllOSSituacao(Situacao situacao) {
+        log.info("[inicia] OrdemServicoInfraRepository - getAllOSSituacao");
+        List<OrdemServico> ordemServicoList = ordemServicoSpringaDataJPARespository.getAllSituacao(situacao);
+        log.info("[finaliza] OrdemServicoInfraRepository - getAllOSSituacao");
+        return ordemServicoList;
     }
 }

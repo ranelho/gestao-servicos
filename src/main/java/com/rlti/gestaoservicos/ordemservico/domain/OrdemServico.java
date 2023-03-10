@@ -44,6 +44,7 @@ public class OrdemServico {
     private String observacao;
     private String diagnostico;
     @NotNull
+    @Enumerated(EnumType.STRING)
     private Situacao situacao;
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ordemServico")
     private List<Servico> servicos;

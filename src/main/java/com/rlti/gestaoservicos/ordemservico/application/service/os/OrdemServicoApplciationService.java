@@ -27,7 +27,7 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
 
     @Override
     public OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest) {
-       log.info("[inicia] OrdemServicoApplciationService - criaOS");
+        log.info("[inicia] OrdemServicoApplciationService - criaOS");
         Long idEquipamento = ordemServicoResquest.getEquipamento().getIdEquipamento();
         equipamentoRepository.findEquipamentoById(idEquipamento);
         Optional<OrdemServico> oSAtiva = ordemServicoRepository.getOSByIdEquipamento(idEquipamento);

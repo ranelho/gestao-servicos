@@ -1,6 +1,7 @@
 package com.rlti.gestaoservicos.ordemservico.application.repository.os;
 
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
+import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,4 +14,5 @@ public interface OrdemServicoRepository {
     List<OrdemServico> getAtendimentos();
     List<OrdemServico> getAllOS();
     void deleta(UUID idOrdemServico);
+    List<OrdemServico> getAllOSSituacao(Situacao situacao);
 }
