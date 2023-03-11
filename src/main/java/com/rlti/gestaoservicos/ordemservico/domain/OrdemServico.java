@@ -13,6 +13,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -53,7 +54,11 @@ public class OrdemServico {
     private List<Servico> servicos;
 
     public OrdemServico(OrdemServicoResquest ordemServicoResquest) {
-        this.equipamento = ordemServicoResquest.getEquipamento();
+
+    }
+
+    public OrdemServico(OrdemServicoResquest ordemServicoResquest, Equipamento equipamento) {
+        this.equipamento = equipamento;
         this.dataOrdemServico = LocalDateTime.now();
         this.suportes = ordemServicoResquest.getSuportes();
         this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();

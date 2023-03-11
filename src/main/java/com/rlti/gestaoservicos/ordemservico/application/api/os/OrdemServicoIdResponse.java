@@ -8,5 +8,5 @@ import java.util.UUID;
 @Value
 @Builder
 public class OrdemServicoIdResponse {
-    UUID idOrdemServico;
+    UUID protocolo;
 }
