@@ -15,4 +15,5 @@ public interface OrdemServicoRepository {
     List<OrdemServico> getAllOS();
     void deleta(UUID idOrdemServico);
     List<OrdemServico> getAllOSSituacao(Situacao situacao);
+    List<OrdemServico> getHistoricoEquipamento(Long idEquipamento);
 }
