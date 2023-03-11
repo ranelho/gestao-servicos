@@ -8,7 +8,7 @@
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
-- ``Java 11``
+- ``Java``
 - ``Maven``
 - ``JPA``
 - ``Lombok``
@@ -17,7 +17,7 @@
 - ``InteliJ IDEA``
 - ``JWT``
 - ``Swagger``
-- ``Orienteção a Objeto``
+
 
 ### Ajustes e melhorias
 
@@ -26,7 +26,12 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Equipamentos
 - [x] Servicos
 - [x] OS
+  - [x] Interna
+  - [x] Externa
 - [x] Autenticação
+  - [x] Usuário
+  - [x] Controle de Acesso
+  - [x] Token JWT
 - [ ] Relatórios
 
 
