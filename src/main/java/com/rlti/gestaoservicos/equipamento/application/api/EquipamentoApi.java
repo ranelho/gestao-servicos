@@ -32,6 +32,7 @@ public interface EquipamentoApi {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void alteraEquipamento(@PathVariable Long idEquipamento,
                            @Valid @RequestBody EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
+
     @DeleteMapping(value = "/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaEquipamentoById(@PathVariable Long idEquipamento);
