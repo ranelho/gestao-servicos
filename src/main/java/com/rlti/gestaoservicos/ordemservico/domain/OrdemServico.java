@@ -4,6 +4,7 @@ package com.rlti.gestaoservicos.ordemservico.domain;
 import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResquest;
+import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,9 +25,15 @@ public class OrdemServico {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idOrdemServico;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "equipamento_id")
     private Equipamento equipamento;
+
+    @ManyToOne
+    @JoinColumn(name = "setor_id_setor")
+    private Setor setor;
+
     @NotNull
     @Column(name = "dataOrdemServico", columnDefinition = "TIMESTAMP")
     private LocalDateTime dataOrdemServico;
@@ -53,8 +60,17 @@ public class OrdemServico {
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Servico> servicos;
 
-    public OrdemServico(OrdemServicoResquest ordemServicoResquest) {
+    public void setSetor(Setor setor) {
+        this.setor = setor;
+    }
 
+    public OrdemServico(OrdemServicoResquest ordemServicoResquest) {
+        this.setor = ordemServicoResquest.getSetor();
+        this.dataOrdemServico = LocalDateTime.now();
+        this.suportes = ordemServicoResquest.getSuportes();
+        this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();
+        this.observacao = ordemServicoResquest.getObservacao();
+        this.situacao = Situacao.AGUARDANDO_ATENDIMENTO;
     }
 
     public OrdemServico(OrdemServicoResquest ordemServicoResquest, Equipamento equipamento) {

@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservico.application.repository.os;
 
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResquest;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 

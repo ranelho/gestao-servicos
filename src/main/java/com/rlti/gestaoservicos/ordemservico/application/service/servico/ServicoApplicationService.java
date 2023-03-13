@@ -24,14 +24,6 @@ public class ServicoApplicationService implements ServicoService {
     }
 
     @Override
-    public ServicoIdResponse criaServico(ServicoOSExternaRequest servicoRequest) {
-        log.info("[inicia] ServicoApplicationService - criaSecretaria");
-        Servico servico = servicoRepository.salva(new Servico(servicoRequest));
-        log.info("[finaliza] ServicoApplicationService - criaSecretaria");
-        return ServicoIdResponse.builder().idServico(servico.getIdServico()).build();
-    }
-
-    @Override
     public Servico findServicoById(Long idServico) {
         log.info("[inicia] ServicoApplicationService - buscaServicoById");
         Servico servico = servicoRepository.findServicoById(idServico);

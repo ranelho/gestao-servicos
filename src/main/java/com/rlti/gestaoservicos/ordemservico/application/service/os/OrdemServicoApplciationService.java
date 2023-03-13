@@ -29,18 +29,26 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     private final EquipamentoApplicationService equipamentoApplicationService;
 
     @Override
-    public OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest) {
-        log.info("[inicia] OrdemServicoApplciationService - criaOS");
+    public OrdemServicoIdResponse criaOSEquipamento(OrdemServicoResquest ordemServicoResquest) {
+        log.info("[inicia] OrdemServicoApplciationService - criaOSEquipamento");
         Equipamento equipamento = equipamentoApplicationService.getEquipamentoByPatrimonio(ordemServicoResquest.getPatrimonio());
         Optional<OrdemServico> oSAtiva = ordemServicoRepository.getOSByIdEquipamento(equipamento.getIdEquipamento());
         if (oSAtiva.isEmpty() || Situacao.FINALIZADO.equals(oSAtiva.get().getSituacao())) {
             OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest, equipamento ));
-            log.info("[finaliza] OrdemServicoApplciationService - criaOS");
+            log.info("[finaliza] OrdemServicoApplciationService - criaOSEquipamento");
             return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
         }else{
             throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento com ordem de serviço aberta protocolo nº: "
                     + oSAtiva.get().getIdOrdemServico() + "!");
         }
+    }
+
+    @Override
+    public OrdemServicoIdResponse criaOs(OrdemServicoResquest ordemServicoResquest) {
+        log.info("[inicia] OrdemServicoApplciationService - criaOS");
+        OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
+        log.info("[finaliza] OrdemServicoApplciationService - criaOS");
+        return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
     }
 
     @Override
