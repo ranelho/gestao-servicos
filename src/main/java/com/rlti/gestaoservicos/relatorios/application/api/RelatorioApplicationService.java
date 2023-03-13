@@ -2,6 +2,7 @@ package com.rlti.gestaoservicos.relatorios.application.api;
 
 import com.rlti.gestaoservicos.equipamento.application.repository.EquipamentoRepository;
 import com.rlti.gestaoservicos.handler.APIException;
+import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoListResponse;
 import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServicoRepository;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
@@ -12,6 +13,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -42,5 +44,13 @@ public class RelatorioApplicationService implements RelatorioService {
         log.info("[finaliza] OrdemServicoApplciationService - getHistoricoEquipamento");
         return HistoricoEquipamentoResponse.converte(ordemServicoList);
 
+    }
+
+    @Override
+    public List<OrdemServicoListResponse> getOSPeriodo(LocalDate dataInicial, LocalDate dataFinal) {
+        log.info("[inicia] OrdemServicoApplciationService - getOSPeriodo");
+        log.info("[finaliza] OrdemServicoApplciationService - getOSPeriodo");
+
+        return null;
     }
 }

@@ -24,7 +24,7 @@ import java.util.UUID;
 public class OrdemServicoExterna {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idOrdemServicoExterna;
+    private UUID idOrdemServico;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "setor_id")
     private Setor setor;

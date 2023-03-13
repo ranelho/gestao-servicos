@@ -1,7 +1,6 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.service;
 
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
-import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaIdResponse;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaListResponse;
 import com.rlti.gestaoservicos.ordemservicoexterna.application.api.OrdemServicoExternaResquest;
@@ -25,7 +24,7 @@ public class OrdemServicoExternaApplicationService implements OrdemServicoExtern
         log.info("[inicia] OrdemServicoExternaApplicationService - criaOsExterna");
         OrdemServicoExterna ordemServicoExterna = ordemServicoExternaRepository.salva(new OrdemServicoExterna(externaResquest));
         log.info("[finaliza] OrdemServicoExternaApplicationService - criaOsExterna");
-        return OrdemServicoExternaIdResponse.builder().idOrdemServicoExterna(ordemServicoExterna.getIdOrdemServicoExterna()).build();
+        return OrdemServicoExternaIdResponse.builder().idOrdemServicoExterna(ordemServicoExterna.getIdOrdemServico()).build();
     }
 
     @Override

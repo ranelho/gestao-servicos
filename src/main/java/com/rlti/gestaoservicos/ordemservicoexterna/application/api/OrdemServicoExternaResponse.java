@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.ordemservicoexterna.application.api;
 
-import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Servico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import com.rlti.gestaoservicos.ordemservicoexterna.domain.OrdemServicoExterna;
@@ -15,7 +14,7 @@ import static com.rlti.gestaoservicos.suporte.application.api.SuporteResponse.co
 
 @Value
 public class OrdemServicoExternaResponse {
-    private UUID idOrdemServicoExterna;
+    private UUID idOrdemServico;
     private List<SuporteResponse> suportes;
     private String setor;
     private String descricaoProblema;
@@ -27,7 +26,7 @@ public class OrdemServicoExternaResponse {
     private List<Servico> servicos;
 
     public OrdemServicoExternaResponse(OrdemServicoExterna ordemServicoExterna) {
-        this.idOrdemServicoExterna = ordemServicoExterna.getIdOrdemServicoExterna();
+        this.idOrdemServico = ordemServicoExterna.getIdOrdemServico();
         this.suportes = converte(ordemServicoExterna.getSuportes());
         this.setor = ordemServicoExterna.getSetor().getSetor();
         this.descricaoProblema = ordemServicoExterna.getDescricaoProblema();
