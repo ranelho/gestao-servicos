@@ -4,7 +4,7 @@ import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import lombok.Value;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -14,7 +14,7 @@ public class EquipamentosPendentesResponse {
     private UUID protocolo;
     private String equipamento;
     private String tipoEquipamento;
-    private LocalDateTime dataOrdemServico;
+    private LocalDate dataInicial;
     private Situacao situacao;
     private String diagnostico;
 
@@ -22,7 +22,7 @@ public class EquipamentosPendentesResponse {
         this.protocolo = ordemServico.getIdOrdemServico();
         this.tipoEquipamento = String.valueOf(ordemServico.getEquipamento().getTipoEquipamento());
         this.equipamento = ordemServico.getEquipamento().getPatrimonio();
-        this.dataOrdemServico = ordemServico.getDataOrdemServico();
+        this.dataInicial = ordemServico.getDataInicial();
         this.situacao = ordemServico.getSituacao();
         this.diagnostico = ordemServico.getDiagnostico();
     }

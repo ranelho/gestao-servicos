@@ -3,7 +3,7 @@ package com.rlti.gestaoservicos.relatorios.application.api.response;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import lombok.Value;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -13,16 +13,16 @@ public class HistoricoEquipamentoResponse {
 
     private UUID protocolo;
     private String equipamento;
-    private LocalDateTime dataOrdemServico;
+    private LocalDate dataIncial;
     private String diagnostico;
-    private LocalDateTime dataFimOrdemServico;
+    private LocalDate dataFinal;
 
     public HistoricoEquipamentoResponse(OrdemServico ordemServico) {
         this.protocolo = ordemServico.getIdOrdemServico();
         this.equipamento = ordemServico.getEquipamento().getPatrimonio();
-        this.dataOrdemServico = ordemServico.getDataOrdemServico();
+        this.dataIncial = ordemServico.getDataInicial();
         this.diagnostico = ordemServico.getDiagnostico();
-        this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();
+        this.dataFinal = ordemServico.getDataFinal();
     }
 
     public static List<HistoricoEquipamentoResponse> converte(List<OrdemServico> ordemServicoList) {

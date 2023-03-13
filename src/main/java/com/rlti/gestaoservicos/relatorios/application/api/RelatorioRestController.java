@@ -37,8 +37,6 @@ public class RelatorioRestController implements RelatorioApi {
         log.info("[inicia] RelatoriosRestController - getOSPeriodo");
         List<OrdemServicoListResponse> list = relatorioService.getOSPeriodo(dataInicial, dataFinal);
         log.info("[finaliza] RelatoriosRestController - getOSPeriodo");
-        return null;
+        return list;
     }
-
-
 }

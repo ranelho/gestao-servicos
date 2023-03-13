@@ -43,14 +43,13 @@ public class RelatorioApplicationService implements RelatorioService {
         List<OrdemServico> ordemServicoList = ordemServicoRepository.getHistoricoEquipamento(idEquipamento);
         log.info("[finaliza] OrdemServicoApplciationService - getHistoricoEquipamento");
         return HistoricoEquipamentoResponse.converte(ordemServicoList);
-
     }
 
     @Override
     public List<OrdemServicoListResponse> getOSPeriodo(LocalDate dataInicial, LocalDate dataFinal) {
         log.info("[inicia] OrdemServicoApplciationService - getOSPeriodo");
+        List<OrdemServico> ordemServicoList = ordemServicoRepository.getOSPeriodo(dataInicial, dataFinal);
         log.info("[finaliza] OrdemServicoApplciationService - getOSPeriodo");
-
-        return null;
+        return OrdemServicoListResponse.converte(ordemServicoList);
     }
 }

@@ -9,6 +9,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -82,6 +83,14 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
         log.info("[inicia] OrdemServicoInfraRepository - getHistoricoEquipamento");
         List<OrdemServico> ordemServicoList = ordemServicoSpringaDataJPARespository.findAllByEquipamentoIdEquipamento(idEquipamento);
         log.info("[finaliza] OrdemServicoInfraRepository - getHistoricoEquipamento");
+        return ordemServicoList;
+    }
+
+    @Override
+    public List<OrdemServico> getOSPeriodo(LocalDate dataInicial, LocalDate dataFinal) {
+        log.info("[inicia] OrdemServicoInfraRepository - getOSPeriodo");
+        List<OrdemServico> ordemServicoList = ordemServicoSpringaDataJPARespository.findByDataInicialBetween(dataInicial, dataFinal);
+        log.info("[finaliza] OrdemServicoInfraRepository - getOSPeriodo");
         return ordemServicoList;
     }
 }

@@ -6,6 +6,7 @@ import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteResponse;
 import lombok.Value;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -20,8 +21,8 @@ public class OrdemServicoResponse {
     private List<SuporteResponse> suportes;
     private String descricaoProblema;
     private String observacao;
-    private LocalDateTime dataOrdemServico;
-    private LocalDateTime dataFimOrdemServico;
+    private LocalDate dataInicial;
+    private LocalDate dataFinal;
     private String diagnostico;
     private Situacao situacao;
     private List<Servico> servicos;
@@ -35,11 +36,11 @@ public class OrdemServicoResponse {
         this.suportes = converte(ordemServico.getSuportes());
         this.descricaoProblema = ordemServico.getDescricaoProblema();
         this.observacao = ordemServico.getObservacao();
-        this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();
+        this.dataFinal = ordemServico.getDataFinal();
         this.situacao = ordemServico.getSituacao();
         this.diagnostico = ordemServico.getDiagnostico();
         this.servicos = ordemServico.getServicos();
-        this.dataOrdemServico = ordemServico.getDataOrdemServico();
+        this.dataInicial = ordemServico.getDataInicial();
     }
 
 }

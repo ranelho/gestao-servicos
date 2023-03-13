@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.ordemservico.domain;
 
-
 import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResquest;
@@ -12,9 +11,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -35,10 +34,10 @@ public class OrdemServico {
     private Setor setor;
 
     @NotNull
-    @Column(name = "dataOrdemServico", columnDefinition = "TIMESTAMP")
-    private LocalDateTime dataOrdemServico;
-    @Column(name = "dataFimOrdemServico", columnDefinition = "TIMESTAMP")
-    private LocalDateTime dataFimOrdemServico;
+    @Column(name = "dataInicial", columnDefinition = "TIMESTAMP")
+    private LocalDate dataInicial;
+    @Column(name = "dataFinal", columnDefinition = "TIMESTAMP")
+    private LocalDate dataFinal;
     @NotNull
 
     @ManyToMany
@@ -66,7 +65,7 @@ public class OrdemServico {
 
     public OrdemServico(OrdemServicoResquest ordemServicoResquest) {
         this.setor = ordemServicoResquest.getSetor();
-        this.dataOrdemServico = LocalDateTime.now();
+        this.dataInicial = LocalDate.now();
         this.suportes = ordemServicoResquest.getSuportes();
         this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();
         this.observacao = ordemServicoResquest.getObservacao();
@@ -75,7 +74,7 @@ public class OrdemServico {
 
     public OrdemServico(OrdemServicoResquest ordemServicoResquest, Equipamento equipamento) {
         this.equipamento = equipamento;
-        this.dataOrdemServico = LocalDateTime.now();
+        this.dataInicial = LocalDate.now();
         this.suportes = ordemServicoResquest.getSuportes();
         this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();
         this.observacao = ordemServicoResquest.getObservacao();
@@ -83,7 +82,7 @@ public class OrdemServico {
     }
 
     public void altera(OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
-        this.dataFimOrdemServico = ordemServicoAlteracaoRequest.getDataFimOrdemServico();
+        this.dataFinal = ordemServicoAlteracaoRequest.getDataFinal();
         this.suportes = ordemServicoAlteracaoRequest.getSuportes();
         this.descricaoProblema = ordemServicoAlteracaoRequest.getDescricaoProblema();
         this.observacao = ordemServicoAlteracaoRequest.getObservacao();

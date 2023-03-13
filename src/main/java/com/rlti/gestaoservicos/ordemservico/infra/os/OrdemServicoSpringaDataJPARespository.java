@@ -5,6 +5,7 @@ import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,4 +21,6 @@ public interface OrdemServicoSpringaDataJPARespository extends JpaRepository<Ord
 
    //@Query("SELECT o FROM OrdemServico o WHERE o.Equipamento.idEquipamento = :idEquipamento")
    List<OrdemServico> findAllByEquipamentoIdEquipamento(Long idEquipamento);
+
+   List<OrdemServico> findByDataInicialBetween(LocalDate dataInicial, LocalDate dataFinal);
 }
