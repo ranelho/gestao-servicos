@@ -16,6 +16,7 @@ import static com.rlti.gestaoservicos.suporte.application.api.SuporteResponse.co
 public class OrdemServicoResponse {
     private UUID idOrdemServico;
     private String equipamento;
+    private String setor;
     private List<SuporteResponse> suportes;
     private String descricaoProblema;
     private String observacao;
@@ -27,7 +28,13 @@ public class OrdemServicoResponse {
 
     public OrdemServicoResponse(OrdemServico ordemServico) {
         this.idOrdemServico = ordemServico.getIdOrdemServico();
-        this.equipamento = ordemServico.getEquipamento().getPatrimonio();
+        if(ordemServico.getEquipamento() == null){
+            this.equipamento = "Os Externa";
+            this.setor = ordemServico.getSetor().getSetor();
+        }else {
+            this.equipamento = ordemServico.getEquipamento().getPatrimonio();
+            this.setor = ordemServico.getEquipamento().getSetor().getSetor();
+        }
         this.suportes = converte(ordemServico.getSuportes());
         this.descricaoProblema = ordemServico.getDescricaoProblema();
         this.observacao = ordemServico.getObservacao();
