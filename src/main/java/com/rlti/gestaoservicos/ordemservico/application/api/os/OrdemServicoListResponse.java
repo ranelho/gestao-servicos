@@ -11,16 +11,20 @@ import java.util.stream.Collectors;
 
 @Value
 public class OrdemServicoListResponse {
-    private UUID idOrdemServico;
-    private String equipamento;
+    private UUID protocolo;
+    private String patrimonio;
+    private String setor;
     private LocalDateTime dataOrdemServico;
     private LocalDateTime dataFimOrdemServico;
     private Situacao situacao;
     private String diagnostico;
 
     public OrdemServicoListResponse(OrdemServico ordemServico) {
-        this.idOrdemServico = ordemServico.getIdOrdemServico();
-        this.equipamento = ordemServico.getEquipamento().getPatrimonio();
+        this.protocolo = ordemServico.getIdOrdemServico();
+        this.patrimonio = (ordemServico.getEquipamento() == null) ? "Os Externa" :
+                ordemServico.getEquipamento().getPatrimonio();
+        this.setor = (ordemServico.getEquipamento() == null) ? ordemServico.getSetor().getSetor() :
+                ordemServico.getEquipamento().getSetor().getSetor();
         this.dataOrdemServico = ordemServico.getDataOrdemServico();
         this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();
         this.situacao = ordemServico.getSituacao();

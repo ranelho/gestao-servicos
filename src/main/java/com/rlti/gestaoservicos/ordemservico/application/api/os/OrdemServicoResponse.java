@@ -14,8 +14,8 @@ import static com.rlti.gestaoservicos.suporte.application.api.SuporteResponse.co
 
 @Value
 public class OrdemServicoResponse {
-    private UUID idOrdemServico;
-    private String equipamento;
+    private UUID protocolo;
+    private String patrimonio;
     private String setor;
     private List<SuporteResponse> suportes;
     private String descricaoProblema;
@@ -27,14 +27,11 @@ public class OrdemServicoResponse {
     private List<Servico> servicos;
 
     public OrdemServicoResponse(OrdemServico ordemServico) {
-        this.idOrdemServico = ordemServico.getIdOrdemServico();
-        if(ordemServico.getEquipamento() == null){
-            this.equipamento = "Os Externa";
-            this.setor = ordemServico.getSetor().getSetor();
-        }else {
-            this.equipamento = ordemServico.getEquipamento().getPatrimonio();
-            this.setor = ordemServico.getEquipamento().getSetor().getSetor();
-        }
+        this.protocolo = ordemServico.getIdOrdemServico();
+        this.patrimonio = (ordemServico.getEquipamento() == null) ? "Os Externa" :
+                ordemServico.getEquipamento().getPatrimonio();
+        this.setor = (ordemServico.getEquipamento() == null) ? ordemServico.getSetor().getSetor() :
+                ordemServico.getEquipamento().getSetor().getSetor();
         this.suportes = converte(ordemServico.getSuportes());
         this.descricaoProblema = ordemServico.getDescricaoProblema();
         this.observacao = ordemServico.getObservacao();
@@ -44,4 +41,5 @@ public class OrdemServicoResponse {
         this.servicos = ordemServico.getServicos();
         this.dataOrdemServico = ordemServico.getDataOrdemServico();
     }
+
 }
