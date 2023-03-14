@@ -19,12 +19,12 @@ public class EquipamentosPendentesResponse {
     private String diagnostico;
 
     public EquipamentosPendentesResponse(OrdemServico ordemServico) {
-        this.protocolo = ordemServico.getIdOrdemServico();
-        this.tipoEquipamento = String.valueOf(ordemServico.getEquipamento().getTipoEquipamento());
-        this.equipamento = ordemServico.getEquipamento().getPatrimonio();
-        this.dataInicial = ordemServico.getDataInicial();
-        this.situacao = ordemServico.getSituacao();
-        this.diagnostico = ordemServico.getDiagnostico();
+            this.protocolo = ordemServico.getIdOrdemServico();
+            this.tipoEquipamento = String.valueOf(ordemServico.getEquipamento().getTipoEquipamento());
+            this.equipamento = ordemServico.getEquipamento().getPatrimonio();
+            this.dataInicial = ordemServico.getDataInicial();
+            this.situacao = ordemServico.getSituacao();
+            this.diagnostico = ordemServico.getDiagnostico();
     }
 
     public static List<EquipamentosPendentesResponse> converte(List<OrdemServico> ordemServicoList) {
