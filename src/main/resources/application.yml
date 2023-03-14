@@ -10,11 +10,11 @@ spring:
     password: 852456
   jpa:
     generate-ddl: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-      show_sql: true
-      format_sql: true
+    properties:
+      hibernate:
+        ddl-auto: update
+        show_sql: true
+        format_sql: true
 
 springdoc:
   swagger-ui:

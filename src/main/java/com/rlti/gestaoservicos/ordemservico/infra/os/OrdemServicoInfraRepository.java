@@ -58,7 +58,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     @Override
     public List<OrdemServico> getAtendimentos() {
         log.info("[inicia] OrdemServicoInfraRepository - getAtendimentos");
-        List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAllAtendimentos();
+        List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAllDistinctBySituacao(Situacao.FINALIZADO);
         log.info("[finaliza] OrdemServicoInfraRepository - getAtendimentos");
         return listOrdemServico;
     }
