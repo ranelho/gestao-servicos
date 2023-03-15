@@ -15,10 +15,6 @@ public interface ServicoApi {
     @ResponseStatus(code = HttpStatus.CREATED)
     ServicoIdResponse postServico(@Valid @RequestBody ServicoRequest servicoRequest);
 
-    @PostMapping(value = "/os-externa")
-    @ResponseStatus(code = HttpStatus.CREATED)
-    ServicoIdResponse postServico(@Valid @RequestBody ServicoOSExternaRequest servicoRequest);
-
     @GetMapping(value = "/{idServico}")
     @ResponseStatus(code = HttpStatus.OK)
     ServicoDetalhadoResponse getServicoById(@PathVariable Long idServico);

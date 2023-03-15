@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface ServicoService {
     ServicoIdResponse criaServico(ServicoRequest servicoRequest);
-    ServicoIdResponse criaServico(ServicoOSExternaRequest servicoRequest);
     Servico findServicoById(Long idServico);
     List<ServicoListResponse> getAllServicos();
     void alteraServico(Long idServico, ServicoAlteracaoRequest servicoAlteracaoRequest);

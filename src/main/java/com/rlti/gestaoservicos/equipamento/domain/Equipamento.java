@@ -36,6 +36,7 @@ public class Equipamento {
     private String modelo;
     private String marca;
     private String detalhes;
+
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "equipamento")
     @JsonIgnore
     private List<OrdemServico> ordemServicos;

@@ -18,8 +18,13 @@ public class OrdemServicoRestController implements OrdemServicoApi {
     @Override
     public OrdemServicoIdResponse postOS(OrdemServicoResquest ordemServicoResquest) {
         log.info("[inicia] OrdemServicoRestController - postOS");
-        OrdemServicoIdResponse ordemServicoIdResponse = ordemServicoService.criaOS(ordemServicoResquest);
-        log.info("[finaliza] OrdemServicoRestController - postOS");
+        OrdemServicoIdResponse ordemServicoIdResponse;
+        if(ordemServicoResquest.getPatrimonio().isEmpty()){
+            ordemServicoIdResponse = ordemServicoService.criaOs(ordemServicoResquest);
+        }else {
+            ordemServicoIdResponse = ordemServicoService.criaOSEquipamento(ordemServicoResquest);
+        }
+        log.info("[finaliza] OrdemServicoRestController - criaOSEquipamento");
         return ordemServicoIdResponse;
     }
 
@@ -48,9 +53,9 @@ public class OrdemServicoRestController implements OrdemServicoApi {
     }
 
     @Override
-    public List<OrdemServicoListResponse> getAtendimentos() {
+    public List<OrdemServicoListResponse> getOSFinalizadas() {
         log.info("[inicia] OrdemServicoRestController - getAtendimentos");
-        List<OrdemServicoListResponse> listResponses = ordemServicoService.getAtendimentos();
+        List<OrdemServicoListResponse> listResponses = ordemServicoService.getOSFinalizadas();
         log.info("[finaliza] OrdemServicoRestController - getAtendimentos");
         return listResponses;
     }

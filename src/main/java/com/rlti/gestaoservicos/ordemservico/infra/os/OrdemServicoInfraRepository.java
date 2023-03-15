@@ -3,11 +3,13 @@ package com.rlti.gestaoservicos.ordemservico.infra.os;
 import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServicoRepository;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
+import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -16,6 +18,7 @@ import java.util.UUID;
 @Log4j2
 @RequiredArgsConstructor
 public class OrdemServicoInfraRepository implements OrdemServicoRepository {
+
     private final OrdemServicoSpringaDataJPARespository ordemServicoSpringaDataJPARespository;
     @Override
     public OrdemServico salva(OrdemServico ordemServico) {
@@ -40,7 +43,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     @Override
     public Optional<OrdemServico> getOSByIdEquipamento(Long idEquipamento) {
         log.info("[inicia] OrdemServicoInfraRepository - getOSByIdEquipmento");
-        Optional<OrdemServico> ordemServico = Optional.ofNullable(ordemServicoSpringaDataJPARespository.findByIdEquipamento(idEquipamento));
+        Optional<OrdemServico> ordemServico = Optional.ofNullable(ordemServicoSpringaDataJPARespository.findLastOrdemServicoByIdEquipamento(idEquipamento));
         log.info("[finaliza] OrdemServicoInfraRepository - getOSByIdEquipmento");
         return ordemServico;
     }
@@ -54,9 +57,9 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     }
 
     @Override
-    public List<OrdemServico> getAtendimentos() {
+    public List<OrdemServico> getOSFinalizadas() {
         log.info("[inicia] OrdemServicoInfraRepository - getAtendimentos");
-        List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAllAtendimentos();
+        List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAllDistinctBySituacao(Situacao.FINALIZADO);
         log.info("[finaliza] OrdemServicoInfraRepository - getAtendimentos");
         return listOrdemServico;
     }
@@ -66,5 +69,29 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
         log.info("[inicia] OrdemServicoInfraRepository - deleta");
         ordemServicoSpringaDataJPARespository.deleteById(idOrdemServico);
         log.info("[finaliza] OrdemServicoInfraRepository - deleta");
+    }
+
+    @Override
+    public List<OrdemServico> getAllOSSituacao(Situacao situacao) {
+        log.info("[inicia] OrdemServicoInfraRepository - getAllOSSituacao");
+        List<OrdemServico> ordemServicoList = ordemServicoSpringaDataJPARespository.findAllBySituacaoAndEquipamentoIsNotNull(situacao);
+        log.info("[finaliza] OrdemServicoInfraRepository - getAllOSSituacao");
+        return ordemServicoList;
+    }
+
+    @Override
+    public List<OrdemServico> getHistoricoEquipamento(Long idEquipamento) {
+        log.info("[inicia] OrdemServicoInfraRepository - getHistoricoEquipamento");
+        List<OrdemServico> ordemServicoList = ordemServicoSpringaDataJPARespository.findAllByEquipamentoIdEquipamento(idEquipamento);
+        log.info("[finaliza] OrdemServicoInfraRepository - getHistoricoEquipamento");
+        return ordemServicoList;
+    }
+
+    @Override
+    public List<OrdemServico> getOSPeriodo(LocalDate dataInicial, LocalDate dataFinal) {
+        log.info("[inicia] OrdemServicoInfraRepository - getOSPeriodo");
+        List<OrdemServico> ordemServicoList = ordemServicoSpringaDataJPARespository.findByDataInicialBetween(dataInicial, dataFinal);
+        log.info("[finaliza] OrdemServicoInfraRepository - getOSPeriodo");
+        return ordemServicoList;
     }
 }

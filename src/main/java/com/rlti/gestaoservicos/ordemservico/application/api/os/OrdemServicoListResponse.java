@@ -4,25 +4,29 @@ import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import lombok.Value;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Value
 public class OrdemServicoListResponse {
-    private UUID idOrdemServico;
-    private String equipamento;
-    private LocalDateTime dataOrdemServico;
-    private LocalDateTime dataFimOrdemServico;
+    private UUID protocolo;
+    private String patrimonio;
+    private String setor;
+    private LocalDate dataIncial;
+    private LocalDate dataFinal;
     private Situacao situacao;
     private String diagnostico;
 
     public OrdemServicoListResponse(OrdemServico ordemServico) {
-        this.idOrdemServico = ordemServico.getIdOrdemServico();
-        this.equipamento = ordemServico.getEquipamento().getPatrimonio();
-        this.dataOrdemServico = ordemServico.getDataOrdemServico();
-        this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();
+        this.protocolo = ordemServico.getIdOrdemServico();
+        this.patrimonio = (ordemServico.getEquipamento() == null) ? "Os Externa" :
+                ordemServico.getEquipamento().getPatrimonio();
+        this.setor = (ordemServico.getEquipamento() == null) ? ordemServico.getSetor().getSetor() :
+                ordemServico.getEquipamento().getSetor().getSetor();
+        this.dataIncial = ordemServico.getDataInicial();
+        this.dataFinal = ordemServico.getDataFinal();
         this.situacao = ordemServico.getSituacao();
         this.diagnostico = ordemServico.getDiagnostico();
     }

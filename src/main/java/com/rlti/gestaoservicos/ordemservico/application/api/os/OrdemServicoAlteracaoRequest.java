@@ -4,16 +4,18 @@ import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.Value;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Value
 public class OrdemServicoAlteracaoRequest {
-    private LocalDateTime dataFimOrdemServico;
+    private LocalDate dataFinal;
     private List<Suporte> suportes;
     private Situacao situacao;
+    @NotNull
     @Size(message = "Campo serviço não pode estar vazio", min = 3, max = 255)
     private String descricaoProblema;
     private String observacao;

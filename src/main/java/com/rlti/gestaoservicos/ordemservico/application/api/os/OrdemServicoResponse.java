@@ -6,6 +6,7 @@ import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteResponse;
 import lombok.Value;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -14,27 +15,32 @@ import static com.rlti.gestaoservicos.suporte.application.api.SuporteResponse.co
 
 @Value
 public class OrdemServicoResponse {
-    private UUID idOrdemServico;
-    private String equipamento;
+    private UUID protocolo;
+    private String patrimonio;
+    private String setor;
     private List<SuporteResponse> suportes;
     private String descricaoProblema;
     private String observacao;
-    private LocalDateTime dataOrdemServico;
-    private LocalDateTime dataFimOrdemServico;
+    private LocalDate dataInicial;
+    private LocalDate dataFinal;
     private String diagnostico;
     private Situacao situacao;
     private List<Servico> servicos;
 
     public OrdemServicoResponse(OrdemServico ordemServico) {
-        this.idOrdemServico = ordemServico.getIdOrdemServico();
-        this.equipamento = ordemServico.getEquipamento().getPatrimonio();
+        this.protocolo = ordemServico.getIdOrdemServico();
+        this.patrimonio = (ordemServico.getEquipamento() == null) ? "Os Externa" :
+                ordemServico.getEquipamento().getPatrimonio();
+        this.setor = (ordemServico.getEquipamento() == null) ? ordemServico.getSetor().getSetor() :
+                ordemServico.getEquipamento().getSetor().getSetor();
         this.suportes = converte(ordemServico.getSuportes());
         this.descricaoProblema = ordemServico.getDescricaoProblema();
         this.observacao = ordemServico.getObservacao();
-        this.dataFimOrdemServico = ordemServico.getDataFimOrdemServico();
+        this.dataFinal = ordemServico.getDataFinal();
         this.situacao = ordemServico.getSituacao();
         this.diagnostico = ordemServico.getDiagnostico();
         this.servicos = ordemServico.getServicos();
-        this.dataOrdemServico = ordemServico.getDataOrdemServico();
+        this.dataInicial = ordemServico.getDataInicial();
     }
+
 }

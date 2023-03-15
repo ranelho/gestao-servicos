@@ -1,6 +1,8 @@
 package com.rlti.gestaoservicos.ordemservico.application.service.os;
 
 import com.rlti.gestaoservicos.equipamento.application.repository.EquipamentoRepository;
+import com.rlti.gestaoservicos.equipamento.application.service.EquipamentoApplicationService;
+import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoIdResponse;
@@ -24,21 +26,29 @@ import java.util.UUID;
 public class OrdemServicoApplciationService implements OrdemServicoService {
     private final OrdemServicoRepository ordemServicoRepository;
     private final EquipamentoRepository equipamentoRepository;
+    private final EquipamentoApplicationService equipamentoApplicationService;
 
     @Override
-    public OrdemServicoIdResponse criaOS(OrdemServicoResquest ordemServicoResquest) {
-       log.info("[inicia] OrdemServicoApplciationService - criaOS");
-        Long idEquipamento = ordemServicoResquest.getEquipamento().getIdEquipamento();
-        equipamentoRepository.findEquipamentoById(idEquipamento);
-        Optional<OrdemServico> oSAtiva = ordemServicoRepository.getOSByIdEquipamento(idEquipamento);
+    public OrdemServicoIdResponse criaOSEquipamento(OrdemServicoResquest ordemServicoResquest) {
+        log.info("[inicia] OrdemServicoApplciationService - criaOSEquipamento");
+        Equipamento equipamento = equipamentoApplicationService.getEquipamentoByPatrimonio(ordemServicoResquest.getPatrimonio());
+        Optional<OrdemServico> oSAtiva = ordemServicoRepository.getOSByIdEquipamento(equipamento.getIdEquipamento());
         if (oSAtiva.isEmpty() || Situacao.FINALIZADO.equals(oSAtiva.get().getSituacao())) {
-            OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
-            log.info("[finaliza] OrdemServicoApplciationService - criaOS");
-            return OrdemServicoIdResponse.builder().idOrdemServico(ordemServico.getIdOrdemServico()).build();
+            OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest, equipamento ));
+            log.info("[finaliza] OrdemServicoApplciationService - criaOSEquipamento");
+            return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
         }else{
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento com ordem de serviço aberta de nº: "
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Equipamento com ordem de serviço aberta protocolo nº: "
                     + oSAtiva.get().getIdOrdemServico() + "!");
         }
+    }
+
+    @Override
+    public OrdemServicoIdResponse criaOs(OrdemServicoResquest ordemServicoResquest) {
+        log.info("[inicia] OrdemServicoApplciationService - criaOS");
+        OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
+        log.info("[finaliza] OrdemServicoApplciationService - criaOS");
+        return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
     }
 
     @Override
@@ -71,9 +81,9 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     }
 
     @Override
-    public List<OrdemServicoListResponse> getAtendimentos() {
+    public List<OrdemServicoListResponse> getOSFinalizadas() {
         log.info("[inicia] OrdemServicoApplciationService - getAtendimentos");
-        List<OrdemServico> listOrdemServico = ordemServicoRepository.getAtendimentos();
+        List<OrdemServico> listOrdemServico = ordemServicoRepository.getOSFinalizadas();
         log.info("[finaliza] OrdemServicoApplciationService - getAtendimentos");
         return OrdemServicoListResponse.converte(listOrdemServico);
     }

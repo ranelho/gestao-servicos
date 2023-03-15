@@ -23,14 +23,6 @@ public class ServicoRestController implements ServicoApi {
     }
 
     @Override
-    public ServicoIdResponse postServico(ServicoOSExternaRequest servicoRequest) {
-        log.info("[inicia] ServicoRestController - postServico");
-        ServicoIdResponse servicoCriado = servicoService.criaServico(servicoRequest);
-        log.info("[finaliza] ServicoRestController - postServico");
-        return servicoCriado;
-    }
-
-    @Override
     public ServicoDetalhadoResponse getServicoById(Long idServico) {
         log.info("[inicia] ServicoRestController - getServicoById");
         Servico servico = servicoService.findServicoById(idServico);
