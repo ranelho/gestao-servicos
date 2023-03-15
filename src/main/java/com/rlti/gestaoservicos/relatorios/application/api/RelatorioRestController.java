@@ -39,4 +39,5 @@ public class RelatorioRestController implements RelatorioApi {
         log.info("[finaliza] RelatoriosRestController - getOSPeriodo");
         return list;
     }
+
 }

@@ -8,6 +8,7 @@ import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import com.rlti.gestaoservicos.relatorios.application.api.response.EquipamentosPendentesResponse;
 import com.rlti.gestaoservicos.relatorios.application.api.response.HistoricoEquipamentoResponse;
+import com.rlti.gestaoservicos.suporte.application.repository.SuporteRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ public class RelatorioApplicationService implements RelatorioService {
 
     private final OrdemServicoRepository ordemServicoRepository;
     private final EquipamentoRepository equipamentoRepository;
+    private final SuporteRepository suporteRepository;
 
     @Override
     public List<EquipamentosPendentesResponse> getAllOSSituacao(Situacao situacao) {
