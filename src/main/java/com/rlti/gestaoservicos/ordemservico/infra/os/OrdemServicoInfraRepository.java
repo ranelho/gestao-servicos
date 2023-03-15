@@ -18,6 +18,7 @@ import java.util.UUID;
 @Log4j2
 @RequiredArgsConstructor
 public class OrdemServicoInfraRepository implements OrdemServicoRepository {
+
     private final OrdemServicoSpringaDataJPARespository ordemServicoSpringaDataJPARespository;
     @Override
     public OrdemServico salva(OrdemServico ordemServico) {
@@ -42,7 +43,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     @Override
     public Optional<OrdemServico> getOSByIdEquipamento(Long idEquipamento) {
         log.info("[inicia] OrdemServicoInfraRepository - getOSByIdEquipmento");
-        Optional<OrdemServico> ordemServico = Optional.ofNullable(ordemServicoSpringaDataJPARespository.findByIdEquipamento(idEquipamento));
+        Optional<OrdemServico> ordemServico = Optional.ofNullable(ordemServicoSpringaDataJPARespository.findLastOrdemServicoByIdEquipamento(idEquipamento));
         log.info("[finaliza] OrdemServicoInfraRepository - getOSByIdEquipmento");
         return ordemServico;
     }
@@ -56,7 +57,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     }
 
     @Override
-    public List<OrdemServico> getAtendimentos() {
+    public List<OrdemServico> getOSFinalizadas() {
         log.info("[inicia] OrdemServicoInfraRepository - getAtendimentos");
         List<OrdemServico> listOrdemServico = ordemServicoSpringaDataJPARespository.findAllDistinctBySituacao(Situacao.FINALIZADO);
         log.info("[finaliza] OrdemServicoInfraRepository - getAtendimentos");

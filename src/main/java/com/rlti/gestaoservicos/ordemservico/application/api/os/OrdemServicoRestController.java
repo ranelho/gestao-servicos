@@ -53,9 +53,9 @@ public class OrdemServicoRestController implements OrdemServicoApi {
     }
 
     @Override
-    public List<OrdemServicoListResponse> getAtendimentos() {
+    public List<OrdemServicoListResponse> getOSFinalizadas() {
         log.info("[inicia] OrdemServicoRestController - getAtendimentos");
-        List<OrdemServicoListResponse> listResponses = ordemServicoService.getAtendimentos();
+        List<OrdemServicoListResponse> listResponses = ordemServicoService.getOSFinalizadas();
         log.info("[finaliza] OrdemServicoRestController - getAtendimentos");
         return listResponses;
     }

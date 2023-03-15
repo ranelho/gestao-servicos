@@ -12,6 +12,7 @@ import java.util.UUID;
 @RequestMapping("/v1/os")
 @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 public interface OrdemServicoApi {
+
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     OrdemServicoIdResponse postOS(@Valid @RequestBody OrdemServicoResquest ordemServicoResquest);
@@ -30,7 +31,7 @@ public interface OrdemServicoApi {
 
     @GetMapping(value = "/atendimentos")
     @ResponseStatus(code = HttpStatus.OK)
-    List<OrdemServicoListResponse> getAtendimentos();
+    List<OrdemServicoListResponse> getOSFinalizadas();
 
     @PatchMapping (value = "/update/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)

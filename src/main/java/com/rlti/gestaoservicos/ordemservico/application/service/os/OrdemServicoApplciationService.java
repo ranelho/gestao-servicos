@@ -81,9 +81,9 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     }
 
     @Override
-    public List<OrdemServicoListResponse> getAtendimentos() {
+    public List<OrdemServicoListResponse> getOSFinalizadas() {
         log.info("[inicia] OrdemServicoApplciationService - getAtendimentos");
-        List<OrdemServico> listOrdemServico = ordemServicoRepository.getAtendimentos();
+        List<OrdemServico> listOrdemServico = ordemServicoRepository.getOSFinalizadas();
         log.info("[finaliza] OrdemServicoApplciationService - getAtendimentos");
         return OrdemServicoListResponse.converte(listOrdemServico);
     }

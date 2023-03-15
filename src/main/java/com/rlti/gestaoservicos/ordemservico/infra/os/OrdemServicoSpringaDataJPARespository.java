@@ -14,7 +14,7 @@ public interface OrdemServicoSpringaDataJPARespository extends JpaRepository<Ord
    List<OrdemServico> findAllDistinctBySituacao(Situacao finalizado);
 
    @Query(value = "SELECT * FROM ordem_servico WHERE equipamento_id = :idEquipamento ORDER BY id_ordem_servico DESC LIMIT 1", nativeQuery = true)
-   OrdemServico findByIdEquipamento(Long idEquipamento);
+   OrdemServico findLastOrdemServicoByIdEquipamento(Long idEquipamento);
 
   // @Query("SELECT o FROM OrdemServico o WHERE o.situacao = :situacao AND o.idEquipamento IS NOT NULL")
    List<OrdemServico> findAllBySituacaoAndEquipamentoIsNotNull(Situacao situacao);
