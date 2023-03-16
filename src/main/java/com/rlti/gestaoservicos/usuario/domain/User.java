@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.usuario.domain;
 
+import com.rlti.gestaoservicos.contato.domain.Contato;
 import com.rlti.gestaoservicos.usuario.application.api.request.UserRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -48,6 +49,10 @@ public class User {
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles;
 
+	@OneToOne
+	@JoinColumn(name = "contato_id_contato")
+	private Contato contato;
+
 	public User(String username, String email, String password) {
 		this.username = username;
 		this.email = email;
@@ -60,5 +65,4 @@ public class User {
 		this.email = usuarioRequest.getEmail();
 		this.roles = Collections.singletonList(role);
 	}
-
 }
