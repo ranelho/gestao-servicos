@@ -1,14 +1,13 @@
 package com.rlti.gestaoservicos.contato.domain;
 
 import com.rlti.gestaoservicos.contato.application.api.ContatoRequest;
+import com.rlti.gestaoservicos.usuario.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -16,6 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 public class Contato {
 
     @Id
@@ -26,7 +26,14 @@ public class Contato {
     private String telefone;
     private String endereco;
 
-    public Contato(ContatoRequest contatoRequest) {
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
+    public Contato(ContatoRequest contatoRequest, User user) {
+        this.user = user;
         this.nomeCompleto = contatoRequest.getNomeCompleto();
         this.dataNascimento = contatoRequest.getDataNascimento();
         this.telefone = contatoRequest.getTelefone();

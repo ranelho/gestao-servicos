@@ -49,8 +49,8 @@ public class User {
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles;
 
-	@OneToOne
-	@JoinColumn(name = "contato_id_contato")
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
 	private Contato contato;
 
 	public User(String username, String email, String password) {
