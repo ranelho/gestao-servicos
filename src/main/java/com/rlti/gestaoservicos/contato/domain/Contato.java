@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.contato.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.gestaoservicos.contato.application.api.ContatoRequest;
 import com.rlti.gestaoservicos.usuario.domain.User;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class Contato {
     @OneToOne
     @MapsId
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
 

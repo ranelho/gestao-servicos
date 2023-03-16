@@ -19,6 +19,6 @@ public class ContatoRestController implements ContatoApi {
         log.info("[inicia] ContatoRestController - postContato");
         ContatoResponse response = contatoService.novoContato(userId, contatoRequest);
         log.info("[finaliza] ContatoRestController - postContato");
-        return null;
+        return response;
     }
 }

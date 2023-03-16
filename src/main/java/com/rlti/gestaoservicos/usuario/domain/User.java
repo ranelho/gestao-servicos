@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.usuario.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.gestaoservicos.contato.domain.Contato;
 import com.rlti.gestaoservicos.usuario.application.api.request.UserRequest;
 import lombok.AccessLevel;
@@ -51,6 +52,7 @@ public class User {
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@PrimaryKeyJoinColumn
+	@JsonIgnore
 	private Contato contato;
 
 	public User(String username, String email, String password) {
