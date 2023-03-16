@@ -32,7 +32,8 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
   - [x] Usuário
   - [x] Controle de Acesso
   - [x] Token JWT
-- [ ] Relatórios
+- [x] Relatórios
+- [ ] Contato
 
 
 ## Autor
