@@ -11,11 +11,11 @@ import java.util.stream.Collectors;
 @Value
 public class HistoricoEquipamentoResponse {
 
-    private UUID protocolo;
-    private String equipamento;
-    private LocalDate dataIncial;
-    private String diagnostico;
-    private LocalDate dataFinal;
+    UUID protocolo;
+    String equipamento;
+    LocalDate dataIncial;
+    String diagnostico;
+    LocalDate dataFinal;
 
     public HistoricoEquipamentoResponse(OrdemServico ordemServico) {
         this.protocolo = ordemServico.getIdOrdemServico();

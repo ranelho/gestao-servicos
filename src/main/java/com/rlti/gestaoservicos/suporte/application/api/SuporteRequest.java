@@ -7,7 +7,6 @@ import javax.validation.constraints.NotBlank;
 @Value
 public class SuporteRequest {
     @NotBlank
-    private String nome;
-    private String empresa;
+    String nome;
+    String empresa;
 }
-

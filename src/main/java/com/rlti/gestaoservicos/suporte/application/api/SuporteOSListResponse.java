@@ -10,12 +10,11 @@ import static com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServi
 
 @Value
 public class SuporteOSListResponse {
-    private String nome;
-    private List<OrdemServicoListResponse> ordemServicos ;
+    String nome;
+    List<OrdemServicoListResponse> ordemServicos ;
 
     public SuporteOSListResponse(Suporte suporte) {
         this.nome = suporte.getNome();
         this.ordemServicos = converte(suporte.getOrdemServicos());
     }
 }
-

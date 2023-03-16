@@ -7,10 +7,10 @@ import java.time.LocalDate;
 
 @Value
 public class ContatoResponseUsuario {
-    private String nomeCompleto;
-    private LocalDate dataNascimento;
-    private String telefone;
-    private String endereco;
+    String nomeCompleto;
+    LocalDate dataNascimento;
+    String telefone;
+    String endereco;
 
     public ContatoResponseUsuario(Contato contato) {
         this.nomeCompleto = contato.getNomeCompleto();

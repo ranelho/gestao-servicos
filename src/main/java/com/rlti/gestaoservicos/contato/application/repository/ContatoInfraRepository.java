@@ -3,7 +3,6 @@ package com.rlti.gestaoservicos.contato.application.repository;
 import com.rlti.gestaoservicos.contato.domain.Contato;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 @Repository

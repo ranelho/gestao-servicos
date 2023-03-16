@@ -7,7 +7,6 @@ import com.rlti.gestaoservicos.suporte.application.api.SuporteResponse;
 import lombok.Value;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,17 +14,17 @@ import static com.rlti.gestaoservicos.suporte.application.api.SuporteResponse.co
 
 @Value
 public class OrdemServicoResponse {
-    private UUID protocolo;
-    private String patrimonio;
-    private String setor;
-    private List<SuporteResponse> suportes;
-    private String descricaoProblema;
-    private String observacao;
-    private LocalDate dataInicial;
-    private LocalDate dataFinal;
-    private String diagnostico;
-    private Situacao situacao;
-    private List<Servico> servicos;
+    UUID protocolo;
+    String patrimonio;
+    String setor;
+    List<SuporteResponse> suportes;
+    String descricaoProblema;
+    String observacao;
+    LocalDate dataInicial;
+    LocalDate dataFinal;
+    String diagnostico;
+    Situacao situacao;
+    List<Servico> servicos;
 
     public OrdemServicoResponse(OrdemServico ordemServico) {
         this.protocolo = ordemServico.getIdOrdemServico();
@@ -42,5 +41,4 @@ public class OrdemServicoResponse {
         this.servicos = ordemServico.getServicos();
         this.dataInicial = ordemServico.getDataInicial();
     }
-
 }

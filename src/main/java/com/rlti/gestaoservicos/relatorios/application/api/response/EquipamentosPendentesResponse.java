@@ -11,12 +11,12 @@ import java.util.stream.Collectors;
 
 @Value
 public class EquipamentosPendentesResponse {
-    private UUID protocolo;
-    private String equipamento;
-    private String tipoEquipamento;
-    private LocalDate dataInicial;
-    private Situacao situacao;
-    private String diagnostico;
+    UUID protocolo;
+    String equipamento;
+    String tipoEquipamento;
+    LocalDate dataInicial;
+    Situacao situacao;
+    String diagnostico;
 
     public EquipamentosPendentesResponse(OrdemServico ordemServico) {
             this.protocolo = ordemServico.getIdOrdemServico();

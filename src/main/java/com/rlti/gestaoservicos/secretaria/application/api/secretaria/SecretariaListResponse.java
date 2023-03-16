@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 
 @Value
 public class SecretariaListResponse {
-    private Long idSecretaria;
-    private String secretaria;
-    private String secretario;
+    Long idSecretaria;
+    String secretaria;
+    String secretario;
 
     public static List<SecretariaListResponse> converte(List<Secretaria> listaSecretaria) {
         return listaSecretaria.stream().map(SecretariaListResponse::new).collect(Collectors.toList());

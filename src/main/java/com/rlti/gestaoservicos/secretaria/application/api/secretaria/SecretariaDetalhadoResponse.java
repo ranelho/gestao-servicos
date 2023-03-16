@@ -5,9 +5,9 @@ import lombok.Value;
 
 @Value
 public class SecretariaDetalhadoResponse {
-    private Long idSecretaria;
-    private String secretaria;
-    private String secretario;
+    Long idSecretaria;
+    String secretaria;
+    String secretario;
 
     public SecretariaDetalhadoResponse(Secretaria secretaria) {
         this.idSecretaria = secretaria.getIdSecretaria();
@@ -15,6 +15,3 @@ public class SecretariaDetalhadoResponse {
         this.secretario = secretaria.getSecretario();
     }
 }
-
-
-

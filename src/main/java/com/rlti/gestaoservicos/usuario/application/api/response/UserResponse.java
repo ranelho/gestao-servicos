@@ -8,10 +8,10 @@ import java.util.UUID;
 
 @Value
 public class UserResponse {
-    private UUID userId;
-    private String usuario;
-    private String email;
-    private ContatoResponseUsuario contato;
+    UUID userId;
+    String usuario;
+    String email;
+    ContatoResponseUsuario contato;
 
     public UserResponse(User usuario) {
         this.userId = usuario.getUserId();
