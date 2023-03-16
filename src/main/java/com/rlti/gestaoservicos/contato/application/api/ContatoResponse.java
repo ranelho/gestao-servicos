@@ -8,11 +8,11 @@ import java.util.UUID;
 
 @Value
 public class ContatoResponse {
-    private UUID idContato;
-    private String nomeCompleto;
-    private LocalDate dataNascimento;
-    private String telefone;
-    private String endereco;
+    UUID idContato;
+    String nomeCompleto;
+    LocalDate dataNascimento;
+    String telefone;
+    String endereco;
 
     public ContatoResponse(Contato contato) {
         this.idContato = contato.getIdContato();
