@@ -16,4 +16,7 @@ public interface ContatoApi {
     @ResponseStatus(code = HttpStatus.CREATED)
     ContatoResponse postContato(@PathVariable UUID userId, @Valid @RequestBody ContatoRequest contatoRequest);
 
+    @PatchMapping("/atualiza/{userId}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void atualizaContato(@PathVariable UUID userId, @Valid @RequestBody ContatoRequest contatoRequest);
 }

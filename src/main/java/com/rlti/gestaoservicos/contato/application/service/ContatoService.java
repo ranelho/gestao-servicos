@@ -7,4 +7,5 @@ import java.util.UUID;
 
 public interface ContatoService {
     ContatoResponse novoContato(UUID userId, ContatoRequest contatoRequest);
+    void atualizaContato(UUID userId, ContatoRequest contatoRequest);
 }

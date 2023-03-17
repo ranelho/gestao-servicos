@@ -41,4 +41,9 @@ public class Contato {
         this.telefone = contatoRequest.getTelefone();
         this.endereco = contatoRequest.getEndereco();
     }
+
+    public void atualiza(ContatoRequest contatoRequest) {
+        this.nomeCompleto =  contatoRequest.getNomeCompleto();
+        this.endereco = contatoRequest.getEndereco();
+    }
 }

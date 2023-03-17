@@ -21,4 +21,11 @@ public class ContatoRestController implements ContatoApi {
         log.info("[finaliza] ContatoRestController - postContato");
         return response;
     }
+
+    @Override
+    public void atualizaContato(UUID userId, ContatoRequest contatoRequest) {
+        log.info("[inicia] ContatoRestController - atualizaContato");
+        contatoService.atualizaContato(userId, contatoRequest);
+        log.info("[finaliza] ContatoRestController - atualizaContato");
+    }
 }

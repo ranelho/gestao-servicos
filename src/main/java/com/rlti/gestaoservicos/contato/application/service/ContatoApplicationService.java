@@ -28,4 +28,13 @@ public class ContatoApplicationService implements ContatoService {
         log.info("[finaliza] ContatoRestController - novoContato");
         return new ContatoResponse(contato);
     }
+
+    @Override
+    public void atualizaContato(UUID userId, ContatoRequest contatoRequest) {
+        log.info("[inicia] ContatoApplicationService - atualizaContato");
+        Contato contato = contatoRepository.findContato(userId);
+        contato.atualiza(contatoRequest);
+        contatoRepository.salva(contato);
+        log.info("[finaliza] ContatoApplicationService - atualizaContato");
+    }
 }
