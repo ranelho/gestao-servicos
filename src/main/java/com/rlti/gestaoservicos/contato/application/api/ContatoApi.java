@@ -5,6 +5,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -19,4 +20,8 @@ public interface ContatoApi {
     @PatchMapping("/atualiza/{userId}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void atualizaContato(@PathVariable UUID userId, @Valid @RequestBody ContatoRequest contatoRequest);
+
+    @GetMapping("/nome/{nomeCompleto}")
+    @ResponseStatus(code = HttpStatus.OK)
+    List<ContatoListResponse> getAllNome(@PathVariable String nomeCompleto);
 }

@@ -1,10 +1,12 @@
 package com.rlti.gestaoservicos.contato.application.api;
 
 import com.rlti.gestaoservicos.contato.application.service.ContatoService;
+import com.rlti.gestaoservicos.contato.domain.Contato;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -27,5 +29,11 @@ public class ContatoRestController implements ContatoApi {
         log.info("[inicia] ContatoRestController - atualizaContato");
         contatoService.atualizaContato(userId, contatoRequest);
         log.info("[finaliza] ContatoRestController - atualizaContato");
+    }
+
+    @Override
+    public List<ContatoListResponse> getAllNome(String nomeCompleto) {
+        List<Contato> contato = contatoService.getAllNome(nomeCompleto);
+        return ContatoListResponse.converte(contato);
     }
 }

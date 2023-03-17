@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -37,5 +38,12 @@ public class ContatoInfraRepository implements ContatoRepository {
         );
         log.info("[finaliza] ContatoInfraRepository - findContato");
         return contato;
+    }
+
+    @Override
+    public List<Contato> getAllNome(String nomeCompleto) {
+        List<Contato> contatos = contatoSpringDataJPARepository.findByNomeCompletoContaining(nomeCompleto);
+        return contatos;
+
     }
 }

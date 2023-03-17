@@ -6,14 +6,15 @@ import com.rlti.gestaoservicos.contato.application.repository.ContatoRepository;
 import com.rlti.gestaoservicos.contato.domain.Contato;
 import com.rlti.gestaoservicos.usuario.application.service.UserService;
 import com.rlti.gestaoservicos.usuario.domain.User;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Log4j2
 public class ContatoApplicationService implements ContatoService {
 
@@ -37,4 +38,12 @@ public class ContatoApplicationService implements ContatoService {
         contatoRepository.salva(contato);
         log.info("[finaliza] ContatoApplicationService - atualizaContato");
     }
+
+    @Override
+    public List<Contato> getAllNome(String nomeCompleto) {
+        List<Contato> contatos = contatoRepository.getAllNome(nomeCompleto);
+        return  contatos;
+    }
+
+
 }
