@@ -38,6 +38,8 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 <img src="jsonestrutura.png" width=800><br><sub>Estrutura</sub>
 
+<img src="banco.png" width=800><br><sub>Banco de Dados</sub>
+
 ## Autor
 
  [<img src="perfil2.jpg" width=115><br><sub>Ranelho Lacerda</sub>](https://github.com/ranelho) 
