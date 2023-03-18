@@ -33,7 +33,9 @@ public class ContatoRestController implements ContatoApi {
 
     @Override
     public List<ContatoListResponse> getAllNome(String nomeCompleto) {
+        log.info("[inicia] ContatoRestController - getAllNome");
         List<Contato> contato = contatoService.getAllNome(nomeCompleto);
+        log.info("[finaliza] ContatoRestController - getAllNome");
         return ContatoListResponse.converte(contato);
     }
 }

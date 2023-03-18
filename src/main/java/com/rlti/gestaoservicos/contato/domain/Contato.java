@@ -36,14 +36,16 @@ public class Contato {
 
     public Contato(ContatoRequest contatoRequest, User user) {
         this.user = user;
-        this.nomeCompleto = contatoRequest.getNomeCompleto();
+        this.nomeCompleto = contatoRequest.getNomeCompleto().toUpperCase();
         this.dataNascimento = contatoRequest.getDataNascimento();
         this.telefone = contatoRequest.getTelefone();
-        this.endereco = contatoRequest.getEndereco();
+        this.endereco = contatoRequest.getEndereco().toUpperCase();
     }
 
     public void atualiza(ContatoRequest contatoRequest) {
-        this.nomeCompleto =  contatoRequest.getNomeCompleto();
-        this.endereco = contatoRequest.getEndereco();
+        this.nomeCompleto =  contatoRequest.getNomeCompleto().toUpperCase();
+        this.dataNascimento = contatoRequest.getDataNascimento();
+        this.telefone = contatoRequest.getTelefone();
+        this.endereco = contatoRequest.getEndereco().toUpperCase();
     }
 }

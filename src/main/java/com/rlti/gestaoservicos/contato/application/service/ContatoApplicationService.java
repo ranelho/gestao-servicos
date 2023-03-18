@@ -41,9 +41,9 @@ public class ContatoApplicationService implements ContatoService {
 
     @Override
     public List<Contato> getAllNome(String nomeCompleto) {
+        log.info("[inicia] ContatoApplicationService - getAllNome");
         List<Contato> contatos = contatoRepository.getAllNome(nomeCompleto);
+        log.info("[finaliza] ContatoApplicationService - getAllNome");
         return  contatos;
     }
-
-
 }

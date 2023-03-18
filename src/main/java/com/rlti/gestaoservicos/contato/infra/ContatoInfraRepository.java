@@ -42,8 +42,9 @@ public class ContatoInfraRepository implements ContatoRepository {
 
     @Override
     public List<Contato> getAllNome(String nomeCompleto) {
-        List<Contato> contatos = contatoSpringDataJPARepository.findByNomeCompletoContaining(nomeCompleto);
+        log.info("[inicia] ContatoInfraRepository - getAllNome");
+        List<Contato> contatos = contatoSpringDataJPARepository.findByNomeCompletoContaining(nomeCompleto.toUpperCase());
+        log.info("[finaliza] ContatoInfraRepository - getAllNome");
         return contatos;
-
     }
 }
