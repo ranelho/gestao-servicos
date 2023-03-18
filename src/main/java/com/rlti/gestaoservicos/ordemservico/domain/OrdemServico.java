@@ -66,8 +66,8 @@ public class OrdemServico {
         this.setor = ordemServicoResquest.getSetor();
         this.dataInicial = LocalDate.now();
         this.suportes = ordemServicoResquest.getSuportes();
-        this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();
-        this.observacao = ordemServicoResquest.getObservacao();
+        this.descricaoProblema = ordemServicoResquest.getDescricaoProblema().toUpperCase();
+        this.observacao = ordemServicoResquest.getObservacao().toUpperCase();
         this.situacao = Situacao.AGUARDANDO_ATENDIMENTO;
     }
 
@@ -75,17 +75,17 @@ public class OrdemServico {
         this.equipamento = equipamento;
         this.dataInicial = LocalDate.now();
         this.suportes = ordemServicoResquest.getSuportes();
-        this.descricaoProblema = ordemServicoResquest.getDescricaoProblema();
-        this.observacao = ordemServicoResquest.getObservacao();
+        this.descricaoProblema = ordemServicoResquest.getDescricaoProblema().toUpperCase();
+        this.observacao = ordemServicoResquest.getObservacao().toUpperCase();
         this.situacao = Situacao.AGUARDANDO_ATENDIMENTO;
     }
 
     public void altera(OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
         this.dataFinal = ordemServicoAlteracaoRequest.getDataFinal();
         this.suportes = ordemServicoAlteracaoRequest.getSuportes();
-        this.descricaoProblema = ordemServicoAlteracaoRequest.getDescricaoProblema();
-        this.observacao = ordemServicoAlteracaoRequest.getObservacao();
-        this.diagnostico = ordemServicoAlteracaoRequest.getDiagnostico();
+        this.descricaoProblema = ordemServicoAlteracaoRequest.getDescricaoProblema().toUpperCase();
+        this.observacao = ordemServicoAlteracaoRequest.getObservacao().toUpperCase();
+        this.diagnostico = ordemServicoAlteracaoRequest.getDiagnostico().toUpperCase();
         this.situacao = ordemServicoAlteracaoRequest.getSituacao();
     }
 }

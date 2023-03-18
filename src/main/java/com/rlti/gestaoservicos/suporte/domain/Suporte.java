@@ -29,12 +29,12 @@ public class Suporte {
     private List<OrdemServico> ordemServicos;
 
     public Suporte(SuporteRequest suporteRequest) {
-        this.nome = suporteRequest.getNome();
-        this.empresa = suporteRequest.getEmpresa();
+        this.nome = suporteRequest.getNome().toUpperCase();
+        this.empresa = suporteRequest.getEmpresa().toUpperCase();
     }
 
     public void altera(SuporteAlteracaoRequest suporteAlteracaoRequest) {
-        this.nome = suporteAlteracaoRequest.getNome();
-        this.empresa = suporteAlteracaoRequest.getEmpresa();
+        this.nome = suporteAlteracaoRequest.getNome().toUpperCase();
+        this.empresa = suporteAlteracaoRequest.getEmpresa().toUpperCase();
     }
 }

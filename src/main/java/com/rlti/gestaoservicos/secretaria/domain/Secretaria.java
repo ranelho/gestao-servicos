@@ -28,11 +28,11 @@ public class Secretaria {
     private List<Setor> setores;
 
     public Secretaria(SecretariaRequest secretariaRequest) {
-        this.secretaria = secretariaRequest.getSecretaria();
-        this.secretario = secretariaRequest.getSecretario();
+        this.secretaria = secretariaRequest.getSecretaria().toUpperCase();
+        this.secretario = secretariaRequest.getSecretario().toUpperCase();
     }
     public void altera(SecretariaAlteracaoRequest secretariaAlteracaoRequestRequest) {
-        this.secretaria = secretariaAlteracaoRequestRequest.getSecretaria();
-        this.secretario = secretariaAlteracaoRequestRequest.getSecretario();
+        this.secretaria = secretariaAlteracaoRequestRequest.getSecretaria().toUpperCase();
+        this.secretario = secretariaAlteracaoRequestRequest.getSecretario().toUpperCase();
     }
 }

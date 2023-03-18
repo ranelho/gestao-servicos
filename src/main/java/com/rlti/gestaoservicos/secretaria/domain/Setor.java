@@ -39,13 +39,13 @@ public class Setor {
 
     public Setor(Secretaria secretaria, SetorRequest setorRequest) {
         this.setor = setorRequest.getSetor();
-        this.responsavel = setorRequest.getResponsavel();
+        this.responsavel = setorRequest.getResponsavel().toUpperCase();
         this.secretaria = secretaria;
     }
 
     public void altera(SetorAlteracaoRequest setorAlteracaoRequest) {
         this.setor = setorAlteracaoRequest.getSetor();
-        this.responsavel = setorAlteracaoRequest.getResponsavel();
+        this.responsavel = setorAlteracaoRequest.getResponsavel().toUpperCase();
         this.secretaria = secretaria;
     }
 }

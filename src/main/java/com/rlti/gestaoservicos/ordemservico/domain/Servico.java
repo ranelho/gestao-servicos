@@ -32,11 +32,11 @@ public class Servico {
     public Servico(ServicoRequest servicoRequest) {
         this.ordemServico = servicoRequest.getOrdemServico();
         this.dataServico = servicoRequest.getDataServico();
-        this.descricaoServico = servicoRequest.getDescricaoServico();
+        this.descricaoServico = servicoRequest.getDescricaoServico().toUpperCase();
     }
 
     public void altera(ServicoAlteracaoRequest servicoAlteracaoRequest){
         this.dataServico = servicoAlteracaoRequest.getDataServico();
-        this.descricaoServico = servicoAlteracaoRequest.getDescricaoServico();
+        this.descricaoServico = servicoAlteracaoRequest.getDescricaoServico().toUpperCase();
     }
 }

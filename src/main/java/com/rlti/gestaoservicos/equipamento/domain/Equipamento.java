@@ -44,18 +44,18 @@ public class Equipamento {
     public Equipamento(EquipamentoRequest equipamentoRequest) {
         this.patrimonio = equipamentoRequest.getPatrimonio();
         this.tipoEquipamento = equipamentoRequest.getTipoEquipamento();
-        this.numeroSerie = equipamentoRequest.getNumeroSerie();
+        this.numeroSerie = equipamentoRequest.getNumeroSerie().toUpperCase();
         this.setor = equipamentoRequest.getSetor();
-        this.modelo = equipamentoRequest.getModelo();
-        this.marca = equipamentoRequest.getMarca();
-        this.detalhes = equipamentoRequest.getDetalhes();
+        this.modelo = equipamentoRequest.getModelo().toUpperCase();
+        this.marca = equipamentoRequest.getMarca().toUpperCase();
+        this.detalhes = equipamentoRequest.getDetalhes().toUpperCase();
     }
     public void altera(EquipamentoAlteracaoRequest equipamentoAlteracaoRequest) {
         this.patrimonio = equipamentoAlteracaoRequest.getPatrimonio();
         this.tipoEquipamento = equipamentoAlteracaoRequest.getTipoEquipamento();
-        this.numeroSerie = equipamentoAlteracaoRequest.getNumeroSerie();
-        this.modelo = equipamentoAlteracaoRequest.getModelo();
-        this.marca = equipamentoAlteracaoRequest.getMarca();
-        this.detalhes = equipamentoAlteracaoRequest.getDetalhes();
+        this.numeroSerie = equipamentoAlteracaoRequest.getNumeroSerie().toUpperCase();
+        this.modelo = equipamentoAlteracaoRequest.getModelo().toUpperCase();
+        this.marca = equipamentoAlteracaoRequest.getMarca().toUpperCase();
+        this.detalhes = equipamentoAlteracaoRequest.getDetalhes().toUpperCase();
     }
 }
