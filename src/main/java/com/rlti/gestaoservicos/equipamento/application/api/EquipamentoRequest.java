@@ -12,13 +12,13 @@ import javax.validation.constraints.Size;
 public class EquipamentoRequest {
     @NotBlank
     @Size(max = 6, min = 6, message = "o patrimônio tem que ter 6 caracteres")
-    private String patrimonio;
+    String patrimonio;
     @NotNull
-    private TipoEquipamento tipoEquipamento;
-    private String numeroSerie;
-    private Setor setor;
-    private String modelo;
-    private String marca;
+    TipoEquipamento tipoEquipamento;
+    String numeroSerie;
+    Setor setor;
+    String modelo;
+    String marca;
     @Size(message = "Campo detalhes não pode estar vazio", max = 255, min = 3)
-    private String detalhes;
+    String detalhes;
 }

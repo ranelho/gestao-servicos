@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 //@ResponseStatus
 @Log4j2
@@ -38,6 +39,14 @@ public class UserInfraRepository implements UserRepository {
     @Override
     public List<Object> findById(Long userId) {
         return null;
+    }
+
+    @Override
+    public Optional<User> findUsuarioById(UUID userId) {
+        log.info("[inicia] UserInfraRepository - findByUsuario");
+        Optional<User> optionalUser = userSpringDataJPARepository.findById(userId);
+        log.info("[finaliza] UserInfraRepository - findByUsuario");
+        return  optionalUser;
     }
 
     @Override

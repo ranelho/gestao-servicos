@@ -22,7 +22,7 @@ public class UserDetailsApplicationService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     log.info("[inicia] UserDetailsServiceImpl - loadUserByUsername");
     User user = userSpringDataJPARepository.findByUsername(username)
-        .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+        .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + username));
     log.info("[finaliza] UserDetailsServiceImpl - loadUserByUsername");
     return UserDetailsImpl.build(user);
     }

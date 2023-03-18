@@ -15,6 +15,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @AllArgsConstructor
 @Log4j2
@@ -43,6 +45,15 @@ public class UserApplicationService implements UserService {
             log.info("[finaliza] UsuarioApplicationService - novaRole");
             return new RoleResponse(role);
         }
+    }
+
+    @Override
+    public User findById(UUID userId) {
+        log.info("[inicia] UsuarioApplicationService - findById");
+        User response = usuarioRepository.findUsuarioById(userId)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Usuário não encontrado!"));
+        log.info("[finaliza] UsuarioApplicationService - findById");
+        return  response;
     }
 
     @Override

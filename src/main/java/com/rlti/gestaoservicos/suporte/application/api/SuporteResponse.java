@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 @Value
 public class SuporteResponse {
-    private String nome;
+    String nome;
 
     public SuporteResponse(Suporte suporte) {
         this.nome = suporte.getNome();
@@ -17,4 +17,3 @@ public class SuporteResponse {
         return suporteList.stream().map(SuporteResponse::new).collect(Collectors.toList());
     }
 }
-

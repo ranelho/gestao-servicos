@@ -5,6 +5,7 @@ import com.rlti.gestaoservicos.usuario.domain.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface UserRepository {
     Optional<User> findByUsuario(String username);
@@ -12,4 +13,5 @@ public interface UserRepository {
     Role salvaRole(Role role);
 
     List<Object> findById(Long userId);
+    Optional<User> findUsuarioById(UUID userId);
 }

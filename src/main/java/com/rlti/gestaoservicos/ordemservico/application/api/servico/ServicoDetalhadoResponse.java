@@ -7,9 +7,9 @@ import java.time.LocalDate;
 
 @Value
 public class ServicoDetalhadoResponse {
-    private Long idServico;
-    private LocalDate dataServico;
-    private String descricaoServico;
+    Long idServico;
+    LocalDate dataServico;
+    String descricaoServico;
 
     public ServicoDetalhadoResponse(Servico servico) {
         this.idServico = servico.getIdServico();

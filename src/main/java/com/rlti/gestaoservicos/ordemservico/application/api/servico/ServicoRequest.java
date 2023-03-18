@@ -9,10 +9,10 @@ import java.time.LocalDate;
 
 @Value
 public class ServicoRequest {
-    private OrdemServico ordemServico;
+    OrdemServico ordemServico;
     @NotNull
-    private LocalDate dataServico;
+    LocalDate dataServico;
     @NotNull
     @Size(message = "Campo serviço não pode estar vazio", min = 3, max = 255)
-    private String descricaoServico;
+    String descricaoServico;
 }

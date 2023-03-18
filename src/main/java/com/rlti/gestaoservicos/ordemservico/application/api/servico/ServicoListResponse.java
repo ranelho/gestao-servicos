@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 
 @Value
 public class ServicoListResponse {
-    private Long idServico;
-    private LocalDate dataServico;
-    private String descricaoServico;
+    Long idServico;
+    LocalDate dataServico;
+    String descricaoServico;
 
     public static List<ServicoListResponse> converte(List<Servico> listaServico) {
         return listaServico.stream().map(ServicoListResponse::new).collect(Collectors.toList());

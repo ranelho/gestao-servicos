@@ -11,13 +11,13 @@ import java.util.stream.Collectors;
 
 @Value
 public class OrdemServicoListResponse {
-    private UUID protocolo;
-    private String patrimonio;
-    private String setor;
-    private LocalDate dataIncial;
-    private LocalDate dataFinal;
-    private Situacao situacao;
-    private String diagnostico;
+    UUID protocolo;
+    String patrimonio;
+    String setor;
+    LocalDate dataIncial;
+    LocalDate dataFinal;
+    Situacao situacao;
+    String diagnostico;
 
     public OrdemServicoListResponse(OrdemServico ordemServico) {
         this.protocolo = ordemServico.getIdOrdemServico();
@@ -34,5 +34,4 @@ public class OrdemServicoListResponse {
     public static List<OrdemServicoListResponse> converte(List<OrdemServico> ordemServicoList) {
         return ordemServicoList.stream().map(OrdemServicoListResponse::new).collect(Collectors.toList());
     }
-
 }
