@@ -18,23 +18,25 @@
 - ``JWT``
 - ``Swagger``
 
-
 ### Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Equipamentos
-- [x] Servicos
 - [x] OS
-  - [x] Interna
-  - [x] Externa
+  - [x] Interna - Equipamentos
+    - [x] Equipamentos
+  - [x] Externa - Serviços
+  - [x] Servicos
 - [x] Autenticação
   - [x] Usuário
   - [x] Controle de Acesso
   - [x] Token JWT
 - [x] Relatórios
-- [ ] Contato
+- [x] Usuários
+  - [x] Contato
+  - [x] Regras
 
+<img src="jsonestrutura.png" width=800><br><sub>Estrutura</sub>
 
 ## Autor
 
