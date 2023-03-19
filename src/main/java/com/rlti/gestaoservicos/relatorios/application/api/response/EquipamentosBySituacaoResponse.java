@@ -10,7 +10,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Value
-public class EquipamentosPendentesResponse {
+public class EquipamentosBySituacaoResponse {
     UUID protocolo;
     String equipamento;
     String tipoEquipamento;
@@ -18,7 +18,7 @@ public class EquipamentosPendentesResponse {
     Situacao situacao;
     String diagnostico;
 
-    public EquipamentosPendentesResponse(OrdemServico ordemServico) {
+    public EquipamentosBySituacaoResponse(OrdemServico ordemServico) {
             this.protocolo = ordemServico.getIdOrdemServico();
             this.tipoEquipamento = String.valueOf(ordemServico.getEquipamento().getTipoEquipamento());
             this.equipamento = ordemServico.getEquipamento().getPatrimonio();
@@ -27,7 +27,7 @@ public class EquipamentosPendentesResponse {
             this.diagnostico = ordemServico.getDiagnostico();
     }
 
-    public static List<EquipamentosPendentesResponse> converte(List<OrdemServico> ordemServicoList) {
-        return ordemServicoList.stream().map(EquipamentosPendentesResponse::new).collect(Collectors.toList());
+    public static List<EquipamentosBySituacaoResponse> converte(List<OrdemServico> ordemServicoList) {
+        return ordemServicoList.stream().map(EquipamentosBySituacaoResponse::new).collect(Collectors.toList());
     }
 }

@@ -9,8 +9,6 @@ import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -62,12 +60,8 @@ public class OrdemServico {
     @JsonIgnore
     private List<Servico> servicos;
 
-    public void setSetor(Setor setor) {
+    public OrdemServico(OrdemServicoResquest ordemServicoResquest, Setor setor) {
         this.setor = setor;
-    }
-
-    public OrdemServico(OrdemServicoResquest ordemServicoResquest) {
-        this.setor = ordemServicoResquest.getSetor();
         this.dataInicial = LocalDate.now();
         this.suportes = ordemServicoResquest.getSuportes();
         this.descricaoProblema = ordemServicoResquest.getDescricaoProblema().toUpperCase();
@@ -93,4 +87,3 @@ public class OrdemServico {
         this.situacao = ordemServicoAlteracaoRequest.getSituacao();
     }
 }
-

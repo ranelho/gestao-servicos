@@ -41,7 +41,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     }
 
     @Override
-    public Optional<OrdemServico> getOSByIdEquipamento(Long idEquipamento) {
+    public Optional<OrdemServico> getAtivaByEquipamentoId(Long idEquipamento) {
         log.info("[inicia] OrdemServicoInfraRepository - getOSByIdEquipmento");
         Optional<OrdemServico> ordemServico = Optional.ofNullable(ordemServicoSpringaDataJPARespository.findLastOrdemServicoByIdEquipamento(idEquipamento));
         log.info("[finaliza] OrdemServicoInfraRepository - getOSByIdEquipmento");
@@ -74,7 +74,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
     @Override
     public List<OrdemServico> getAllOSSituacao(Situacao situacao) {
         log.info("[inicia] OrdemServicoInfraRepository - getAllOSSituacao");
-        List<OrdemServico> ordemServicoList = ordemServicoSpringaDataJPARespository.findAllBySituacaoAndEquipamentoIsNotNull(situacao);
+        List<OrdemServico> ordemServicoList = ordemServicoSpringaDataJPARespository.findBySituacaoAndEquipamentoIsNotNull(situacao);
         log.info("[finaliza] OrdemServicoInfraRepository - getAllOSSituacao");
         return ordemServicoList;
     }

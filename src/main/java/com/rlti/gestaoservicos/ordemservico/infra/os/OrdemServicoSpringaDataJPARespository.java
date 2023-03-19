@@ -17,7 +17,7 @@ public interface OrdemServicoSpringaDataJPARespository extends JpaRepository<Ord
    OrdemServico findLastOrdemServicoByIdEquipamento(Long idEquipamento);
 
   // @Query("SELECT o FROM OrdemServico o WHERE o.situacao = :situacao AND o.idEquipamento IS NOT NULL")
-   List<OrdemServico> findAllBySituacaoAndEquipamentoIsNotNull(Situacao situacao);
+   List<OrdemServico> findBySituacaoAndEquipamentoIsNotNull(Situacao situacao);
 
    //@Query("SELECT o FROM OrdemServico o WHERE o.Equipamento.idEquipamento = :idEquipamento")
    List<OrdemServico> findAllByEquipamentoIdEquipamento(Long idEquipamento);

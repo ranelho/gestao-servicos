@@ -29,7 +29,7 @@ public interface OrdemServicoApi {
     @ResponseStatus(code = HttpStatus.OK)
     List<OrdemServicoListResponse> getAllOS();
 
-    @GetMapping(value = "/atendimentos")
+    @GetMapping(value = "/atendimentos-finalizados")
     @ResponseStatus(code = HttpStatus.OK)
     List<OrdemServicoListResponse> getOSFinalizadas();
 

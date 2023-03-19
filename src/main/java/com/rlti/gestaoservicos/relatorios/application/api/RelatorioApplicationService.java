@@ -6,7 +6,7 @@ import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoListR
 import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServicoRepository;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
-import com.rlti.gestaoservicos.relatorios.application.api.response.EquipamentosPendentesResponse;
+import com.rlti.gestaoservicos.relatorios.application.api.response.EquipamentosBySituacaoResponse;
 import com.rlti.gestaoservicos.relatorios.application.api.response.HistoricoEquipamentoResponse;
 import com.rlti.gestaoservicos.suporte.application.repository.SuporteRepository;
 import lombok.AllArgsConstructor;
@@ -27,11 +27,11 @@ public class RelatorioApplicationService implements RelatorioService {
     private final SuporteRepository suporteRepository;
 
     @Override
-    public List<EquipamentosPendentesResponse> getAllOSSituacao(Situacao situacao) {
+    public List<EquipamentosBySituacaoResponse> getAllOSSituacao(Situacao situacao) {
         log.info("[inicia] OrdemServicoApplciationService - getAllOS");
         List<OrdemServico> listOrdemServico = ordemServicoRepository.getAllOSSituacao(situacao);
         log.info("[finaliza] OrdemServicoApplciationService - getAllOS");
-        return EquipamentosPendentesResponse.converte(listOrdemServico);
+        return EquipamentosBySituacaoResponse.converte(listOrdemServico);
     }
 
     @Override

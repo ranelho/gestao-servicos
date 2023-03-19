@@ -22,7 +22,7 @@ springdoc:
 
 servico:
   jwt:
-    jwtExpirationMs: ${SERVICO_JWT_JWTEXPIRATIONMS:86400000}
+    jwtExpirationMs: ${SERVICO_JWT_JWTEXPIRATIONMS:3600000}
     jwtSecret: ${SERVICO_JWT_JWTSECRET:bezKoderSecretKey}
-    jwtRefreshExpirationMs: ${SERVICO_JWT_JWTREFRESHEXPIRATIONMS:1200000}
+    jwtRefreshExpirationMs: ${SERVICO_JWT_JWTREFRESHEXPIRATIONMS:120000}
 

@@ -12,7 +12,8 @@ import java.util.List;
 public class OrdemServicoResquest {
     @NotNull
     String patrimonio;
-    Setor setor;
+ //   Setor setor;
+    Long idSetor;
     @NotNull
     List<Suporte> suportes;
     @Size(message = "Campo descrição não pode estar vazio", min = 3, max = 255)

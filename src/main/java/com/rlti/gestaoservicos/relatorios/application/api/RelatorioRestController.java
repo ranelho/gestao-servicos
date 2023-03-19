@@ -2,7 +2,7 @@ package com.rlti.gestaoservicos.relatorios.application.api;
 
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoListResponse;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
-import com.rlti.gestaoservicos.relatorios.application.api.response.EquipamentosPendentesResponse;
+import com.rlti.gestaoservicos.relatorios.application.api.response.EquipamentosBySituacaoResponse;
 import com.rlti.gestaoservicos.relatorios.application.api.response.HistoricoEquipamentoResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -17,9 +17,9 @@ import java.util.List;
 public class RelatorioRestController implements RelatorioApi {
     private final RelatorioService relatorioService;
 
-    public List<EquipamentosPendentesResponse> getAllOSSituacao(Situacao situacao) {
+    public List<EquipamentosBySituacaoResponse> getAllOSSituacao(Situacao situacao) {
         log.info("[inicia] RelatoriosRestController - getAllOSSituacao");
-        List<EquipamentosPendentesResponse> listaEquipamentos = relatorioService.getAllOSSituacao(situacao);
+        List<EquipamentosBySituacaoResponse> listaEquipamentos = relatorioService.getAllOSSituacao(situacao);
         log.info("[finaliza] RelatoriosRestController - getAllOSSituacao");
         return listaEquipamentos;
     }

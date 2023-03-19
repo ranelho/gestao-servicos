@@ -11,6 +11,8 @@ import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResqu
 import com.rlti.gestaoservicos.ordemservico.application.repository.os.OrdemServicoRepository;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
+import com.rlti.gestaoservicos.secretaria.application.repository.setor.SetorRepository;
+import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -27,13 +29,15 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     private final OrdemServicoRepository ordemServicoRepository;
     private final EquipamentoRepository equipamentoRepository;
     private final EquipamentoApplicationService equipamentoApplicationService;
+    private final SetorRepository setorRepository;
 
     @Override
     public OrdemServicoIdResponse criaOSEquipamento(OrdemServicoResquest ordemServicoResquest) {
         log.info("[inicia] OrdemServicoApplciationService - criaOSEquipamento");
         Equipamento equipamento = equipamentoApplicationService.getEquipamentoByPatrimonio(ordemServicoResquest.getPatrimonio());
-        Optional<OrdemServico> oSAtiva = ordemServicoRepository.getOSByIdEquipamento(equipamento.getIdEquipamento());
-        if (oSAtiva.isEmpty() || Situacao.FINALIZADO.equals(oSAtiva.get().getSituacao())) {
+        Optional<OrdemServico> oSAtiva = ordemServicoRepository.getAtivaByEquipamentoId(equipamento.getIdEquipamento());
+       // if (oSAtiva.isEmpty() || Situacao.FINALIZADO.equals(oSAtiva.get().getSituacao())) {
+        if (oSAtiva == null || oSAtiva.get().getSituacao() == Situacao.FINALIZADO) {
             OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest, equipamento ));
             log.info("[finaliza] OrdemServicoApplciationService - criaOSEquipamento");
             return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
@@ -46,7 +50,8 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     @Override
     public OrdemServicoIdResponse criaOs(OrdemServicoResquest ordemServicoResquest) {
         log.info("[inicia] OrdemServicoApplciationService - criaOS");
-        OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest));
+        Setor setor = setorRepository.findSetorById(ordemServicoResquest.getIdSetor());
+        OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest, setor));
         log.info("[finaliza] OrdemServicoApplciationService - criaOS");
         return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
     }
@@ -63,7 +68,7 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     public OrdemServico getOSByIdEquipamento(Long idEquipamento) {
         log.info("[inicia] OrdemServicoApplciationService - getOSByIdEquipamento");
         equipamentoRepository.findEquipamentoById(idEquipamento);
-        OrdemServico ordemServico = ordemServicoRepository.getOSByIdEquipamento(idEquipamento)
+        OrdemServico ordemServico = ordemServicoRepository.getAtivaByEquipamentoId(idEquipamento)
             .orElseThrow(() -> {
                     throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento sem ordem de serviço");
                 }
