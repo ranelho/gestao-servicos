@@ -24,6 +24,7 @@ public class Suporte {
     @Column(unique = true, updatable = true)
     private String nome;
     private String empresa;
+
     @ManyToMany(mappedBy = "suportes")
     @JsonIgnore
     private List<OrdemServico> ordemServicos;

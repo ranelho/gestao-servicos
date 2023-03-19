@@ -44,9 +44,9 @@ public class OrdemServico {
 
     @ManyToMany
     @JoinTable(
-            name = "ordemservico_suporte",
-            joinColumns = @JoinColumn(name = "ordemservico_id"),
-            inverseJoinColumns = @JoinColumn(name = "suporte_id")
+            name = "ordem_servico_suporte",
+            joinColumns = @JoinColumn(name = "idOrdemServico"),
+            inverseJoinColumns = @JoinColumn(name = "idSuporte")
     )
     private List<Suporte> suportes;
 
