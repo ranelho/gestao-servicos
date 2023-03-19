@@ -29,6 +29,10 @@ public class Servico {
     @JsonIgnore
     private OrdemServico ordemServico;
 
+    public void setOrdemServico(OrdemServico ordemServico) {
+        this.ordemServico = ordemServico;
+    }
+
     public Servico(ServicoRequest servicoRequest) {
         this.ordemServico = servicoRequest.getOrdemServico();
         this.dataServico = servicoRequest.getDataServico();

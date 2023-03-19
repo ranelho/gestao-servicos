@@ -38,13 +38,13 @@ public class Setor {
     private List<Equipamento> equipamentos;
 
     public Setor(Secretaria secretaria, SetorRequest setorRequest) {
-        this.setor = setorRequest.getSetor();
+        this.setor = setorRequest.getSetor().toUpperCase();
         this.responsavel = setorRequest.getResponsavel().toUpperCase();
         this.secretaria = secretaria;
     }
 
     public void altera(SetorAlteracaoRequest setorAlteracaoRequest) {
-        this.setor = setorAlteracaoRequest.getSetor();
+        this.setor = setorAlteracaoRequest.getSetor().toUpperCase();
         this.responsavel = setorAlteracaoRequest.getResponsavel().toUpperCase();
         this.secretaria = secretaria;
     }

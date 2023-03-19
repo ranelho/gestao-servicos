@@ -1,5 +1,6 @@
 package com.rlti.gestaoservicos.ordemservico.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoAlteracaoRequest;
 import com.rlti.gestaoservicos.ordemservico.application.api.os.OrdemServicoResquest;
@@ -8,6 +9,8 @@ import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -55,7 +58,8 @@ public class OrdemServico {
     @Enumerated(EnumType.STRING)
     private Situacao situacao;
 
-    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ordemServico")
+    @JsonIgnore
     private List<Servico> servicos;
 
     public void setSetor(Setor setor) {
