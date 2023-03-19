@@ -9,7 +9,6 @@ import java.time.LocalDate;
 
 @Value
 public class ServicoRequest {
-    OrdemServico ordemServico;
     @NotNull
     LocalDate dataServico;
     @NotNull

@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/servico")
 @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 public interface ServicoApi {
-    @PostMapping(value = "/os")
+    @PostMapping(value = "/os/{idOrdemServico}")
     @ResponseStatus(code = HttpStatus.CREATED)
-    ServicoIdResponse postServico(@Valid @RequestBody ServicoRequest servicoRequest);
+    ServicoIdResponse postServico(@PathVariable UUID idOrdemServico, @Valid @RequestBody ServicoRequest servicoRequest);
 
     @GetMapping(value = "/{idServico}")
     @ResponseStatus(code = HttpStatus.OK)

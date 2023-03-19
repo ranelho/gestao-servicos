@@ -2,12 +2,15 @@ package com.rlti.gestaoservicos.ordemservico.application.service.servico;
 
 import com.rlti.gestaoservicos.ordemservico.application.api.servico.*;
 import com.rlti.gestaoservicos.ordemservico.application.repository.servico.ServicoRepository;
+import com.rlti.gestaoservicos.ordemservico.application.service.os.OrdemServicoService;
+import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Servico;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -15,10 +18,13 @@ import java.util.List;
 public class ServicoApplicationService implements ServicoService {
 
     private final ServicoRepository servicoRepository;
+    private final OrdemServicoService ordemServicoService;
+
     @Override
-    public ServicoIdResponse criaServico(ServicoRequest servicoRequest) {
+    public ServicoIdResponse criaServico(UUID idOrdemServico, ServicoRequest servicoRequest) {
         log.info("[inicia] ServicoApplicationService - criaSecretaria");
-        Servico servico = servicoRepository.salva(new Servico(servicoRequest));
+        OrdemServico ordemServico = ordemServicoService.getOSById(idOrdemServico);
+        Servico servico = servicoRepository.salva(new Servico(servicoRequest, ordemServico));
         log.info("[finaliza] ServicoApplicationService - criaSecretaria");
         return ServicoIdResponse.builder().idServico(servico.getIdServico()).build();
     }

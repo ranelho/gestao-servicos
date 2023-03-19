@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -14,10 +15,12 @@ import java.util.List;
 public class ServicoRestController implements ServicoApi {
     private final ServicoService servicoService;
 
+
+
     @Override
-    public ServicoIdResponse postServico(ServicoRequest servicoRequest) {
+    public ServicoIdResponse postServico(UUID idOrdemServico, ServicoRequest servicoRequest) {
         log.info("[inicia] ServicoRestController - postServico");
-        ServicoIdResponse servicoCriado = servicoService.criaServico(servicoRequest);
+        ServicoIdResponse servicoCriado = servicoService.criaServico(idOrdemServico, servicoRequest);
         log.info("[finaliza] ServicoRestController - postServico");
         return servicoCriado;
     }
