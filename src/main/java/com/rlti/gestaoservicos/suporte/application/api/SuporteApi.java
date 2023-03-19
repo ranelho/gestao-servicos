@@ -11,6 +11,7 @@ import java.util.List;
 @RequestMapping("/v1/suporte")
 @PreAuthorize("hasRole('ADMIN')")
 public interface SuporteApi {
+
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     SuporteIdResponse postSuporte(@Valid @RequestBody SuporteRequest suporteRequest);
