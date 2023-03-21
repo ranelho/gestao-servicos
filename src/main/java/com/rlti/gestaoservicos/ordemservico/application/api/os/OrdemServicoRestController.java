@@ -1,9 +1,11 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
+import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.ordemservico.application.service.os.OrdemServicoService;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,19 +16,35 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class OrdemServicoRestController implements OrdemServicoApi {
     private final OrdemServicoService ordemServicoService;
-
+/*
     @Override
     public OrdemServicoIdResponse postOS(OrdemServicoResquest ordemServicoResquest) {
         log.info("[inicia] OrdemServicoRestController - postOS");
         OrdemServicoIdResponse ordemServicoIdResponse;
-        if(ordemServicoResquest.getPatrimonio().isEmpty()){
+        if((ordemServicoResquest.getPatrimonio().isEmpty()) && (ordemServicoResquest.getIdSetor() == null)){
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Preencha o Patrimônio ou Setor");
+        }else if (ordemServicoResquest.getPatrimonio().isEmpty()){
             ordemServicoIdResponse = ordemServicoService.criaOs(ordemServicoResquest);
         }else {
             ordemServicoIdResponse = ordemServicoService.criaOSEquipamento(ordemServicoResquest);
         }
         log.info("[finaliza] OrdemServicoRestController - criaOSEquipamento");
         return ordemServicoIdResponse;
+    }*/
+
+    @Override
+    public OrdemServicoIdResponse postOS(OrdemServicoResquest ordemServicoResquest) {
+        log.info("[inicia] OrdemServicoRestController - postOS");
+        if (ordemServicoResquest.getPatrimonio().isEmpty() && ordemServicoResquest.getIdSetor() == null) {
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Informe o patrimônio ou o setor.");
+        }
+        OrdemServicoIdResponse response = ordemServicoResquest.getPatrimonio().isEmpty() ?
+                ordemServicoService.criaOs(ordemServicoResquest) :
+                ordemServicoService.criaOSEquipamento(ordemServicoResquest);
+        log.info("[finaliza] OrdemServicoRestController - postOS");
+        return response;
     }
+
 
     @Override
     public OrdemServicoResponse getOSById(UUID idOrdemServico) {

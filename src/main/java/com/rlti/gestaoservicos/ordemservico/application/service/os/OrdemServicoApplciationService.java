@@ -36,8 +36,7 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
         log.info("[inicia] OrdemServicoApplciationService - criaOSEquipamento");
         Equipamento equipamento = equipamentoApplicationService.getEquipamentoByPatrimonio(ordemServicoResquest.getPatrimonio());
         Optional<OrdemServico> oSAtiva = ordemServicoRepository.getAtivaByEquipamentoId(equipamento.getIdEquipamento());
-       // if (oSAtiva.isEmpty() || Situacao.FINALIZADO.equals(oSAtiva.get().getSituacao())) {
-        if (oSAtiva == null || oSAtiva.get().getSituacao() == Situacao.FINALIZADO) {
+        if (oSAtiva == null || oSAtiva.get().getSituacao() == Situacao.FINALIZADO){
             OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest, equipamento ));
             log.info("[finaliza] OrdemServicoApplciationService - criaOSEquipamento");
             return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
