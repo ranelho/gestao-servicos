@@ -32,12 +32,12 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     private final SetorRepository setorRepository;
 
     @Override
-    public OrdemServicoIdResponse criaOSEquipamento(OrdemServicoResquest ordemServicoResquest) {
+    public OrdemServicoIdResponse criaOSEquipamento(OrdemServicoResquest oSRequest) {
         log.info("[inicia] OrdemServicoApplciationService - criaOSEquipamento");
-        Equipamento equipamento = equipamentoApplicationService.getEquipamentoByPatrimonio(ordemServicoResquest.getPatrimonio());
+        Equipamento equipamento = equipamentoApplicationService.getEquipamentoByPatrimonio(oSRequest.getPatrimonio());
         Optional<OrdemServico> oSAtiva = ordemServicoRepository.getAtivaByEquipamentoId(equipamento.getIdEquipamento());
-        if (oSAtiva == null || oSAtiva.get().getSituacao() == Situacao.FINALIZADO){
-            OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest, equipamento ));
+        if (oSAtiva.isEmpty() || oSAtiva.get().getSituacao() == Situacao.FINALIZADO){
+            OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(oSRequest, equipamento ));
             log.info("[finaliza] OrdemServicoApplciationService - criaOSEquipamento");
             return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
         }else{
@@ -47,10 +47,10 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     }
 
     @Override
-    public OrdemServicoIdResponse criaOs(OrdemServicoResquest ordemServicoResquest) {
+    public OrdemServicoIdResponse criaOs(OrdemServicoResquest oSRequest) {
         log.info("[inicia] OrdemServicoApplciationService - criaOS");
-        Setor setor = setorRepository.findSetorById(ordemServicoResquest.getIdSetor());
-        OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(ordemServicoResquest, setor));
+        Setor setor = setorRepository.findSetorById(oSRequest.getIdSetor());
+        OrdemServico ordemServico = ordemServicoRepository.salva(new OrdemServico(oSRequest, setor));
         log.info("[finaliza] OrdemServicoApplciationService - criaOS");
         return OrdemServicoIdResponse.builder().protocolo(ordemServico.getIdOrdemServico()).build();
     }
@@ -93,10 +93,10 @@ public class OrdemServicoApplciationService implements OrdemServicoService {
     }
 
     @Override
-    public void alteraOS(UUID idOrdemServico, OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest) {
+    public void alteraOS(UUID idOrdemServico, OrdemServicoAlteracaoRequest oSAlteracaoResquest) {
         log.info("[inicia] OrdemServicoApplciationService - alteraOS");
         OrdemServico ordemServico = ordemServicoRepository.findOSById(idOrdemServico);
-        ordemServico.altera(ordemServicoAlteracaoRequest);
+        ordemServico.altera(oSAlteracaoResquest);
         ordemServicoRepository.salva(ordemServico);
         log.info("[finaliza] OrdemServicoApplciationService - alteraOS");
     }
