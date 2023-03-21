@@ -1,6 +1,5 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
-import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.Value;
 import org.springframework.util.StringUtils;
@@ -23,7 +22,7 @@ public class OrdemServicoResquest {
 
     @AssertTrue(message = "Informe o patrimônio ou o setor.")
     private boolean isPatrimonioOrIdSetorPresent() {
-        return !StringUtils.isEmpty(patrimonio) || idSetor != null;
+        return StringUtils.hasText(patrimonio) || idSetor != null;
     }
 }
 
