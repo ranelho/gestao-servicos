@@ -14,7 +14,7 @@
 	<name>gestao-servicos</name>
 	<description>Sistema de Gestão de Serviços</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<spring-doc.version>1.6.15</spring-doc.version>
 	</properties>
 	<dependencies>
@@ -91,5 +91,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

@@ -1,11 +1,9 @@
 package com.rlti.gestaoservicos.ordemservico.application.api.os;
 
-import com.rlti.gestaoservicos.handler.APIException;
 import com.rlti.gestaoservicos.ordemservico.application.service.os.OrdemServicoService;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

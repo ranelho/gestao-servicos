@@ -1,9 +1,9 @@
 package com.rlti.gestaoservicos.autenticacao.application.api;
 
 
-import com.rlti.gestaoservicos.autenticacao.application.api.response.JwtResponse;
 import com.rlti.gestaoservicos.autenticacao.application.api.request.LoginRequest;
 import com.rlti.gestaoservicos.autenticacao.application.api.request.TokenRefreshRequest;
+import com.rlti.gestaoservicos.autenticacao.application.api.response.JwtResponse;
 import com.rlti.gestaoservicos.autenticacao.application.api.response.MessageResponse;
 import com.rlti.gestaoservicos.autenticacao.application.api.response.TokenRefreshResponse;
 import org.springframework.security.core.AuthenticationException;
