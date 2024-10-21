@@ -15,7 +15,7 @@ public interface SetorApi {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    SetorIdResponse postSetor(@Valid @RequestBody SetorRequest setorRequest, @RequestParam Secretaria secretaria);
+    SetorIdResponse postSetor(@Valid @RequestBody SetorRequest setorRequest, @RequestParam Long secretaria);
 
     @GetMapping(value = "/{idSetor}")
     @ResponseStatus(code = HttpStatus.OK)

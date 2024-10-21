@@ -13,6 +13,7 @@ import java.util.List;
 public class OrdemServicoAlteracaoRequest {
     LocalDate dataFinal;
     List<Suporte> suportes;
+    @NotNull
     Situacao situacao;
     @NotNull
     @Size(message = "Campo serviço não pode estar vazio", min = 3, max = 255)

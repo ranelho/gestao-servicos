@@ -16,7 +16,7 @@ public class SetorRestController implements SetorApi{
     private final SetorService setorService;
 
     @Override
-    public SetorIdResponse postSetor(SetorRequest setorRequest, Secretaria secretaria) {
+    public SetorIdResponse postSetor(SetorRequest setorRequest, Long secretaria) {
         log.info("[inicia] SetorRestController - postSetor");
         SetorIdResponse setorIdResponse = setorService.postSetor(secretaria, setorRequest);
         log.info("[finaliza] SetorRestController - postSetor");

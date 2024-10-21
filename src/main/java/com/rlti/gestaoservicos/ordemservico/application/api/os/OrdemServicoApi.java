@@ -23,7 +23,7 @@ public interface OrdemServicoApi {
 
     @GetMapping(value = "/equipamento/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.OK)
-    OrdemServicoResponse getOSByIdEquipmento(@PathVariable Long idEquipamento);
+    OrdemServicoResponse getOSByIdEquipamento(@PathVariable Long idEquipamento);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
@@ -34,7 +34,7 @@ public interface OrdemServicoApi {
     List<OrdemServicoListResponse> getOSFinalizadas();
 
     @PatchMapping (value = "/update/{idOrdemServico}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @ResponseStatus(code = HttpStatus.OK)
     void alteraOS(@PathVariable UUID idOrdemServico,
                            @Valid @RequestBody OrdemServicoAlteracaoRequest ordemServicoAlteracaoRequest);
 
