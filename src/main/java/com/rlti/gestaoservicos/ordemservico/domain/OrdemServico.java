@@ -36,9 +36,13 @@ public class OrdemServico {
     @NotNull
     @Column(name = "dataInicial", columnDefinition = "TIMESTAMP")
     private LocalDate dataInicial;
+
     @Column(name = "dataFinal", columnDefinition = "TIMESTAMP")
     private LocalDate dataFinal;
-    @NotNull
+
+    @Column(name = "dataEntrega", columnDefinition = "TIMESTAMP")
+    private LocalDate dataEntrega;
+
 
     @ManyToMany
     @JoinTable(
