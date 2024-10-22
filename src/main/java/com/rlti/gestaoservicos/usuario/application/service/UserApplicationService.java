@@ -29,6 +29,8 @@ public class UserApplicationService implements UserService {
     @Override
     public UserResponse novoUsuario(UserRequest usuarioRequest) {
         log.info("[inicia] UsuarioApplicationService - novoUsuario");
+        if(usuarioRepository.findByUsuario(usuarioRequest.getUsername()).isPresent())
+                throw APIException.build(HttpStatus.BAD_REQUEST, "Usuário já tem cadastro!");
         Role role = roleRepository.findByRoleName(usuarioRequest.getName());
         User usuario = usuarioRepository.salva(new User(usuarioRequest, role));
         log.info("[finaliza] UsuarioApplicationService - novoUsuario");

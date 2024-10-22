@@ -36,9 +36,13 @@ public class OrdemServico {
     @NotNull
     @Column(name = "dataInicial", columnDefinition = "TIMESTAMP")
     private LocalDate dataInicial;
+
     @Column(name = "dataFinal", columnDefinition = "TIMESTAMP")
     private LocalDate dataFinal;
-    @NotNull
+
+    @Column(name = "dataEntrega", columnDefinition = "TIMESTAMP")
+    private LocalDate dataEntrega;
+
 
     @ManyToMany
     @JoinTable(
@@ -70,6 +74,7 @@ public class OrdemServico {
     }
 
     public OrdemServico(OrdemServicoResquest ordemServicoResquest, Equipamento equipamento) {
+        this.setor = equipamento.getSetor();
         this.equipamento = equipamento;
         this.dataInicial = LocalDate.now();
         this.suportes = ordemServicoResquest.getSuportes();

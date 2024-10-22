@@ -34,10 +34,10 @@ public class OrdemServicoRestController implements OrdemServicoApi {
     }
 
     @Override
-    public OrdemServicoResponse getOSByIdEquipmento(Long idEquipamento) {
-        log.info("[inicia] OrdemServicoRestController - getOSByIdEquipmento");
+    public OrdemServicoResponse getOSByIdEquipamento(Long idEquipamento) {
+        log.info("[inicia] OrdemServicoRestController - getOSByIdEquipamento");
         OrdemServico ordemServico = ordemServicoService.getOSByIdEquipamento(idEquipamento);
-        log.info("[finaliza] OrdemServicoRestController - getOSByIdEquipmento");
+        log.info("[finaliza] OrdemServicoRestController - getOSByIdEquipamento");
         return new OrdemServicoResponse(ordemServico);
     }
 

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0c32c83f-566a-481f-a197-cd39420eb1af">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#F7F7F7">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="servicosDataset" uuid="c197fc10-95d3-44f0-8b2e-325cfc90fac0">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="dataServico" class="java.lang.String"/>
+		<field name="descricaoServico" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="servicosDataset2" uuid="c197fc10-95d3-44f0-8b2e-325cfc90fac0">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="dataServico" class="java.lang.String"/>
+		<field name="descricaoServico" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="protocolo" class="java.lang.String"/>
+	<parameter name="solicitante" class="java.lang.String"/>
+	<parameter name="responsavel" class="java.lang.String"/>
+	<parameter name="servicosDataSet" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="servicosDataSet2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="equipamento" class="java.lang.String"/>
+	<parameter name="solicitacao" class="java.lang.String"/>
+	<parameter name="diagnostico" class="java.lang.String"/>
+	<parameter name="dataSolicitacao" class="java.lang.String"/>
+	<parameter name="dataAtendimento" class="java.lang.String"/>
+	<parameter name="dataEntrega" class="java.lang.String"/>
+	<parameter name="tecnicoResponsavel" class="java.lang.String"/>
+	<parameter name="brasao" class="java.io.InputStream"/>
+	<parameter name="brasao2" class="java.io.InputStream"/>
+	<parameter name="ntiFundo" class="java.io.InputStream"/>
+	<parameter name="ntiFundo2" class="java.io.InputStream"/>
+	<detail>
+		<band height="778" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="90" width="555" height="258" uuid="06864f8d-6968-4dd1-bc05-1c8342fbc81a"/>
+			</rectangle>
+			<image hAlign="Right">
+				<reportElement x="351" y="244" width="193" height="97" uuid="0e9467d4-48da-4cf8-83e0-5efd25100637"/>
+				<imageExpression><![CDATA[$P{ntiFundo}]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="0" y="-1" width="186" height="60" uuid="9d4ef060-21db-4eb5-adad-4085b92b12b6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="186" y="-1" width="369" height="60" uuid="2aa9ed59-8aa4-4373-8895-2624392b14bb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="59" width="340" height="31" uuid="5d920384-6baa-4470-b09f-614c8c3d4632"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="340" y="59" width="215" height="31" uuid="b85ab15e-62ef-4eaa-8a6b-1397f1b8f40d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="348" width="80" height="12" uuid="222319ce-6970-4e31-ac10-cc4146dc86c6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="80" y="348" width="100" height="12" uuid="60435678-3320-4c31-8269-6916ff75d0f0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="348" width="375" height="12" uuid="e8dfd8ce-aa23-47b6-bdf2-b1ccc08bbaae"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="360" width="80" height="20" uuid="d0eefbba-41d2-4537-97f2-057cc270f07e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="80" y="360" width="100" height="20" uuid="97954109-8fe4-4823-a14b-80f5114430a9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="360" width="375" height="20" uuid="a050ae32-729f-4784-b5f3-1f747c6df5a6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="1" width="133" height="56" uuid="7b7a2184-6faa-482b-ad3a-64bfd261b814"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREFEITURA MUNICIPAL DE EUNÁPOLIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="1" width="361" height="21" uuid="67e0217a-e25b-4b58-9725-baf1f7b8631b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚCLEO DE TECNOLOGIA DA INFORMAÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="21" width="361" height="18" uuid="937ed5df-6844-43f4-a19c-4dd1c0142902"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PROTOCOLO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="59" width="100" height="13" uuid="e48f0c06-ac29-4e46-8273-bb1942210da3"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="59" width="100" height="14" uuid="5c8e2458-42d1-41c6-a986-47830201a3f9"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsável Direto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="35" width="361" height="21" uuid="1adf14b7-93e4-4bee-91bd-30c5f7d14389"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{protocolo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="72" width="336" height="15" uuid="9331baff-7e6d-47f0-ae29-a8181ab425e9"/>
+				<textFieldExpression><![CDATA[$P{solicitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="73" width="212" height="14" uuid="a22cd269-e95a-43ad-92d0-b2ddededbdf1"/>
+				<textFieldExpression><![CDATA[$P{responsavel} == null ? "" : $P{responsavel}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="9" y="152" width="536" height="90" uuid="d7ca4c97-b8b5-41c1-8c9b-0534bb834f3c">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="servicosDataset" uuid="c4f061b7-c2c6-4482-8324-49761bdf641c">
+						<dataSourceExpression><![CDATA[$P{servicosDataSet}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="70" uuid="c370bd73-524f-40e2-a99c-bdea6f941b40">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="ed8d99b2-f4eb-47c4-8ab8-9ae8f4a36340"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[ DATA
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="15">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="15" uuid="d3fb4eb8-a418-4dea-a6c3-cd52e52e2a6a"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[ $F{dataServico}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="466" uuid="54505069-2e4b-4083-83d0-2cab1a301d13">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="466" height="20" uuid="59f4f0ea-20ae-48f7-ab4e-00ea4c2f4396"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[ SERVIÇOS EFETUADOS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="15">
+							<textField>
+								<reportElement x="0" y="0" width="466" height="15" uuid="8b88884d-119f-4cd2-b21c-c319eb09b014"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[ $F{descricaoServico}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="9" y="291" width="250" height="32" uuid="0a027882-1a36-4642-a630-2ce6450d2ba4"/>
+				<text><![CDATA[ATENCIOSAMENTE,
+NÚCLEO DE TECNOLOGIA DA INFORMAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="9" y="100" width="536" height="50" uuid="db01b055-c350-44cb-a1cb-985417f068fa"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$P{diagnostico} == null ? "" : $P{diagnostico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="348" width="80" height="12" uuid="df062620-3a7c-423a-b80a-860062a84180"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data Solicitação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="348" width="100" height="12" uuid="02f9e84f-76ae-4d68-8dd5-dacd13d94996"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data Atendimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="348" width="374" height="12" uuid="c82e3789-6aff-4982-b898-f5c9dd91e3c4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data Entrega | Assinatura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="360" width="80" height="20" uuid="7a1ed950-2c8f-4048-b677-58d63462c84c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dataSolicitacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="360" width="100" height="20" uuid="1e361563-4177-4051-8ca0-2c26e98ba6cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dataAtendimento} == null ? "" : $P{dataAtendimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="360" width="374" height="20" uuid="f814f689-959f-41e8-8eb5-cd88b9b4f7c5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dataEntrega} == null ? "" : $P{dataEntrega}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="9" y="265" width="131" height="14" uuid="e0d48690-e538-45fa-9d4a-5995ce6ecb99"/>
+				<text><![CDATA[TÉCNICO RESPONSÁVEL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="265" width="405" height="14" uuid="27f093c6-fc8e-477f-a3c2-1d269fe35e18"/>
+				<textFieldExpression><![CDATA[$P{tecnicoResponsavel}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="3" y="1" width="57" height="55" uuid="a97a5969-c26d-4ff0-87c9-d333051640f8"/>
+				<imageExpression><![CDATA[$P{brasao}]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="0" y="488" width="555" height="258" uuid="4234dd8e-4814-4481-b458-9c94b1f71fbd"/>
+			</rectangle>
+			<image hAlign="Right">
+				<reportElement x="351" y="642" width="193" height="97" uuid="56902ece-bc05-43cf-ab53-153f453cece1"/>
+				<imageExpression><![CDATA[$P{ntiFundo2}]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="0" y="397" width="186" height="60" uuid="f7e5e789-57ff-4fda-b64a-3fb79e468bdf"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="186" y="397" width="369" height="60" uuid="267512ec-07f7-4c14-b64d-cb796950d0ee"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="457" width="340" height="31" uuid="41e24d77-93ab-4ee6-b5e3-89eb6af52645"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="340" y="457" width="215" height="31" uuid="8d8755e8-fcb6-4984-8f9f-ecbb48011378"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="746" width="80" height="12" uuid="76817705-60aa-43a7-96ff-ec5508076f96"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="80" y="746" width="100" height="12" uuid="ecd68429-97e1-430c-930f-89fcd95f3be0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="746" width="375" height="12" uuid="da45422a-7bf6-479b-8f76-2b9fe274f7aa"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="758" width="80" height="20" uuid="7714d0e4-6d18-4d08-a6b9-28129e0fb02c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="80" y="758" width="100" height="20" uuid="193b8b9f-07aa-4aa9-903e-a25944aac999"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="758" width="375" height="20" uuid="1dee0738-4a42-4131-b0c6-41e9ef56bac0"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="399" width="133" height="56" uuid="27799fcc-465b-43bb-a363-8b869d080882"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREFEITURA MUNICIPAL DE EUNÁPOLIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="399" width="361" height="21" uuid="34419bd3-3b8c-411f-b720-5a3d5c963158"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚCLEO DE TECNOLOGIA DA INFORMAÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="419" width="361" height="18" uuid="ee3d6fae-92ca-40ab-8449-ad36789a0f15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PROTOCOLO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="457" width="100" height="13" uuid="9c515383-1140-49b5-af0c-bb9feaac02fb"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="457" width="100" height="14" uuid="32983598-cd02-4b2c-82c6-9f875befac2c"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsável Direto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="433" width="361" height="21" uuid="b480bbdb-813b-4771-b608-82a1984610c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{protocolo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="470" width="336" height="15" uuid="246d9e0e-748e-410d-b896-1eab218e1758"/>
+				<textFieldExpression><![CDATA[$P{solicitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="471" width="212" height="14" uuid="2ecdd927-7c02-47bf-82c2-c9f5d4040950"/>
+				<textFieldExpression><![CDATA[$P{responsavel} == null ? "" : $P{responsavel}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="9" y="550" width="536" height="90" uuid="6c7ac2f2-eef3-4fa7-a1c9-0172b20f376d">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="servicosDataset2" uuid="63af5a9f-c34c-4c11-8e8d-3bc23fff825d">
+						<dataSourceExpression><![CDATA[$P{servicosDataSet2}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="70" uuid="7cdd83d3-ef9e-4f0d-8145-9d591fa53111">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="20" uuid="900e5ebc-2b79-418d-93c7-ca0b40f048b2"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[ DATA
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="15">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="15" uuid="cb1176d6-917f-4b3a-8b84-dbd62e02553c"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[ $F{dataServico}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="466" uuid="b4ffd68a-0727-4f01-a250-0f3afa60bd66">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="466" height="20" uuid="b133d0c0-de14-4890-9f57-8e93d597469e"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<text><![CDATA[ SERVIÇOS EFETUADOS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="15">
+							<textField>
+								<reportElement x="0" y="0" width="466" height="15" uuid="d9b5a456-1ad5-4305-9532-72123f33ed89">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[ $F{descricaoServico}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="9" y="689" width="250" height="32" uuid="cdc3636a-0a84-47af-8c4b-36a2e97eb3b8"/>
+				<text><![CDATA[ATENCIOSAMENTE,
+NÚCLEO DE TECNOLOGIA DA INFORMAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="9" y="498" width="536" height="50" uuid="430dfbe7-2356-49c3-b61d-de7922c8742c"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$P{diagnostico} == null ? "" : $P{diagnostico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="746" width="80" height="12" uuid="a08f0e1b-03bd-43a5-a4f8-d9c94160eeb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data Solicitação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="746" width="100" height="12" uuid="2f6d4ad7-e3f7-462f-a092-78c80915db6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data Atendimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="746" width="374" height="12" uuid="45a799cb-2a29-40bc-bd51-09776f777b34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data Entrega | Assinatura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="758" width="80" height="20" uuid="a98d6437-8de7-40b0-a292-f14740ab1510"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dataSolicitacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="758" width="100" height="20" uuid="24048ce7-eead-4a79-94be-8ed2bcaaba9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dataAtendimento} == null ? "" : $P{dataAtendimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="758" width="374" height="20" uuid="3e15d6f6-f522-45fa-a3b9-3a5a47a7947a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dataEntrega} == null ? "" : $P{dataEntrega}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="9" y="663" width="131" height="14" uuid="fd77f97a-b404-4089-a1fc-64f9e365d18e"/>
+				<text><![CDATA[TÉCNICO RESPONSÁVEL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="663" width="405" height="14" uuid="163487bd-a3a7-479f-8e03-49154c59aca6"/>
+				<textFieldExpression><![CDATA[$P{tecnicoResponsavel}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="3" y="399" width="57" height="55" uuid="cebef9ca-f5d6-42f5-9ff5-30ff4a9776e9"/>
+				<imageExpression><![CDATA[$P{brasao2}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

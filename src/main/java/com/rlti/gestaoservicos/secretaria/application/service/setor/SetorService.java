@@ -7,7 +7,7 @@ import com.rlti.gestaoservicos.secretaria.domain.Setor;
 import java.util.List;
 
 public interface SetorService {
-    SetorIdResponse postSetor(Secretaria secretaria, SetorRequest setorRequest);
+    SetorIdResponse postSetor(Long secretaria, SetorRequest setorRequest);
     Setor getSetorById(Long idSetor);
     List<SetorListResponse> getAllSetores();
     void alteraSetor(Long idSetor, SetorAlteracaoRequest setorAlteracaoRequest);

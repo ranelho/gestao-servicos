@@ -4,7 +4,6 @@ import com.rlti.gestaoservicos.suporte.domain.Suporte;
 import lombok.Value;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Value
 public class SuporteResponse {
@@ -14,6 +13,6 @@ public class SuporteResponse {
         this.nome = suporte.getNome();
     }
     public static List<SuporteResponse> converte(List<Suporte> suporteList) {
-        return suporteList.stream().map(SuporteResponse::new).collect(Collectors.toList());
+        return suporteList.stream().map(SuporteResponse::new).toList();
     }
 }
