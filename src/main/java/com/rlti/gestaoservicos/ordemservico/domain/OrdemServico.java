@@ -74,6 +74,7 @@ public class OrdemServico {
     }
 
     public OrdemServico(OrdemServicoResquest ordemServicoResquest, Equipamento equipamento) {
+        this.setor = equipamento.getSetor();
         this.equipamento = equipamento;
         this.dataInicial = LocalDate.now();
         this.suportes = ordemServicoResquest.getSuportes();

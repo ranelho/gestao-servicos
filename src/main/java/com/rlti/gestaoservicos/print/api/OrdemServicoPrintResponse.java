@@ -1,17 +1,16 @@
 package com.rlti.gestaoservicos.print.api;
 
+import com.rlti.gestaoservicos.equipamento.domain.Equipamento;
 import com.rlti.gestaoservicos.ordemservico.domain.OrdemServico;
 import com.rlti.gestaoservicos.ordemservico.domain.Situacao;
 import com.rlti.gestaoservicos.suporte.application.api.SuporteResponse;
-import com.rlti.gestaoservicos.util.Utils;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
 import static com.rlti.gestaoservicos.suporte.application.api.SuporteResponse.converte;
-import static com.rlti.gestaoservicos.util.Utils.*;
+import static com.rlti.gestaoservicos.util.Utils.formatarData;
 
 @Data
 public class OrdemServicoPrintResponse {
@@ -25,6 +24,7 @@ public class OrdemServicoPrintResponse {
     String dataInicial;
     String dataFinal;
     String dataEntrega;
+    String equipamento;
     String diagnostico;
     Situacao situacao;
     private List<ServicoPrintResponse> servicos;
@@ -41,7 +41,27 @@ public class OrdemServicoPrintResponse {
         this.observacao = ordemServico.getObservacao();
         this.dataFinal = formatarData(ordemServico.getDataFinal());
         this.situacao = ordemServico.getSituacao();
-        this.diagnostico = ordemServico.getDiagnostico();
+        Equipamento equip = ordemServico.getEquipamento();
+
+        if (equip != null) {
+            StringBuilder descricaoEquipamento = new StringBuilder();
+
+            descricaoEquipamento.append(equip.getTipoEquipamento().name())
+                    .append(" de patrimônio: ")
+                    .append(equip.getPatrimonio());
+
+            if (!equip.getMarca().isEmpty())
+                descricaoEquipamento.append(", marca: ").append(equip.getMarca());
+            if (!equip.getNumeroSerie().isEmpty())
+                descricaoEquipamento.append(", serial: ").append(equip.getNumeroSerie());
+            if (!equip.getModelo().isEmpty())
+                descricaoEquipamento.append(", modelo: ").append(equip.getModelo());
+
+            this.equipamento = descricaoEquipamento.toString();
+        } else {
+            this.equipamento = "";
+        }
+        this.diagnostico = ordemServico.getDiagnostico() != null ? "<b>DIAGNÓSTICO:</b> " + ordemServico.getDiagnostico() : "";
         this.dataInicial = formatarData(ordemServico.getDataInicial());
         this.dataEntrega = formatarData(ordemServico.getDataEntrega());
         this.servicos = ServicoPrintResponse.converte(ordemServico.getServicos());

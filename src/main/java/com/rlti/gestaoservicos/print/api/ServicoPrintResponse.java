@@ -1,13 +1,11 @@
 package com.rlti.gestaoservicos.print.api;
 
 import com.rlti.gestaoservicos.ordemservico.domain.Servico;
-import com.rlti.gestaoservicos.util.Utils;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import static com.rlti.gestaoservicos.util.Utils.*;
+import static com.rlti.gestaoservicos.util.Utils.formatarData;
 
 @Data
 public class ServicoPrintResponse {
