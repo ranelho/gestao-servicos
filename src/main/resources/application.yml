@@ -18,4 +18,4 @@ spring:
 
 springdoc:
   swagger-ui:
-    path: /public/swagger
+    path: /swagger-ui.html
