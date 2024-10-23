@@ -28,7 +28,7 @@ public interface EquipamentoApi {
     @ResponseStatus(code = HttpStatus.OK)
     List<EquipamentoListReponse> getAllEquipamentos();
 
-    @PatchMapping (value = "/update/{idEquipamento}")
+    @PatchMapping(value = "/update/{idEquipamento}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void alteraEquipamento(@PathVariable Long idEquipamento,
                            @Valid @RequestBody EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
