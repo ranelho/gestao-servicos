@@ -15,44 +15,44 @@ import java.util.Optional;
 @Repository
 @Log4j2
 @RequiredArgsConstructor
-public class SetorInfraRespository implements SetorRepository {
+public class SetorInfraRepository implements SetorRepository {
     private final SetorSpringDataJPARepository setorSpringDataJPARepository;
 
     @Override
     public Setor salva(Setor setor) {
-        log.info("[inicia] SetorInfraRespository - salva");
+        log.info("[inicia] SetorInfraRepository - salva");
         try{
             Setor setorSalvo = setorSpringDataJPARepository.save(setor);
-            log.info("[finaliza] SetorInfraRespository - salva");
+            log.info("[finaliza] SetorInfraRepository - salva");
             return setorSalvo;
         }catch (DataIntegrityViolationException e){
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Setor já cadastrada!", e);
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Setor já cadastrado!", e);
         }
     }
 
     @Override
     public Setor findSetorById(Long idSetor) {
-        log.info("[inicia] SetorInfraRespository - findSetorById");
+        log.info("[inicia] SetorInfraRepository - findSetorById");
         Optional<Setor> optionalSetor = setorSpringDataJPARepository.findById(idSetor);
         Setor setor = optionalSetor.orElseThrow(
-                () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Setor inexistente!");   }
+                () -> APIException.build(HttpStatus.NOT_FOUND, "Setor inexistente!")
         );
-        log.info("[finaliza] SetorInfraRespository - findSetorById");
+        log.info("[finaliza] SetorInfraRepository - findSetorById");
         return setor;
     }
 
     @Override
     public List<Setor> findSetores() {
-        log.info("[inicia] SetorInfraRespository - findSetores");
+        log.info("[inicia] SetorInfraRepository - findSetores");
         List<Setor> setor = setorSpringDataJPARepository.findAll();
-        log.info("[finaliza] SetorInfraRespository - findSetores");
+        log.info("[finaliza] SetorInfraRepository - findSetores");
         return setor;
     }
 
     @Override
     public void deleta(Long idSetor) {
-        log.info("[inicia] SetorInfraRespository - deleta");
+        log.info("[inicia] SetorInfraRepository - deleta");
         setorSpringDataJPARepository.deleteById(idSetor);
-        log.info("[finaliza] SetorInfraRespository - deleta");
+        log.info("[finaliza] SetorInfraRepository - deleta");
     }
 }

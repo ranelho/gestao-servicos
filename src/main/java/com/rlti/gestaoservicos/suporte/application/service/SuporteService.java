@@ -14,5 +14,4 @@ public interface SuporteService {
     List<SuporteListResponse> getAllSuportes();
     void alteraSuporte(Long idSuporte, SuporteAlteracaoRequest suporteAlteracaoRequest);
     void deletaSuporteById(Long idSuporte);
-
 }

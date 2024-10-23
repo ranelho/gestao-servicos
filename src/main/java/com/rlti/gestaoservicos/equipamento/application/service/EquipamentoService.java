@@ -14,5 +14,5 @@ public interface EquipamentoService {
     Equipamento getEquipamentoByPatrimonio(String patrimonio);
     List<EquipamentoListReponse> getAllEquipamentos();
     void alteraEquipamento(Long idEquipamento, EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
-    void detelaEquipamento(Long idEquipamento);
+    void deletaEquipamento(Long idEquipamento);
 }

@@ -68,9 +68,7 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
         log.info("[inicia] OrdemServicoApplicationService - getOSByIdEquipamento");
         equipamentoRepository.findEquipamentoById(idEquipamento);
         OrdemServico ordemServico = ordemServicoRepository.getAtivaByEquipamentoId(idEquipamento)
-            .orElseThrow(() -> {
-                    throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento sem ordem de serviço");
-                }
+            .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Equipamento sem ordem de serviço")
             );
         log.info("[finaliza] OrdemServicoApplicationService - getOSByIdEquipamento");
         return ordemServico;
@@ -93,10 +91,10 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
     }
 
     @Override
-    public void alteraOS(UUID idOrdemServico, OrdemServicoAlteracaoRequest oSAlteracaoResquest) {
+    public void alteraOS(UUID idOrdemServico, OrdemServicoAlteracaoRequest oSAlteracaoRequest) {
         log.info("[inicia] OrdemServicoApplicationService - alteraOS");
         OrdemServico ordemServico = ordemServicoRepository.findOSById(idOrdemServico);
-        ordemServico.altera(oSAlteracaoResquest);
+        ordemServico.altera(oSAlteracaoRequest);
         ordemServicoRepository.salva(ordemServico);
         log.info("[finaliza] OrdemServicoApplicationService - alteraOS");
     }

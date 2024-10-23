@@ -56,7 +56,7 @@ public class EquipamentoRestController implements EquipamentoApi {
     @Override
     public void deletaEquipamentoById(Long idEquipamento) {
         log.info("[inicia] EquipamentoRestController - deletaEquipamentoById");
-        equipamentoService.detelaEquipamento(idEquipamento);
+        equipamentoService.deletaEquipamento(idEquipamento);
         log.info("[finaliza] EquipamentoRestController - deletaEquipamentoById");
     }
 }

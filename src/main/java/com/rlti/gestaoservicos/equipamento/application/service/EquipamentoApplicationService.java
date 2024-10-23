@@ -75,7 +75,7 @@ public class EquipamentoApplicationService implements EquipamentoService {
     }
 
     @Override
-    public void detelaEquipamento(Long idEquipamento) {
+    public void deletaEquipamento(Long idEquipamento) {
         log.info("[inicia] EquipamentoApplicationService - detelaEquipamento");
         equipamentoRepository.findEquipamentoById(idEquipamento);
         equipamentoRepository.deleta(idEquipamento);

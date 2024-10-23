@@ -36,7 +36,7 @@ public class SuporteInfraRepository implements SuporteRepository {
         log.info("[inicia] SuporteInfraRepository - findSuporteById");
         Optional<Suporte> optionalSuporte = suporteSpringDataJPARepository.findById(idSuporte);
         Suporte suporte = optionalSuporte.orElseThrow(
-                () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Suporte inexistente!");                }
+                () -> APIException.build(HttpStatus.NOT_FOUND, "Suporte inexistente!")
         );
         log.info("[finaliza] SuporteInfraRepository - findSuporteById");
         return suporte;

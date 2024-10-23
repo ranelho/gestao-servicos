@@ -29,9 +29,7 @@ public class EquipamentoInfraRepository implements EquipamentoRepository {
         log.info("[inicia] EquipamentoInfraRepository - buscaEquipamentoPorId");
         Optional<Equipamento> optionalEquipamento = equipamentoSpringDataJPARepository.findById(idEquipamento);
         Equipamento equipamento = optionalEquipamento
-                .orElseThrow(() ->  {
-                    throw APIException.build(HttpStatus.NOT_FOUND, "Equipamento não encontrado");
-                }
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Equipamento não encontrado")
         );
         log.info("[finaliza] EquipamentoInfraRepository - buscaEquipamentoPorId");
         return equipamento;

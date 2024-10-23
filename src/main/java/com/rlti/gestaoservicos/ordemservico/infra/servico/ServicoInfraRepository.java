@@ -32,7 +32,7 @@ public class ServicoInfraRepository implements ServicoRepository {
         log.info("[inicia] ServicoInfraRepository - findServicoById");
         Optional<Servico> optionalServico = servicoSpringDataJPARepository.findById(idServico);
         Servico servico = optionalServico.orElseThrow(
-                () -> { throw APIException.build(HttpStatus.NOT_FOUND, "Serviço inexistente!");  }
+                () -> APIException.build(HttpStatus.NOT_FOUND, "Serviço inexistente!")
         );
         log.info("[finaliza] ServicoInfraRepository - findServicoById");
         return servico;

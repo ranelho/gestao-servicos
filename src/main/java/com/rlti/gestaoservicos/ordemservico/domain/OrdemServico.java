@@ -43,6 +43,12 @@ public class OrdemServico {
     @Column(name = "dataEntrega", columnDefinition = "TIMESTAMP")
     private LocalDate dataEntrega;
 
+    @NotNull
+    private String descricaoProblema;
+    private String observacao;
+    private String diagnostico;
+    @NotNull @Enumerated(EnumType.STRING)
+    private Situacao situacao;
 
     @ManyToMany
     @JoinTable(
@@ -51,14 +57,6 @@ public class OrdemServico {
             inverseJoinColumns = @JoinColumn(name = "idSuporte")
     )
     private List<Suporte> suportes;
-
-    @NotNull
-    private String descricaoProblema;
-    private String observacao;
-    private String diagnostico;
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private Situacao situacao;
 
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ordemServico")
     @JsonIgnore

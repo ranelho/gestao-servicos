@@ -33,18 +33,16 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
         log.info("[inicia] OrdemServicoInfraRepository - findOSById");
         Optional<OrdemServico> optionalOrdemServico = ordemServicoSpringaDataJPARespository.findById(idOrdemServico);
         OrdemServico ordemServico = optionalOrdemServico
-            .orElseThrow(() ->  {
-                throw APIException.build(HttpStatus.NOT_FOUND, "Ordem de Serviço não encontrada");
-            });
+            .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Ordem de Serviço não encontrada"));
         log.info("[finaliza] OrdemServicoInfraRepository - findOSById");
         return ordemServico;
     }
 
     @Override
     public Optional<OrdemServico> getAtivaByEquipamentoId(Long idEquipamento) {
-        log.info("[inicia] OrdemServicoInfraRepository - getOSByIdEquipmento");
+        log.info("[inicia] OrdemServicoInfraRepository - getOSByIdEquipamento");
         Optional<OrdemServico> ordemServico = Optional.ofNullable(ordemServicoSpringaDataJPARespository.findLastOrdemServicoByIdEquipamento(idEquipamento));
-        log.info("[finaliza] OrdemServicoInfraRepository - getOSByIdEquipmento");
+        log.info("[finaliza] OrdemServicoInfraRepository - getOSByIdEquipamento");
         return ordemServico;
     }
 
